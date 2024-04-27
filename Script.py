@@ -24,9 +24,7 @@ class script(object):
 ‣ ᴜꜱᴇᴅ ꜱᴛᴏʀᴀɢᴇ : <code>{}</code>
 ‣ ꜰʀᴇᴇ ꜱᴛᴏʀᴀɢᴇ : <code>{}</code>
 </b>"""
-
-    RESTART_TXT = """Name {} Start on {} {}"""
-
+    
     LOG_TEXT_G = """#NewGroup
     
 Gʀᴏᴜᴘ = {}
