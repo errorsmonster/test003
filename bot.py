@@ -41,7 +41,6 @@ from lazybot import LazyPrincessBot
 from util.keepalive import ping_server
 from lazybot.clients import initialize_clients
 
-WEBHOOK = True
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
