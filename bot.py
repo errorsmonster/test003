@@ -18,6 +18,7 @@ logging.basicConfig(
 )
 logging.getLogger("aiohttp").setLevel(logging.ERROR)
 logging.getLogger("aiohttp.web").setLevel(logging.ERROR)
+logger = logging.getLogger(__name__)
 
 
 from pyrogram import Client, __version__
