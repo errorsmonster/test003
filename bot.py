@@ -83,14 +83,11 @@ async def Lazy_start():
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")
-    logger.info(script.RESTART_TXT.format(me.first_name, date, time))
-    try: await LazyPrincessBot.send_message(LOG_CHANNEL, text=script.RESTART_TXT.format(me.first_name, date, time), disable_web_page_preview=True)   
-    except Exception as e: logger.warning(f"Bot Isn't Able To Send Message To LOG_CHANNEL \n{e}")
-    if WEBHOOK is True:
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        await web.TCPSite(app, "0.0.0.0", 8080).start()
-        logger.info("Web Response Is Running......🕸️")
+    await self.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
+    app = web.AppRunner(await web_server())
+    await app.setup()
+    bind_address = "0.0.0.0"
+    await web.TCPSite(app, bind_address, PORT).start()
 
 
 if __name__ == '__main__':
