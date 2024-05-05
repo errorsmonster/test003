@@ -1,13 +1,13 @@
 class script(object):
-    START_TXT = """ʜᴇʏ {}, {}\n\nɪ ᴀᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ.\n\nᴍᴀɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/DeletedFromEarth">ʜᴘ</a>"""
+    START_TXT = """ʜᴇʏ {}🤘, {}\n\nI Δᴍ ᴛʜᴇ Mᴏꜱᴛ ᴘᴏШᴇʀꜰᴜʟ 🎍 ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ❤️‍🔥 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\nMΔɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ Mᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓"""
 
-    GSTART_TXT = """ʜᴇʏ {},\n\nɪ ᴀᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ.\n\nᴍᴀɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/DeletedFromEarth">ʜᴘ</a>"""
+    GSTART_TXT = """ʜᴇʏ {}🫶,\n\nI Δᴍ ᴛʜᴇ Mᴏꜱᴛ ᴘᴏШᴇʀꜰᴜʟ 🎍 ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ❤️‍🔥 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\nMΔɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ Mᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓"""
     
     HELP_TXT = """<b>ʜᴇʏ {},
     
 ᴡᴇ ʜᴀᴠᴇ ᴅᴇᴠɪᴅᴇᴅ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ ꜰᴏʀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀꜱ ᴀɴᴅ ʙᴏᴛ ᴜꜱᴇʀꜱ.</b>"""
 
-    ABOUT_TXT = """<b>‣ ᴍʏ ɴᴀᴍᴇ : {}\n‣ ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/DeletedFromEarth'>Hᴀʀꜱʜᴀʟ ❤️‍🔥</a>\n‣ ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ\n‣ ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ\n‣ ᴅᴀᴛᴀ ʙᴀsᴇ : ᴍᴏɴɢᴏ ᴅʙ\n‣ ʜᴏsᴛᴇᴅ ᴏɴ  : ʜᴇʀᴏᴋᴜ\n‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ4.2 [sᴛᴀʙʟᴇ]</b>"""
+    ABOUT_TXT = """<b>‣ ᴍʏ ɴᴀᴍᴇ : {}\n‣ ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/SyD_XyZ'>Mг SƴD 🪩</a>\n‣ ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ\n‣ LᴀɴɢᴜΔɢᴇ : \n‣ ᴅᴀᴛᴀ ʙᴀsᴇ : \n‣ ʜᴏsᴛᴇᴅ ᴏɴ  : \n‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ1.0 [ᴍʀ.ꜱʏᴅ]</b>"""
     
     CHANNELS = """
 <b>⚡ ɢʀᴏᴜᴘs & ᴄʜᴀɴɴᴇʟs ɪɴғᴏ ⚡ 
@@ -23,6 +23,7 @@ class script(object):
 ‣ ᴛᴏᴛᴀʟ ɢʀᴏᴜᴘꜱ : <code>{}</code>
 ‣ ᴜꜱᴇᴅ ꜱᴛᴏʀᴀɢᴇ : <code>{}</code>
 ‣ ꜰʀᴇᴇ ꜱᴛᴏʀᴀɢᴇ : <code>{}</code>
+‣ Tʜᴀɴᴋꜱ : <a href="https://t.me/Bot_Cracker">ʙᴏᴛ ᴄʀᴀᴄᴋᴇʀ 🎋</a>
 </b>"""
     
     LOG_TEXT_G = """#NewGroup
@@ -32,14 +33,14 @@ Iᴅ = <code>{}</code>
 Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs = <code>{}</code>
 Aᴅᴅᴇᴅ Bʏ - {}
 
-Bʏ @TheMovieProviderBot"""
+Bʏ @Mr_Movies_Clone_Bot"""
 
     LOG_TEXT_P = """#NewUser
     
 Iᴅ - <code>{}</code>
 Nᴀᴍᴇ - {}
 
-Bʏ @TheMovieProviderBot"""
+Bʏ @Mr_Movies_Clone_Bot"""
 
     ALRT_TXT = """ʜᴇʟʟᴏ {},
 ᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ,
