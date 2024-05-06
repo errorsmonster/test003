@@ -1782,7 +1782,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('✉️ Bᴏᴛꜱ ✉️', url='https://t.me/Bot_Cracker/17')
         ],[
             InlineKeyboardButton('⇇ ʙᴀᴄᴋ', callback_data='start'),
-            InlineKeyboardButton('Oᴡɴᴇʀ 🎗️', url='https://t.me/HpRequestBot')
+            InlineKeyboardButton('Oᴡɴᴇʀ 🎗️', user_id=1733124290)
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
