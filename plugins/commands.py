@@ -45,13 +45,13 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('☒ Δᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ☒', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('ᴇΔʀꪀ ꪑᴏꫝᴇꪗ 💸', callback_data="shortlink_info"),
-                    InlineKeyboardButton('ᴜᴘᦔΔᴛꫀ𝘴', callback_data='channels')
+                    InlineKeyboardButton('ᴇΔʀꪀ ꪑᴏꫝᴇꪗ ', callback_data="shortlink_info"),
+                    InlineKeyboardButton('⚝ ᴜᴘᦔΔᴛꫀ𝘴 ⚝', callback_data='channels')
                 ],[
                     InlineKeyboardButton('⇱ ᴄ0ᴍᴍᴀɴᴅˢ ⇲', callback_data='help'),
                     InlineKeyboardButton('⊛ Δʙᴏᴜᴛ ⊛', callback_data='about')
                 ],[
-                    InlineKeyboardButton('K', callback_data="premium_info")
+                    InlineKeyboardButton('.', callback_data="premium_info")
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         current_time = datetime.now(pytz.timezone(TIMEZONE))
@@ -95,7 +95,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "📌 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📌", url=invite_link.invite_link
+                    "⊛ ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ ⊛", url=invite_link.invite_link
                 )
             ]
         ]
