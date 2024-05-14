@@ -6,8 +6,8 @@ from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from config import API_ID, API_HASH, ADMINS, DB_NAME
-from config import DB_URI as MONGO_URL
+from config import API_ID, API_HASH, ADMINS, DATABASE_NAME
+from config import DATABASE_URL as MONGO_URL
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
