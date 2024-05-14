@@ -14,7 +14,7 @@ from info import CLONE_DB_URI, DATABASE_NAME
 # Ask Doubt on telegram @KingVJ01
 
 client = AsyncIOMotorClient(CLONE_DB_URI)
-db = client[DB_NAME]
+db = client[DATABASE_NAME]
 col = db["users"]
 
 # Don't Remove Credit Tg - @VJ_Botz
