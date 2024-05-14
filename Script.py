@@ -2,6 +2,8 @@ class script(object):
     START_TXT = """<b>ʜᴇʏ {}🤘, {}\n\nI Δᴍ ᴛʜᴇ Mᴏꜱᴛ ᴘᴏШᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ❤️‍🔥 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\nᴍΔɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ Mᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓</b>"""
 
     GSTART_TXT = """<b>ʜᴇʏ {}🫶,\n\nI Δᴍ ᴛʜᴇ Mᴏꜱᴛ ᴘᴏШᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ❤️‍🔥 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\nᴍΔɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ Mᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓</b>"""
+
+    CLONE_TXT = """ HI """
     
     HELP_TXT = """<b>ʜᴇʏ {},
     
