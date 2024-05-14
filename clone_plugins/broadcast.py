@@ -1,107 +1,83 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-import re
-import logging
-from pymongo import MongoClient
-from Script import script
+from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
+from clone_plugins.dbusers import db
 from pyrogram import Client, filters
-from pyrogram.types import Message
-from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from info import API_ID, API_HASH, ADMINS, DATABASE_NAME
-from info import DATABASE_URL as MONGO_URL
+from info import ADMINS
+import asyncio
+import datetime
+import time
+import logging
+from info import DATABASE_URI as MONGO_URL
+from pymongo import MongoClient
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
-mongo_collection = mongo_db[DATABASE_NAME]
 
-@Client.on_message(filters.command("clone") & filters.private)
-async def clone(client, message):
-    await message.reply_text(script.CLONE_TXT)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
-
-
-@Client.on_message((filters.regex(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
-async def on_clone(client, message):  
+async def broadcast_messages(user_id, message):
     try:
-        user_id = message.from_user.id
-        user_name = message.from_user.first_name
-        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
-        bot_token = bot_token[0] if bot_token else None
-        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
-        bots = list(mongo_db.bots.find())
-        bot_tokens = None  # Initialize bot_tokens variable
-
-        for bot in bots:
-            bot_tokens = bot['token']
-
-        forward_from_id = message.forward_from.id if message.forward_from else None
-        if bot_tokens == bot_token and forward_from_id == 93372553:
-            await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
-            return
-
-        if not forward_from_id != 93372553:
-            msg = await message.reply_text("**👨‍💻 ᴡᴀɪᴛ ᴀ ᴍɪɴᴜᴛᴇ ɪ ᴀᴍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʙᴏᴛ ❣️**")
-            try:
-                ai = Client(
-                    f"{bot_token}", API_ID, API_HASH,
-                    bot_token=bot_token,
-                    plugins={"root": "clone_plugins"},
-                )
-                
-                await ai.start()
-                bot = await ai.get_me()
-                details = {
-                    'bot_id': bot.id,
-                    'is_bot': True,
-                    'user_id': user_id,
-                    'name': bot.first_name,
-                    'token': bot_token,
-                    'username': bot.username
-                }
-                mongo_db.bots.insert_one(details)
-                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
-            except BaseException as e:
-                logging.exception("Error while cloning bot.")
-                await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
+        await message.copy(chat_id=user_id)
+        return True, "Success"
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return await broadcast_messages(user_id, message)
+    except InputUserDeactivated:
+        await db.delete_user(int(user_id))
+        logging.info(f"{user_id}-Removed from Database, since deleted account.")
+        return False, "Deleted"
+    except UserIsBlocked:
+        logging.info(f"{user_id} -Blocked the bot.")
+        return False, "Blocked"
+    except PeerIdInvalid:
+        await db.delete_user(int(user_id))
+        logging.info(f"{user_id} - PeerIdInvalid")
+        return False, "Error"
     except Exception as e:
-        logging.exception("Error while handling message.")
+        return False, "Error"
 
-@Client.on_message(filters.command("deletecloned") & filters.private)
-async def delete_cloned_bot(client, message):
-    try:
-        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
-        bot_token = bot_token[0] if bot_token else None
-        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
 
-        mongo_collection = mongo_db.bots
-        
-        cloned_bot = mongo_collection.find_one({"token": bot_token})
-        if cloned_bot:
-            mongo_collection.delete_one({"token": bot_token})
-            await message.reply_text("**🤖 ᴛʜᴇ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʟɪsᴛ ᴀɴᴅ ɪᴛs ᴅᴇᴛᴀɪʟs ʜᴀᴠᴇ ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴛʜᴇ ᴅᴀᴛᴀʙᴀsᴇ. ☠️**")
+@Client.on_message(filters.command("broadcast") & filters.reply)
+async def verupikkals(bot, message):
+    id = bot.me.id
+    owner = mongo_db.bots.find_one({'bot_id': id})
+    ownerid = int(owner['user_id'])
+    if ownerid != message.from_user.id:
+        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
+        return
+    users = await db.get_all_users()
+    b_msg = message.reply_to_message
+    sts = await message.reply_text(
+        text='Broadcasting your messages...'
+    )
+    start_time = time.time()
+    total_users = await db.total_users_count()
+    done = 0
+    blocked = 0
+    deleted = 0
+    failed = 0
+    success = 0
+    async for user in users:
+        if 'id' in user:
+            pti, sh = await broadcast_messages(int(user['id']), b_msg)
+            if pti:
+                success += 1
+            elif pti == False:
+                if sh == "Blocked":
+                    blocked += 1
+                elif sh == "Deleted":
+                    deleted += 1
+                elif sh == "Error":
+                    failed += 1
+            done += 1
+            if not done % 20:
+                await sts.edit(f"Broadcast in progress:\n\nCompleted: {done}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")    
         else:
-            await message.reply_text("**⚠️ ᴛʜᴇ ʙᴏᴛ ᴛᴏᴋᴇɴ ᴘʀᴏᴠɪᴅᴇᴅ ɪs ɴᴏᴛ ɪɴ ᴛʜᴇ ᴄʟᴏɴᴇᴅ ʟɪsᴛ.**")
-    except Exception as e:
-        logging.exception("Error while deleting cloned bot.")
-        await message.reply_text("An error occurred while deleting the cloned bot.")
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-async def restart_bots():
-    logging.info("Restarting all bots........")
-    bots = list(mongo_db.bots.find())
-    for bot in bots:
-        bot_token = bot['token']
-        try:
-            ai = Client(
-                f"{bot_token}", API_ID, API_HASH,
-                bot_token=bot_token,
-                plugins={"root": "clone_plugins"},
-            )
-            await ai.start()
-        except Exception as e:
-            logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+            # Handle the case where 'id' key is missing in the user dictionary
+            done += 1
+            failed += 1
+            if not done % 20:
+                await sts.edit(f"Broadcast in progress:\n\nCompleted: {done}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")    
+    
+    time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
+    await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nCompleted: {done}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
