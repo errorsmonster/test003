@@ -11,7 +11,7 @@ from info import DATABASE_URL as MONGO_URL
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
-mongo_collection = mongo_db[DB_NAME]
+mongo_collection = mongo_db[DATABASE_NAME]
 
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
