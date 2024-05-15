@@ -73,8 +73,8 @@ class CLIENT:
             except BaseException as e:
                 logging.exception("Error while cloning bot.")
                 await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
-    except Exception as e:
-        logging.exception("Error while handling message.")
+     except Exception as e:
+         logging.exception("Error while handling message.")
 
   async def add_session(self, bot, message):
      user_id = int(message.from_user.id)
