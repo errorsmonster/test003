@@ -1,6 +1,6 @@
 import asyncio 
 from database.users_chats_db import Database, db
-from script import Script
+from Script import script
 from pyrogram import Client, filters, enums
 from .test import get_configs, update_configs, CLIENT, parse_buttons, start_clone_bot
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
