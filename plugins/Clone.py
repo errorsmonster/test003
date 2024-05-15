@@ -9,6 +9,8 @@ from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, Acces
 from info import API_ID, API_HASH, ADMINS, DATABASE_NAME
 from info import DATABASE_URL as MONGO_URL
 
+bot_tokens = []
+
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db[DATABASE_NAME]
