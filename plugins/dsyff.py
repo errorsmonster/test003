@@ -1,5 +1,5 @@
 import asyncio 
-from database import Database, db
+from database.users_chats_db import Database, db
 from script import Script
 from pyrogram import Client, filters, enums
 from .test import get_configs, update_configs, CLIENT, parse_buttons, start_clone_bot
