@@ -68,32 +68,6 @@ async def add_bot(self, bot, message):
     except Exception as e:
         logging.exception("Error while handling message.")
 
-
-  async def add_session(self, bot, message):
-     user_id = int(message.from_user.id)
-     text = "<b>⚠️ DISCLAIMER ⚠️</b>\n\n<code>you can use your session for forward message from private chat to another chat.\nPlease add your pyrogram session with your own risk. Their is a chance to ban your account. My developer is not responsible if your account may get banned.</code>"
-     await bot.send_message(user_id, text=text)
-     msg = await bot.ask(chat_id=user_id, text="<b>send your pyrogram session.\nget it from @mdsessiongenbot\n\n/cancel - cancel the process</b>")
-     if msg.text=='/cancel':
-        return await msg.reply('<b>process cancelled !</b>')
-     elif len(msg.text) < SESSION_STRING_SIZE:
-        return await msg.reply('<b>invalid session sring</b>')
-     try:
-       client = await bot.start_clone_bot(self.client(msg.text, True), True)
-     except Exception as e:
-       await msg.reply_text(f"<b>USER BOT ERROR:</b> `{e}`")
-     user = client.me
-     details = {
-       'id': user.id,
-       'is_bot': False,
-       'user_id': user_id,
-       'name': user.first_name,
-       'session': msg.text,
-       'username': user.username
-     }
-     await db.add_bot(details)
-     return True
-
 @Client.on_message(filters.private & filters.command('reset'))
 async def forward_tag(bot, m):
    default = await db.get_configs("01")
