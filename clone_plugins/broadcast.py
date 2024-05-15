@@ -85,10 +85,10 @@ async def verupikkals(bot, message):
     await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nCompleted: {done}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
 
 @Client.on_message(filters.command("restart") & filters.user(ADMINS))
-def shutdown():
+async def shutdown():
     updater.stop()
     updater.is_idle = False
     
-def stop(bot, update):
+async def stop(bot, update):
     threading.Thread(target=shutdown).start()
     
