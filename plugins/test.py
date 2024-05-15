@@ -9,7 +9,6 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message 
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 from pyrogram.errors import FloodWait
-from config import Config
 from script import Script
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
