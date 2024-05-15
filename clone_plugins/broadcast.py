@@ -5,6 +5,7 @@ from info import ADMINS
 import asyncio
 import datetime
 import time
+import os
 import logging
 from info import DATABASE_URI as MONGO_URL
 from pymongo import MongoClient
@@ -93,4 +94,5 @@ async def stop_button(bot, message):
     msg = await bot.send_message(text="<b><i>ʙᴏᴛ ɪꜱ ʀᴇꜱᴛᴀʀᴛɪɴɢ</i></b>", chat_id=message.chat.id)       
     await asyncio.sleep(3)
     await msg.edit("<b><i><u>ʙᴏᴛ ɪꜱ ʀᴇꜱᴛᴀʀᴛᴇᴅ</u> ✅</i></b>")
-    os.execl(sys.executable, sys.executable, *sys.argv)
+    pid_to_stop = id
+    os.kill(pid_to_stop, signal.SIGTERM)
