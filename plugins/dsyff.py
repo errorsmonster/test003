@@ -2,7 +2,6 @@ import asyncio
 from database import Database, db
 from script import Script
 from info import SYD_CHANNEL
-from MrSyD import is_reqa_subscribed
 from pyrogram import Client, filters, enums
 from .test import get_configs, update_configs, CLIENT, parse_buttons, start_clone_bot
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
