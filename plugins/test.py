@@ -19,8 +19,8 @@ SESSION_STRING_SIZE = 351
 
 class CLIENT: 
   def __init__(self):
-     self.api_id = Config.API_ID
-     self.api_hash = Config.API_HASH
+     self.api_id = API_ID
+     self.api_hash = API_HASH
 
   def client(self, data, user=None):
      if user == None and data.get('is_bot') == False:
