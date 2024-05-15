@@ -1,8 +1,7 @@
-
 import re
 import logging
+import asyncio
 from pymongo import MongoClient
-from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
@@ -17,36 +16,30 @@ mongo_collection = mongo_db[DATABASE_NAME]
 async def clone(client, message):
     await message.reply_text(script.CLONE_TXT)
 
-
-
-@Client.on_message((filters.regex(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
-async def on_clone(client, message):  
+@Client.on_message((filters.regex(r'\d{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
+async def on_clone(client, message):
     try:
         user_id = message.from_user.id
         user_name = message.from_user.first_name
-        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
+        bot_token = re.findall(r'\d{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
         bot_token = bot_token[0] if bot_token else None
-        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
+        bot_id = re.findall(r'\d{8,10}', message.text)
         bots = list(mongo_db.bots.find())
-        bot_tokens = None # Initialize bot_tokens variable
-
-        for bot in bots:
-            bot_tokens = bot['token']
+        bot_tokens = [bot['token'] for bot in bots]
 
         forward_from_id = message.forward_from.id if message.forward_from else None
-        if bot_tokens == bot_token and forward_from_id == 93372553:
-            await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
+        if bot_token in bot_tokens and forward_from_id == 93372553:
+            await message.reply_text("**©️ This bot is already cloned.**")
             return
 
-        if not forward_from_id != 93372553:
-            msg = await message.reply_text("**👨‍💻 ᴡᴀɪᴛ ᴀ ᴍɪɴᴜᴛᴇ ɪ ᴀᴍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʙᴏᴛ ❣️**")
+        if not forward_from_id or forward_from_id != 93372553:
+            msg = await message.reply_text("**Please wait while I'm creating your bot.**")
             try:
                 ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
                     bot_token=bot_token,
                     plugins={"root": "clone_plugins"},
                 )
-                
                 await ai.start()
                 bot = await ai.get_me()
                 details = {
@@ -58,8 +51,8 @@ async def on_clone(client, message):
                     'username': bot.username
                 }
                 mongo_db.bots.insert_one(details)
-                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
-            except BaseException as e:
+                await msg.edit_text(f"<b>Successfully cloned your bot: @{bot.username}.</b>")
+            except Exception as e:
                 logging.exception("Error while cloning bot.")
                 await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
     except Exception as e:
@@ -68,22 +61,20 @@ async def on_clone(client, message):
 @Client.on_message(filters.command("deletecloned") & filters.private)
 async def delete_cloned_bot(client, message):
     try:
-        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
+        bot_token = re.findall(r'\d{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
         bot_token = bot_token[0] if bot_token else None
-        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
+        bot_id = re.findall(r'\d{8,10}', message.text)
 
         mongo_collection = mongo_db.bots
-        
         cloned_bot = mongo_collection.find_one({"token": bot_token})
         if cloned_bot:
             mongo_collection.delete_one({"token": bot_token})
-            await message.reply_text("**🤖 ᴛʜᴇ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʟɪsᴛ ᴀɴᴅ ɪᴛs ᴅᴇᴛᴀɪʟs ʜᴀᴠᴇ ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴛʜᴇ ᴅᴀᴛᴀʙᴀsᴇ. ☠️**")
+            await message.reply_text("**The cloned bot has been removed from the list and its details have been removed from the database.**")
         else:
-            await message.reply_text("**⚠️ ᴛʜᴇ ʙᴏᴛ ᴛᴏᴋᴇɴ ᴘʀᴏᴠɪᴅᴇᴅ ɪs ɴᴏᴛ ɪɴ ᴛʜᴇ ᴄʟᴏɴᴇᴅ ʟɪsᴛ.**")
+            await message.reply_text("**The bot token provided is not in the cloned list.**")
     except Exception as e:
         logging.exception("Error while deleting cloned bot.")
         await message.reply_text("An error occurred while deleting the cloned bot.")
-
 
 async def restart_bots():
     logging.info("Restarting all bots........")
@@ -99,3 +90,7 @@ async def restart_bots():
             await ai.start()
         except Exception as e:
             logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+
+# Call the restart function
+asyncio.ensure_future(restart_bots())
+
