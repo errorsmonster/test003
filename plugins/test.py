@@ -4,7 +4,7 @@ import sys
 import asyncio 
 import logging 
 from database import Database, db
-from config import Config, temp
+from info import *
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message 
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
@@ -33,33 +33,49 @@ class CLIENT:
      return Client("BOT", self.api_id, self.api_hash, bot_token=data, in_memory=True)
 
   async def add_bot(self, bot, message):
-     user_id = int(message.from_user.id)
-     msg = await bot.ask(chat_id=user_id, text=Script.BOT_TOKEN_TEXT)
-     if msg.text=='/cancel':
-        return await msg.reply('<b>process cancelled !</b>')
-     elif not msg.forward_date:
-       return await msg.reply_text("<b>This is not a forward message</b>")
-     elif str(msg.forward_from.id) != "93372553":
-       return await msg.reply_text("<b>This message was not forward from bot father</b>")
-     bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', msg.text, re.IGNORECASE)
-     bot_token = bot_token[0] if bot_token else None
-     if not bot_token:
-       return await msg.reply_text("<b>There is no bot token in that message</b>")
      try:
-       _client = await bot.start_clone_bot(self.client(bot_token, False), True)
-     except Exception as e:
-       await msg.reply_text(f"<b>BOT ERROR:</b> `{e}`")
-     _bot = _client.me
-     details = {
-       'id': _bot.id,
-       'is_bot': True,
-       'user_id': user_id,
-       'name': _bot.first_name,
-       'token': bot_token,
-       'username': _bot.username 
-     }
-     await db.add_bot(details)
-     return True
+        user_id = message.from_user.id
+        user_name = message.from_user.first_name
+        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
+        bot_token = bot_token[0] if bot_token else None
+        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
+        bots = list(mongo_db.bots.find())
+        bot_tokens = None # Initialize bot_tokens variable
+
+        for bot in bots:
+            bot_tokens = bot['token']
+
+        forward_from_id = message.forward_from.id if message.forward_from else None
+        if bot_tokens == bot_token and forward_from_id == 93372553:
+            await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
+            return
+
+        if not forward_from_id != 93372553:
+            msg = await message.reply_text("**👨‍💻 ᴡᴀɪᴛ ᴀ ᴍɪɴᴜᴛᴇ ɪ ᴀᴍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʙᴏᴛ ❣️**")
+            try:
+                ai = Client(
+                    f"{bot_token}", API_ID, API_HASH,
+                    bot_token=bot_token,
+                    plugins={"root": "clone_plugins"},
+                )
+                
+                await ai.start()
+                bot = await ai.get_me()
+                details = {
+                    'bot_id': bot.id,
+                    'is_bot': True,
+                    'user_id': user_id,
+                    'name': bot.first_name,
+                    'token': bot_token,
+                    'username': bot.username
+                }
+                mongo_db.bots.insert_one(details)
+                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
+            except BaseException as e:
+                logging.exception("Error while cloning bot.")
+                await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
+    except Exception as e:
+        logging.exception("Error while handling message.")
 
   async def add_session(self, bot, message):
      user_id = int(message.from_user.id)
