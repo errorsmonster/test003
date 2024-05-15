@@ -9,18 +9,18 @@ from pyrogram.errors import ChatAdminRequired
 
 CLIENT = CLIENT()
 
-@Client.on_message(filters.command('settings'))
+@Client.on_message(filters.command('clon'))
 async def settings(client, message):
    await message.reply_text(
      "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
      reply_markup=main_buttons()
      )
 
-@Client.on_callback_query(filters.regex(r'^settings'))
+@Client.on_callback_query(filters.regex(r'^clon'))
 async def settings_query(bot, query):
   user_id = query.from_user.id
   i, type = query.data.split("#")
-  buttons = [[InlineKeyboardButton('«« ʙΔᴄᴋ', callback_data="settings#main")]]
+  buttons = [[InlineKeyboardButton('«« ʙΔᴄᴋ', callback_data="clon#main")]]
   if type=="main":
      await query.message.edit_text(
        "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
@@ -31,12 +31,12 @@ async def settings_query(bot, query):
      _bot = await db.get_bot(user_id)
      if _bot is not None:
         buttons.append([InlineKeyboardButton(_bot['name'],
-                         callback_data=f"settings")])
+                         callback_data=f"clon")])
      else:
         buttons.append([InlineKeyboardButton('✚ Aᴅᴅ ʙᴏᴛ ✚', 
-                         callback_data="settings#addbot")])
+                         callback_data="clon#addbot")])
         buttons.append([InlineKeyboardButton('✚ Aᴅᴅ Uꜱᴇʀ ʙᴏᴛ ✚', 
-                         callback_data="settings#adduserbot")])
+                         callback_data="clon#adduserbot")])
      buttons.append([InlineKeyboardButton('«« ʙΔᴄᴋ', 
                       callback_data="settingsn")])
      await query.message.edit_text(
@@ -56,7 +56,7 @@ async def settings_query(bot, query):
      TEXT = Script.BOT_DETAILS if bot['is_bot'] else Script.USER_DETAILS
      buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removebot")
                ],
-               [InlineKeyboardButton('«« ʙΔᴄᴋ', callback_data="settings#bots")]]
+               [InlineKeyboardButton('«« ʙΔᴄᴋ', callback_data="clon#bots")]]
      await query.message.edit_text(
         TEXT.format(bot['name'], bot['id'], bot['username']),
         reply_markup=InlineKeyboardMarkup(buttons))
@@ -69,8 +69,8 @@ async def settings_query(bot, query):
 def main_buttons():
   buttons = [[
        InlineKeyboardButton('🤖 Бᴏᴛꜱ 🤖',
-                    callback_data=f'settings#bots'),
+                    callback_data=f'clon#bots'),
        InlineKeyboardButton('👣 CʜᴀИИᴇʟꜱ 👣',
-                    callback_data=f'settings#channels')
+                    callback_data=f'clon')
   ]
   return InlineKeyboardMarkup(buttons)
