@@ -51,23 +51,23 @@ class CLIENT:
                     plugins={"root": "clone_plugins"},
                 )
                 
-        await ai.start()
-        bot = await ai.get_me()
-        details = {
-            'bot_id': bot.id,
-            'is_bot': True,
-            'user_id': user_id,
-            'name': bot.first_name,
-            'token': bot_token,
-            'username': bot.username
-        }
-        mongo_db.bots.insert_one(details)
-        await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
-        except BaseException as e:
-            logging.exception("Error while cloning bot.")
-            await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
-     except Exception as e:
-         logging.exception("Error while handling message.")
+                await ai.start()
+                bot = await ai.get_me()
+                details = {
+                    'bot_id': bot.id,
+                    'is_bot': True,
+                    'user_id': user_id,
+                    'name': bot.first_name,
+                    'token': bot_token,
+                    'username': bot.username
+                }
+                mongo_db.bots.insert_one(details)
+                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
+            except BaseException as e:
+                logging.exception("Error while cloning bot.")
+                await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
+    except Exception as e:
+        logging.exception("Error while handling message.")
 
   async def add_session(self, bot, message):
      user_id = int(message.from_user.id)
