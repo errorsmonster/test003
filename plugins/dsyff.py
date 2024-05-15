@@ -71,5 +71,5 @@ def main_buttons():
                     callback_data=f'clon#bots'),
        InlineKeyboardButton('👣 CʜᴀИИᴇʟꜱ 👣',
                     callback_data=f'clon')
-  ]
+  ]]
   return InlineKeyboardMarkup(buttons)
