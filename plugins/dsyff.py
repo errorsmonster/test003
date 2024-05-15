@@ -68,7 +68,7 @@ async def settings_query(bot, query):
 def main_buttons():
   buttons = [[
        InlineKeyboardButton('🤖 Бᴏᴛꜱ 🤖',
-                    callback_data=f'clon#bots'),
+                    callback_data=f'clon#addbot'),
        InlineKeyboardButton('👣 CʜᴀИИᴇʟꜱ 👣',
                     callback_data=f'clon')
   ]]
