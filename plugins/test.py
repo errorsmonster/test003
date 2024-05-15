@@ -45,26 +45,7 @@ class CLIENT:
      if not bot_token:
        return await msg.reply_text("<b>There is no bot token in that message</b>")
      try:
-        user_id = message.from_user.id
-        user_name = message.from_user.first_name
-        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
-        bot_token = bot_token[0] if bot_token else None
-        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
-        bots = list(mongo_db.bots.find())
-        bot_tokens = None # Initialize bot_tokens variable
-
-        for bot in bots:
-            bot_tokens = bot['token']
-
-        forward_from_id = message.forward_from.id if message.forward_from else None
-        if bot_tokens == bot_token and forward_from_id == 93372553:
-            await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
-            return
-
-        if not forward_from_id != 93372553:
-            msg = await message.reply_text("**👨‍💻 ᴡᴀɪᴛ ᴀ ᴍɪɴᴜᴛᴇ ɪ ᴀᴍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʙᴏᴛ ❣️**")
-            try:
-                ai = Client(
+        ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
                     bot_token=bot_token,
                     plugins={"root": "clone_plugins"},
