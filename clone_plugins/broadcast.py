@@ -4,6 +4,7 @@ from pyrogram import Client, filters
 from info import ADMINS
 import asyncio
 import datetime
+import threading
 import time
 import os
 import logging
@@ -84,14 +85,10 @@ async def verupikkals(bot, message):
     await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nCompleted: {done}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
 
 @Client.on_message(filters.command("restart") & filters.user(ADMINS))
-async def stop_button(bot, message):
-    id = bot.me.id
-    owner = mongo_db.bots.find_one({'bot_id': id})
-    ownerid = int(owner['user_id'])
-    if ownerid != message.from_user.id:
-        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
-        return
-    msg = await bot.send_message(text="<b><i>ʙᴏᴛ ɪꜱ ʀᴇꜱᴛᴀʀᴛɪɴɢ</i></b>", chat_id=message.chat.id)       
-    await asyncio.sleep(3)
-    await msg.edit("<b><i><u>ʙᴏᴛ ɪꜱ ʀᴇꜱᴛᴀʀᴛᴇᴅ</u> ✅</i></b>")
-    paused = True
+def shutdown():
+    updater.stop()
+    updater.is_idle = False
+    
+def stop(bot, update):
+    threading.Thread(target=shutdown).start()
+    
