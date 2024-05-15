@@ -31,43 +31,43 @@ class CLIENT:
         data = data.get('token')
      return Client("BOT", self.api_id, self.api_hash, bot_token=data, in_memory=True)
 
-  async def add_bot(self, bot, message):
-     user_id = int(message.from_user.id)
-     msg = await bot.ask(chat_id=user_id, text=script.START_TXT)
-     if msg.text=='/cancel':
+async def add_bot(self, bot, message):
+    user_id = int(message.from_user.id)
+    msg = await bot.ask(chat_id=user_id, text=script.START_TXT)
+    if msg.text == '/cancel':
         return await msg.reply('<b>process cancelled !</b>')
-     elif not msg.forward_date:
-       return await msg.reply_text("<b>This is not a forward message</b>")
-     elif str(msg.forward_from.id) != "93372553":
-       return await msg.reply_text("<b>This message was not forward from bot father</b>")
-     bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', msg.text, re.IGNORECASE)
-     bot_token = bot_token[0] if bot_token else None
-     if not bot_token:
-       return await msg.reply_text("<b>There is no bot token in that message</b>")
-     try:
+    elif not msg.forward_date:
+        return await msg.reply_text("<b>This is not a forward message</b>")
+    elif str(msg.forward_from.id) != "93372553":
+        return await msg.reply_text("<b>This message was not forward from bot father</b>")
+    bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', msg.text, re.IGNORECASE)
+    bot_token = bot_token[0] if bot_token else None
+    if not bot_token:
+        return await msg.reply_text("<b>There is no bot token in that message</b>")
+    try:
         ai = Client(
-                    f"{bot_token}", API_ID, API_HASH,
-                    bot_token=bot_token,
-                    plugins={"root": "clone_plugins"},
-                )
-                
-                await ai.start()
-                bot = await ai.get_me()
-                details = {
-                    'bot_id': bot.id,
-                    'is_bot': True,
-                    'user_id': user_id,
-                    'name': bot.first_name,
-                    'token': bot_token,
-                    'username': bot.username
-                }
-                mongo_db.bots.insert_one(details)
-                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
-            except BaseException as e:
-                logging.exception("Error while cloning bot.")
-                await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
+            f"{bot_token}", API_ID, API_HASH,
+            bot_token=bot_token,
+            plugins={"root": "clone_plugins"},
+        )
+        await ai.start()
+        bot_info = await ai.get_me()
+        details = {
+            'bot_id': bot_info.id,
+            'is_bot': True,
+            'user_id': user_id,
+            'name': bot_info.first_name,
+            'token': bot_token,
+            'username': bot_info.username
+        }
+        mongo_db.bots.insert_one(details)
+        await msg.edit_text(f"<b>Successfully cloned your bot: @{bot_info.username}.\n\nYou can also set your shortner in your cloned bot for more info start your cloned bot</b>")
+    except BaseException as e:
+        logging.exception("Error while cloning bot.")
+        await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
     except Exception as e:
         logging.exception("Error while handling message.")
+
 
   async def add_session(self, bot, message):
      user_id = int(message.from_user.id)
