@@ -108,7 +108,7 @@ async def forward_tag(bot, m):
    await db.update_configs(m.from_user.id, default)
    await m.reply("successfully settings reseted ✔️")
 
-@Client.on_message(filters.command('resetall') & filters.user(Config.BOT_OWNER_ID))
+@Client.on_message(filters.command('resetall') & filters.user(ADMINS))
 async def resetall(bot, message):
   users = await db.get_all_users()
   sts = await message.reply("**processing**")
