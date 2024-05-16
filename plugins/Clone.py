@@ -7,12 +7,12 @@ from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from config import API_ID, API_HASH, ADMINS, DB_NAME
-from config import DB_URI as MONGO_URL
+from infoimport API_ID, API_HASH, ADMINS, DATABASE_NAME
+from info import DATABASE_URI as MONGO_URL
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
-mongo_collection = mongo_db[DB_NAME]
+mongo_collection = mongo_db[DATABASE_NAME]
 
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
@@ -29,10 +29,11 @@ async def on_clone(client, message):
         bot_token = bot_token[0] if bot_token else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         bots = list(mongo_db.bots.find())
-        bot_tokens = None  # Initialize bot_tokens variable
+        bot_tokens = []  # Initialize bot_tokens as a list
 
-        for bot in bots:
-            bot_tokens = bot['token']
+        # Collect all bot tokens from the database
+        for bot in mongo_db.bots.find():
+            bot_tokens.append(bot['token'])
 
         forward_from_id = message.forward_from.id if message.forward_from else None
         if bot_tokens == bot_token and forward_from_id == 93372553:
