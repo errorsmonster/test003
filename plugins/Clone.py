@@ -5,8 +5,11 @@ from pymongo import MongoClient
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from info import API_ID, API_HASH, ADMINS, DATABASE_NAME, CLONE_TXT
+from info import API_ID, API_HASH, ADMINS, DATABASE_NAME
 from info import DATABASE_URL as MONGO_URL
+
+
+CLONE_TXT = """HI"""
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
