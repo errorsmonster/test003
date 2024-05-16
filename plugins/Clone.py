@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from info import API_ID, API_HASH, ADMINS, DATABASE_NAME
+from info import API_ID, API_HASH, ADMINS, DATABASE_NAME, CLONE_TXT
 from info import DATABASE_URL as MONGO_URL
 
 mongo_client = MongoClient(MONGO_URL)
@@ -14,7 +14,7 @@ mongo_collection = mongo_db[DATABASE_NAME]
 
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
-    await message.reply_text(script.CLONE_TXT)
+    await message.reply_text(CLONE_TXT)
 
 @Client.on_message((filters.regex(r'\d{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
 async def on_clone(client, message):
@@ -29,11 +29,11 @@ async def on_clone(client, message):
 
         forward_from_id = message.forward_from.id if message.forward_from else None
         if bot_token in bot_tokens and forward_from_id == 93372553:
-            await message.reply_text("**©️ This bot is already cloned.**")
+            await client.send_message(message.chat.id, "**©️ This bot is already cloned.**")
             return
 
         if not forward_from_id or forward_from_id != 93372553:
-            msg = await message.reply_text("**Please wait while I'm creating your bot.**")
+            msg = await client.send_message(message.chat.id, "**Please wait while I'm creating your bot.**")
             try:
                 ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
@@ -69,12 +69,12 @@ async def delete_cloned_bot(client, message):
         cloned_bot = mongo_collection.find_one({"token": bot_token})
         if cloned_bot:
             mongo_collection.delete_one({"token": bot_token})
-            await message.reply_text("**The cloned bot has been removed from the list and its details have been removed from the database.**")
+            await client.send_message(message.chat.id, "**The cloned bot has been removed from the list and its details have been removed from the database.**")
         else:
-            await message.reply_text("**The bot token provided is not in the cloned list.**")
+            await client.send_message(message.chat.id, "**The bot token provided is not in the cloned list.**")
     except Exception as e:
         logging.exception("Error while deleting cloned bot.")
-        await message.reply_text("An error occurred while deleting the cloned bot.")
+        await client.send_message(message.chat.id, "An error occurred while deleting the cloned bot.")
 
 async def restart_bots():
     logging.info("Restarting all bots........")
@@ -93,4 +93,3 @@ async def restart_bots():
 
 # Call the restart function
 asyncio.ensure_future(restart_bots())
-
