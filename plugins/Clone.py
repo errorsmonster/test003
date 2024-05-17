@@ -29,14 +29,14 @@ async def on_clone(client, message):
         bot_token = bot_token[0] if bot_token else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         bots = list(mongo_db.bots.find())
-        bot_tokens = []  # Initialize bot_tokens as a list
+        bot_tokens = None  # Initialize bot_tokens variable
 
-        # Collect all bot tokens from the database
-        for bot in mongo_db.bots.find():
-            bot_tokens.append(bot['token'])
+        for bot in bots:
+            bot_tokens = bot['token']
 
         forward_from_id = message.forward_from.id if message.forward_from else None
         if bot_tokens == bot_token and forward_from_id == 93372553:
+            mongo_collection.delete_one({"token": bot_token})
             await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
             return
 
