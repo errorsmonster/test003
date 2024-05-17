@@ -7,7 +7,7 @@ from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from info API_ID, API_HASH, ADMINS, DATABASE_NAME
+from info import API_ID, API_HASH, ADMINS, DATABASE_NAME
 from info import DATABASE_URI as MONGO_URL
 
 mongo_client = MongoClient(MONGO_URL)
