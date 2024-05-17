@@ -12,7 +12,7 @@ from info import DATABASE_URI as MONGO_URL
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
-mongo_collection = mongo_db[DATABASE_NAME]
+mongo_collection = mongo_db[DB_NAME]
 
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
@@ -36,7 +36,6 @@ async def on_clone(client, message):
 
         forward_from_id = message.forward_from.id if message.forward_from else None
         if bot_tokens == bot_token and forward_from_id == 93372553:
-            mongo_collection.delete_one({"token": bot_token})
             await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
             return
 
@@ -85,6 +84,7 @@ async def delete_cloned_bot(client, message):
     except Exception as e:
         logging.exception("Error while deleting cloned bot.")
         await message.reply_text("An error occurred while deleting the cloned bot.")
+
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
