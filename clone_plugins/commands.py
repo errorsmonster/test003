@@ -1271,12 +1271,6 @@ async def removetutorial(bot, message):
 
 @Client.on_message(filters.command("customize"))
 async def customiz(bot, message):
-    id = bot.me.id
-    owner = mongo_db.bots.find_one({'bot_id': id})
-    ownerid = int(owner['user_id'])
-    if ownerid != message.from_user.id:
-        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
-        return
     if AUTH_CHANNEL and not await is_reqa_subscribed(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL), creates_join_request=True)
@@ -1301,7 +1295,13 @@ async def customiz(bot, message):
             parse_mode=enums.ParseMode.MARKDOWN
             )
         return
-
+    id = bot.me.id
+    owner = mongo_db.bots.find_one({'bot_id': id})
+    ownerid = int(owner['user_id'])
+    if ownerid != message.from_user.id:
+        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
+        return
+    
     buttons = [[
                     InlineKeyboardButton('☒ Δᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ☒', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
     ]]
