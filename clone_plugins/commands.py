@@ -1268,3 +1268,13 @@ async def removetutorial(bot, message):
     await save_group_settings(grpid, 'is_tutorial', False)
     await reply.edit_text(f"<b>ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ᴛᴜᴛᴏʀɪᴀʟ ʟɪɴᴋ ✅</b>")
 
+
+@Client.on_message(filters.command("customize"))
+async def customiz(bot, message):
+    id = bot.me.id
+    owner = mongo_db.bots.find_one({'bot_id': id})
+    ownerid = int(owner['user_id'])
+    if ownerid != message.from_user.id:
+        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
+        return
+
