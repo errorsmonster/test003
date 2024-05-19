@@ -1598,8 +1598,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
            return await forc_id.reply_text(
                      "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
                      reply_markup=reply_markup)
-        elif not forc_id.forward_date:
-             return await forc_id.reply("**This is not a forward message**")
+        if not forc_id.forward_date:
+        return await forc_id.reply("**This is not a forward message**")
      else:
         forc_ids = forc_id.forward_from_chat.id
         title = forc_id.forward_from_chat.title
