@@ -91,4 +91,26 @@ async def shutdown():
     
 async def stop(bot, update):
     threading.Thread(target=shutdown).start()
+
+@Client.on_message(filters.command("customize"))
+async def customiz(bot, message):
+    id = bot.me.id
+    owner = mongo_db.bots.find_one({'bot_id': id})
+    ownerid = int(owner['user_id'])
+    if ownerid != message.from_user.id:
+        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
+        return
+    
+    buttons = [[
+                    InlineKeyboardButton('☒ Δᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ☒', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
+    ]]
+    await message.reply_photo(
+            photo=random.choice(PICS),
+            caption=script.START_TXT.format(message.from_user.mention, gtxt, temp.U_NAME, temp.B_NAME),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=enums.ParseMode.HTML
+    )
+    return
+
+return
     
