@@ -10,12 +10,6 @@ async def join_reqs(client, message: ChatJoinRequest):
 
 @Client.on_message(filters.command("delreq") & filters.private)
 async def del_requests(client, message):
-id = bot.me.id
-    owner = mongo_db.bots.find_one({'bot_id': id})
-    ownerid = int(owner['user_id'])
-    if ownerid != message.from_user.id:
-        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
-        return
     await bd.del_join_req()    
     await message.reply("<b>⚙ ꜱᴜᴄᴄᴇꜱꜱғᴜʟʟʏ ᴄʜᴀɴɴᴇʟ ʟᴇғᴛ ᴜꜱᴇʀꜱ ᴅᴇʟᴇᴛᴇᴅ</b>")
   
