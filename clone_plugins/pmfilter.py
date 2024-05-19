@@ -1593,10 +1593,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.delete()
         forc_id = await Client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
-     if forc_id.text=="/cancel":
-        return await forc_id.reply_text(
-                  "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
-                  reply_markup=reply_markup)
+        if forc_id.text=="/cancel":
+           return await forc_id.reply_text(
+                     "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
+                     reply_markup=reply_markup)
 
     elif query.data == "qr_info":
         buttons = [[
