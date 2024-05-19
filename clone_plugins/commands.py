@@ -87,7 +87,7 @@ async def start(client, message):
         )
         return
         
-    if forc_id and not await is_req_subscribed(client, message):
+    if FORC_ID and not await is_req_subscribed(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL), creates_join_request=True)
         except ChatAdminRequired:
