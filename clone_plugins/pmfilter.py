@@ -1598,6 +1598,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
            return await forc_id.reply_text(
                      "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
                      reply_markup=reply_markup)
+        elif not forc_id.forward_date:
+        return await forc_id.reply("**This is not a forward message**")
+     else:
+        forc_ids = forc_id.forward_from_chat.id
+        title = forc_id.forward_from_chat.title
+        username = forc_id.forward_from_chat.username
+        username = "@" + username if username else "private"
+     forc = await db.add_channel(user_id, forc_ids, title, username)
+     await query.message.reply_text(
+        "<b>Successfully updated</b>" if chat else "<b>This channel already added</b>",
+        reply_markup=InlineKeyboardMarkup(buttons))
 
     elif query.data == "qr_info":
         buttons = [[
