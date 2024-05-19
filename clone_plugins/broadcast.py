@@ -1,7 +1,8 @@
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
 from clone_plugins.dbusers import db
 from pyrogram import Client, filters
-from info import ADMINS
+from info import ADMINS, PICS
+from Script import script
 import asyncio
 import datetime
 import threading
@@ -111,6 +112,4 @@ async def customiz(bot, message):
             parse_mode=enums.ParseMode.HTML
     )
     return
-
-return
     
