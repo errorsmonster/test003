@@ -52,7 +52,8 @@ BUTTONS0 = {}
 BUTTONS1 = {}
 BUTTONS2 = {}
 SPELL_CHECK = {}
-FORC_ID = int(forc_ids) if forc_ids and id_pattern.search(forc_ids) else AUTH_CHANNEL
+FORC_ID = int(forc_ids) if forc_ids and id_pattern.search(forc_ids)
+forc_ids = 'forc_ids' else AUTH_CHANNEL
 # ENABLE_SHORTLINK = ""
 
 def generate_random_alphanumeric():
