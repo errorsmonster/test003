@@ -1597,7 +1597,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if forc_id.text=="/cancel":
            return await forc_id.reply_text(
                      "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
-                     reply_markup=reply_markup
+                     reply_markup=reply_markup)
         elif not forc_id.forward_date:
            return await chat_ids.reply("**This is not a forward message**")
         else:
