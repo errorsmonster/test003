@@ -1586,6 +1586,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
+    elif query.data == "forc":
+        buttons = [[
+                    InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='purchase')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.delete()
+        forc_id = await Client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
+     if forc_id.text=="/cancel":
+        return await forc_id.reply_text(
+                  "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
+                  reply_markup=reply_markup)
+
     elif query.data == "qr_info":
         buttons = [[
             InlineKeyboardButton('📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ', user_id=int(767250672))
