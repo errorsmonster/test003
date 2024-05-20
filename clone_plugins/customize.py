@@ -16,8 +16,7 @@ async def sydoo(bot, message):
     if ownerid != message.from_user.id:
         await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
         return
-    text = await message.reply_text(text="<code>Gᴇᴛᴛɪɴɢ ɪɴꜰᴏ.....</code>", disable_web_page_preview=True) 
-    await asyncio.sleep(0.6)
+    text = await message.reply_text(text="<code>Gᴇᴛᴛɪɴɢ ɪɴꜰᴏ.....</code>", disable_web_page_preview=True)
     await text.edit_text(
         text="<b>Link :-</b>",
         disable_web_page_preview=True,
