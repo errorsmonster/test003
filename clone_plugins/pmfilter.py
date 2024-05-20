@@ -1590,13 +1590,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
                     InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='purchase')
         ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.delete()
         forc_id = await Client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
         if forc_id.text=="/cancel":
            return await forc_id.reply_text(
                      "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
-                     reply_markup=reply_markup)
+                     reply_markup=InlineKeyboardMarkup(buttons))
         elif not forc_id.forward_date:
            return await chat_ids.reply("**This is not a forward message**")
         else:
@@ -1607,7 +1606,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         forc = await db.add_channel(user_id, forc_ids, title, username)
         await query.message.reply_text(
            "<b>Successfully updated</b>" if chat else "<b>This channel already added</b>",
-           reply_markup=reply_markup
+           reply_markup=reply_markup=InlineKeyboardMarkup(buttons)
         )
 
     elif query.data == "qr_info":
