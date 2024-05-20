@@ -17,12 +17,17 @@ from database.connections_mdb import active_connection
 import re, asyncio, os, sys
 import json
 import base64
+from info import DATABASE_URI as MONGO_URL
+from pymongo import MongoClient
+
+mongo_client = MongoClient(MONGO_URL)
+mongo_db = mongo_client["cloned_vjbotz"]
 logger = logging.getLogger(__name__)
 
 TIMEZONE = "Asia/Kolkata"
 BATCH_FILES = {}
 
-FORC_ID = await db.get_user_channels(user_id)
+
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -86,7 +91,11 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-        
+
+    id = bot.me.id
+    owner = mongo_db.bots.find_one({'bot_id': id})
+    ownerid = int(owner['user_id'])
+    FORC_ID = await db.get_user_channels(bot_id)     
     if FORC_ID and not await is_req_subscribed(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL), creates_join_request=True)
