@@ -1606,7 +1606,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         forc = await db.add_channel(user_id, forc_ids, title, username)
         await query.message.reply_text(
            "<b>Successfully updated</b>" if chat else "<b>This channel already added</b>",
-           reply_markup=reply_markup=InlineKeyboardMarkup(buttons)
+           reply_markup=InlineKeyboardMarkup(buttons)
         )
 
     elif query.data == "qr_info":
