@@ -95,7 +95,7 @@ async def start(client, message):
     id = bot.me.id
     owner = mongo_db.bots.find_one({'bot_id': id})
     ownerid = int(owner['user_id'])
-    FORC_ID = await db.get_user_channels(bot_id)     
+    FORC_ID = await db.get_channels(bot_id)     
     if FORC_ID and not await is_req_subscribed(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL), creates_join_request=True)
