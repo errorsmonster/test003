@@ -21,6 +21,15 @@ class Database:
         await self.req.insert_one({'id': id})
     async def del_join_req(self):
         await self.req.drop()
+        
+    async def add_channel(self, user_id: int, chat_id: int, title, username):
+       channel = await self.in_channel(user_id, chat_id)
+       if channel:
+         return False
+       return await self.chl.insert_one({"user_id": user_id, "chat_id": chat_id, "title": title, "username": username})
+    async def get_channels(self, user_id: int):
+       channels = self.chl.find({"user_id": int(user_id)})
+       return [channel async for channel in channels]
 
     def new_user(self, id, name):
         return dict(
