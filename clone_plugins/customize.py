@@ -29,7 +29,7 @@ async def settings_query(bot, query):
 
   elif type=="forc":  
      await query.message.delete()
-     forc_ids = await bot.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
+     forc_ids = await client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
      if forc_ids.text=="/cancel":
         return await forc_ids.reply_text(
                   "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
