@@ -8,24 +8,59 @@ mongo_db = mongo_client["cloned_vjbotz"]
 
 
 
-@Client.on_message(filters.command("customize") & filters.private)
-async def sydoo(bot, message):
-    id = bot.me.id
-    owner = mongo_db.bots.find_one({'bot_id': id})
-    ownerid = int(owner['user_id'])
-    if ownerid != message.from_user.id:
-        await message.reply_text("ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴏᴍᴍᴀɴᴅ❗")
-        return
-    text = await message.reply_text(text="<code>Gᴇᴛᴛɪɴɢ ɪɴꜰᴏ.....</code>", disable_web_page_preview=True)
-    await text.edit_text(
-        text="<b>Link :-</b>",
-        disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup( [[
-            InlineKeyboardButton("Oᴩᴇɴ Lɪɴᴋ", callback_data="forc"),
-            InlineKeyboardButton("βᴏᴛ𝘴 🏞️", callback_data="start"),
-            InlineKeyboardButton("Sʜᴀʀᴇ Lɪɴᴋ", callback_data="help")
-            ],[
-            InlineKeyboardButton("✗ Cꪶꪮ𝘴ꫀ ✗", callback_data="close")
-            ]])
-    )
-    
+@Client.on_message(filters.command('customize'))
+async def settings(client, message):
+   await message.reply_text(
+     "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
+     reply_markup=main_buttons()
+     )
+
+@Client.on_callback_query(filters.regex(r'^customize'))
+async def settings_query(bot, query):
+  user_id = query.from_user.id
+  i, type = query.data.split("#")
+  buttons = [[InlineKeyboardButton('«« ʙΔᴄᴋ', callback_data="customize#main")]]
+  if type=="main":
+     await query.message.edit_text(
+       "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
+       reply_markup=main_buttons())
+
+  elif type=="forc":  
+     await query.message.delete()
+     forc_ids = await bot.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
+     if forc_ids.text=="/cancel":
+        return await forc_ids.reply_text(
+                  "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
+                  reply_markup=InlineKeyboardMarkup(buttons))
+     elif not forc_ids.forward_date:
+        return await chat_ids.reply("**This is not a forward message**")
+     else:
+        chat_id = forc_ids.forward_from_chat.id
+        title = forc_ids.forward_from_chat.title
+        username = forc_ids.forward_from_chat.username
+        username = "@" + username if username else "private"
+     foor = await db.add_channel(user_id, chat_id, title, username)
+     await query.message.reply_text(
+        "<b>Successfully updated</b>",
+        reply_markup=InlineKeyboardMarkup(buttons))
+
+def main_buttons():
+  buttons = [[
+       InlineKeyboardButton('🤖 Бᴏᴛꜱ 🤖',
+                    callback_data='customize'),
+       InlineKeyboardButton('👣 CʜᴀИИᴇʟꜱ 👣',
+                    callback_data=f'customize#forc')
+       ],[
+       InlineKeyboardButton('✎ Cᴀᴘᴛɪᴏɴ ✎',
+                    callback_data='forc'),
+       InlineKeyboardButton('𠂤 Dᴀᴛᴀ-Бᴀꜱᴇ 𠂤',
+                    callback_data='customize')
+       ],[
+       InlineKeyboardButton('🖤 Fɪʟᴛᴇʀꜱ 🖤',
+                    callback_data='customize'),
+       InlineKeyboardButton('🖱 ʙꪊᴛᴛᴏɴ 🖱',
+                    callback_data='customize')
+       ],[
+       InlineKeyboardButton('⌂ H0ᴍᴇ ⌂', callback_data='start')
+       ]]
+  return InlineKeyboardMarkup(buttons)
