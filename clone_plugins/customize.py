@@ -11,7 +11,7 @@ mongo_db = mongo_client["cloned_vjbotz"]
 
 
 @Client.on_message(filters.command('customize'))
-async def settings(client, message):
+async def settings(Client, message):
    await message.reply_text(
      "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
      reply_markup=main_buttons()
@@ -29,7 +29,7 @@ async def settings_query(bot, query):
 
   elif type=="forc":  
      await query.message.delete()
-     forc_ids = await client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
+     forc_ids = await Client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
      if forc_ids.text=="/cancel":
         return await forc_ids.reply_text(
                   "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
