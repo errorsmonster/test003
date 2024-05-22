@@ -9,9 +9,33 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 
 
-
+@Client.on_message(filters.command(["share_text", "share", "sharetext",]))
+async def share_text(client, message):
+    reply = message.reply_to_message
+    reply_id = message.reply_to_message.id if message.reply_to_message else message.id
+    input_split = message.text.split(None, 1)
+    if len(input_split) == 2:
+        input_text = input_split[1]
+    elif reply and (reply.text or reply.caption):
+        input_text = reply.text or reply.caption
+    else:
+        await message.reply_text(
+            text=f"**Notice:**\n\n1. Reply Any Messages.\n2. No Media Support\n\n**Any Question Join Support Chat**",                
+            reply_to_message_id=reply_id,               
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Support Chat", url=f"https://t.me/MKSSION_GROUP")]])
+            )                                                   
+        return
+    user_id = reply_id
+    chat_id = input_text
+    await db.add_channel(user_id, chat_id)
+    await message.reply_text(
+        text=f"**Here is Your Sharing Text 👇**\n\nhttps://t.me/share/url?url="+(input_text),
+        reply_to_message_id=reply_id,
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("♂️ Share", url=f"https://t.me/share/url?url=(input_text)")]])       
+    )
+   
 @Client.on_message(filters.command('customize'))
-async def settings(Client, message):
+async def settings(client, message):
    await message.reply_text(
      "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
      reply_markup=main_buttons()
@@ -29,7 +53,7 @@ async def settings_query(bot, query):
 
   elif type == "forc":
     await query.message.delete()
-    await Client.ask("<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
+    await client.ask("<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
     try:
         forc_ids = await client.get_messages(chat_id=query.message.chat.id)
         if forc_ids.text == "/cancel":
