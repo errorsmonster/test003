@@ -52,7 +52,6 @@ async def settings_query(bot, query):
        reply_markup=main_buttons())
 
   elif type == "forc":
-    await query.message.delete()
     await client.ask("<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
     try:
         forc_ids = await client.get_messages(chat_id=query.message.chat.id)
