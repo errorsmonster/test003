@@ -51,26 +51,24 @@ async def settings_query(bot, query):
        "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
        reply_markup=main_buttons())
 
-  elif type == "forc":
-    await client.ask("<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
-    try:
-        forc_ids = await client.get_messages(chat_id=query.message.chat.id)
-        if forc_ids.text == "/cancel":
-            return await forc_ids.reply_text("<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>", reply_markup=InlineKeyboardMarkup(buttons))
-        elif not forc_ids.forward_date:
-            return await forc_ids.reply_text("**This is not a forward message**")
-        else:
-            chat_id = forc_ids.forward_from_chat.id
-            title = forc_ids.forward_from_chat.title
-            username = forc_ids.forward_from_chat.username
-            username = "@" + username if username else "private"
-            foor = await db.add_channel(user_id, chat_id, title, username)
-            await query.message.reply_text("<b>Successfully updated</b>", reply_markup=InlineKeyboardMarkup(buttons))
-    except FloodWait as e:
-        await sleep(e.value)
-        await message.reply_text("<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
-    except:
-        pass
+  elif type=="addchannel":  
+     chat_ids = await Client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
+     if chat_ids.text=="/cancel":
+        return await chat_ids.reply_text(
+                  "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
+                  reply_markup=InlineKeyboardMarkup(buttons))
+     elif not chat_ids.forward_date:
+        return await chat_ids.reply("**This is not a forward message**")
+     else:
+        chat_id = chat_ids.forward_from_chat.id
+        title = chat_ids.forward_from_chat.title
+        username = chat_ids.forward_from_chat.username
+        username = "@" + username if username else "private"
+     chat = await db.add_channel(user_id, chat_id, title, username)
+     await query.message.reply_text(
+        "<b>Successfully updated</b>" if chat else "<b>This channel already added</b>",
+        reply_markup=InlineKeyboardMarkup(buttons))
+
 
 
 def main_buttons():
