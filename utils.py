@@ -205,18 +205,18 @@ async def search_gagala(text):
     titles = soup.find_all( 'h3' )
     return [title.getText() for title in titles]
 
-async def get_settings(group_id):
-    settings = temp.SETTINGS.get(group_id)
-    if not settings:
-        settings = await db.get_settings(group_id)
-        temp.SETTINGS[group_id] = settings
-    return settings
+async def get_setings(bot_id):
+    setings = temp.SETINGS.get(bot_id)
+    if not setings:
+        setings = await db.get_setings(bot_id)
+        temp.SETINGS[bot_id] = setings
+    return setings
     
-async def save_bot_settings(group_id, key, value):
-    current = await get_settings(group_id)
+async def save_bot_settings(bot_id, key, value):
+    current = await get_setings(bot_id)
     current[key] = value
-    temp.SETTINGS[group_id] = current
-    await db.update_settings(group_id, current)
+    temp.SETINGS[bot_id] = current
+    await db.update_settings(bot_id, current)
 
 
 async def get_settings(group_id):
