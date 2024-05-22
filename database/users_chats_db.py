@@ -3,6 +3,11 @@ import motor.motor_asyncio
 from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, CLONE_DB_URI, IS_TUTORIAL
 import datetime
 import pytz
+from info import DATABASE_URI as MONGO_URL
+from pymongo import MongoClient
+
+mongo_client = MongoClient(MONGO_URL)
+mongo_db = mongo_client["cloned_vjbotz"]
 
 class Database:
     
@@ -140,16 +145,22 @@ class Database:
             return chat.get('settings', default)
         return default
     
-    async def get_settings(self, id):
+    async def get_setings(self, id):
         default = {
             'forc_id': AUTH_CHANNEL,
             'is_forc': IS_SHORTLINK,
         }
-        chat = await self.grp.find_one({'id':int(id)})
-        if chat:
-            return chat.get('settings', default)
+        id = bot.me.id
+        owner = mongo_db.bots.find_one({'bot_id': id})
+        ownerid = int(owner['user_id'])
+        if owner:
+            return owner.get('setings', default)
         return default
-
+        
+    async def update_setings(self, id, setings):
+        mongo_collection = mongo_db.bots
+        await mongo_collection.update_one({'id': int(id)}, {'$set': {'setings': setings}})
+        
     async def disable_chat(self, chat, reason="No Reason"):
         chat_status=dict(
             is_disabled=True,
