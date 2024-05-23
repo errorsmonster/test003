@@ -8,7 +8,7 @@ import requests
 import json
 from motor.motor_asyncio import AsyncIOMotorClient
 from info import CLONE_DB_URI, DATABASE_NAME
-from .dbusers.py import db as bd
+from .dbusers import db as bd
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
