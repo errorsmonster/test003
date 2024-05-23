@@ -93,7 +93,9 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-  
+    id = bot.me.id
+    bot_id = mongo_db.bots.find_one({'bot_id': id})
+    FORC_ID = await db.get_setings(bot_id, forc_id)
     if FORC_ID and not await is_req_subscribed(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL), creates_join_request=True)
