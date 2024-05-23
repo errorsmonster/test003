@@ -68,24 +68,31 @@ async def settings_query(bot, query):
        reply_markup=main_buttons())
 
   elif type=="addchannel":  
-     chat_ids = await Client.ask(chat_id=query.message.chat.id, text="<b>❪ SET TARGET CHAT ❫\n\nForward a message from Your target chat\n/cancel - cancel this process</b>")
-     if chat_ids.text=="/cancel":
-        return await chat_ids.reply_text(
-                  "<b>Pʀᴏᴄᴇꜱꜱ ᴄᴀɴᴄᴇʟᴇᴅ 😮‍💨 !</b>",
+     await query.message.delete()
+     try:
+         text = await bot.send_message(user_id, "<b><u>Set Target Chat</u></b>\n\nForward A Message From Your Target Chat\n/cancel - To Cancel This Process")
+         forc_ids = await bot.listen(chat_id=user_id, timeout=300)
+         if forc_ids.text=="/cancel":
+            await forc_ids.delete()
+            return await text.edit_text(
+                  "Process Canceled",
                   reply_markup=InlineKeyboardMarkup(buttons))
-     elif not chat_ids.forward_date:
-        return await chat_ids.reply("**This is not a forward message**")
-     else:
-        chat_id = chat_ids.forward_from_chat.id
-        title = chat_ids.forward_from_chat.title
-        username = chat_ids.forward_from_chat.username
-        username = "@" + username if username else "private"
-     chat = await db.add_channel(user_id, chat_id, title, username)
-     await query.message.reply_text(
-        "<b>Successfully updated</b>" if chat else "<b>This channel already added</b>",
-        reply_markup=InlineKeyboardMarkup(buttons))
-
-
+         elif not forc_ids.forward_date:
+            await forc_ids.delete()
+            return await text.edit_text("This Is Not A Forward Message")
+         else:
+            chat_id = forc_ids.forward_from_chat.id
+            title = forc_ids.forward_from_chat.title
+            username = forc_ids.forward_from_chat.username
+            username = "@" + username if username else "private"
+         forc = await db.add_channel(user_id, chat_id, title, username)
+         await forc_ids.delete()
+         await text.edit_text(
+            "Successfully Updated" if forc else "This Channel Already Added",
+            reply_markup=InlineKeyboardMarkup(buttons))
+     except asyncio.exceptions.TimeoutError:
+         await text.edit_text('Process Has Been Automatically Cancelled', reply_markup=InlineKeyboardMarkup(buttons))
+  
 
 def main_buttons():
   buttons = [[
