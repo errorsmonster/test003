@@ -8,9 +8,10 @@ class Database:
     def __init__(self, uri, database_name):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
         self.db = self._client[database_name]
+        self.bd = mongo_client["cloned_vjbotz"]
         self.col = self.db.users
         self.grp = self.db.groups
-        self.bot = self.db.bots
+        self.bot = self.bd.bots
 
     def new_user(self, id, name):
         return dict(
