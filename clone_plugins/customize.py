@@ -67,7 +67,7 @@ async def settings_query(bot, query):
        "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
        reply_markup=main_buttons())
 
-  elif type=="addchannel":  
+  elif type=="forc":  
      await query.message.delete()
      try:
          text = await bot.send_message(user_id, "<b><u>Set Target Chat</u></b>\n\nForward A Message From Your Target Chat\n/cancel - To Cancel This Process")
