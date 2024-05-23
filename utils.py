@@ -216,7 +216,7 @@ async def save_bot_settings(bot_id, key, value):
     current = await get_setings(bot_id)
     current[key] = value
     temp.SETINGS[bot_id] = current
-    await db.update_settings(bot_id, current)
+    await db.update_setings(bot_id, current)
 
 
 async def get_settings(group_id):
