@@ -1,4 +1,5 @@
-
+from info import DATABASE_URI as MONGO_URL
+from pymongo import MongoClient
 import motor.motor_asyncio
 from info import DATABASE_NAME, DATABASE_URL, AUTH_CHANNEL, IS_SHORTLINK
 
@@ -8,6 +9,7 @@ class Database:
     def __init__(self, uri, database_name):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
         self.db = self._client[database_name]
+        mongo_client = MongoClient(MONGO_URL)
         self.bd = mongo_client["cloned_vjbotz"]
         self.col = self.db.users
         self.grp = self.db.groups
