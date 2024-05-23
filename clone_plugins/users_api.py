@@ -8,6 +8,7 @@ import requests
 import json
 from motor.motor_asyncio import AsyncIOMotorClient
 from info import CLONE_DB_URI, DATABASE_NAME
+from .dbusers.py import db as bd
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
@@ -20,7 +21,19 @@ col = db["users"]
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
+async def get_settings(bot_id):
+    settings = temp.SETTINGS.get(bot_id)
+    if not setings:
+        settings = await bd.get_settings(bot_id)
+        temp.SETTINGS[bot_id] = settings
+    return settings
+    
+async def save_bot_settings(bot_id, key, value):
+    current = await get_settings(bot_id)
+    current[key] = value
+    temp.SETTINGS[bot_id] = current
+    await bd.update_settings(bot_id, current)
+    
 async def get_short_link(user, link):
     api_key = user["shortener_api"]
     base_site = user["base_site"]
