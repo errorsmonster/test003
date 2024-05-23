@@ -18,7 +18,6 @@ class Database:
         self.grp = self.db.groups
         self.users = self.db.uersz
         self.req = self.db.requests
-        self.bot = self.mongo_db.bots
         
     async def find_join_req(self, id):
         return bool(await self.req.find_one({'id': id}))
@@ -48,9 +47,6 @@ class Database:
                 reason="",
             ),
         )
-    async def mongo_db(self)
-        mongo_client = MongoClient(MONGO_URL)
-        mongo_db = mongo_client["cloned_vjbotz"]
 
     async def add_user(self, id, name):
         user = self.new_user(id, name)
@@ -150,19 +146,6 @@ class Database:
             return chat.get('settings', default)
         return default
     
-    async def get_setings(self, id):
-        default = {
-            'forc_id': AUTH_CHANNEL,
-            'is_forc': IS_SHORTLINK,
-        }
-        bot = await self.bot.find_one({'id':int(id)})
-        if c:
-            return bot.get('setings', default)
-        return default
-        
-    async def update_setings(self, id, setings):
-        await self.bot.update_one({'id': int(id)}, {'$set': {'setings': setings}})
-        
     async def disable_chat(self, chat, reason="No Reason"):
         chat_status=dict(
             is_disabled=True,
