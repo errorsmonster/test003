@@ -18,6 +18,7 @@ class Database:
         self.grp = self.db.groups
         self.users = self.db.uersz
         self.req = self.db.requests
+        self.bot = self.mongo_db.bots
         
     async def find_join_req(self, id):
         return bool(await self.req.find_one({'id': id}))
@@ -107,7 +108,8 @@ class Database:
     
 
     async def get_chat(self, chat):
-        chat = await self.grp.find_one({'id':int(chat)})
+        chat = await selfrequests
+        d_one({'id':int(chat)})
         return False if not chat else chat.get('chat_status')
     
 
@@ -150,16 +152,13 @@ class Database:
             'forc_id': AUTH_CHANNEL,
             'is_forc': IS_SHORTLINK,
         }
-        id = bot.me.id
-        owner = mongo_db.bots.find_one({'bot_id': id})
-        ownerid = int(owner['user_id'])
-        if owner:
-            return owner.get('setings', default)
+        bot = await self.bot.find_one({'id':int(id)})
+        if c:
+            return bot.get('setings', default)
         return default
         
     async def update_setings(self, id, setings):
-        mongo_collection = mongo_db.bots
-        await mongo_collection.update_one({'id': int(id)}, {'$set': {'setings': setings}})
+        await self.bot.update_one({'id': int(id)}, {'$set': {'setings': setings}})
         
     async def disable_chat(self, chat, reason="No Reason"):
         chat_status=dict(
