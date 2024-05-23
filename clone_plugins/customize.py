@@ -11,7 +11,7 @@ mongo_db = mongo_client["cloned_vjbotz"]
 
 
 @Client.on_message(filters.command("fsub"))
-async def forced(bot, message):
+async def forsyd(bot, message):
     bot_id = bot.me.id
     try:
         command, forc_id = data.split(" ")
