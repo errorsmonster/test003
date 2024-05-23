@@ -1,6 +1,6 @@
 
 import motor.motor_asyncio
-from info import DATABASE_NAME, DATABASE_URL
+from info import DATABASE_NAME, DATABASE_URL, AUTH_CHANNEL, IS_SHORTLINK
 
 
 class Database:
@@ -10,7 +10,7 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         self.grp = self.db.groups
-
+        self.bot = self.db.bots
 
     def new_user(self, id, name):
         return dict(
@@ -56,5 +56,26 @@ class Database:
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
 
+    async def get_settings(self, id):
+        default = {
+            'forc_id': AUTH_CHANNEL,
+            'is_forc': IS_SHORTLINK,
+        }
+        bot = await self.bot.find_one({'id':int(id)})
+        if c:
+            return bot.get('settings', default)
+        return default
+        
+    async def update_settings(self, id, settings):
+        await self.bot.update_one({'id': int(id)}, {'$set': {'settings': settings}})
+
+    async def update_one(self, filter_query, update_data):
+        try:
+            # Assuming self.client and self.users are set up properly
+            result = await self.users.update_one(filter_query, update_data)
+            return result.matched_count == 1
+        except Exception as e:
+            print(f"Error updating document: {e}")
+            return False
 
 db = Database(DATABASE_URL, DATABASE_NAME)
