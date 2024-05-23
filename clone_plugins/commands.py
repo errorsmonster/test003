@@ -26,7 +26,9 @@ logger = logging.getLogger(__name__)
 
 TIMEZONE = "Asia/Kolkata"
 BATCH_FILES = {}
-
+id = bot.me.id
+bot_id = mongo_db.bots.find_one({'bot_id': id})
+FORC_ID = await db.get_setings(bot_id, forc_id)   
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
@@ -91,11 +93,7 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-
-    id = bot.me.id
-    owner = mongo_db.bots.find_one({'bot_id': id})
-    ownerid = int(owner['user_id'])
-    FORC_ID = await db.get_channels(bot_id)     
+  
     if FORC_ID and not await is_req_subscribed(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL), creates_join_request=True)
