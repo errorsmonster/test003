@@ -26,10 +26,6 @@ logger = logging.getLogger(__name__)
 
 TIMEZONE = "Asia/Kolkata"
 BATCH_FILES = {}
-id = bot.me.id
-bot_id = mongo_db.bots.find_one({'bot_id': id})
-FORC_ID = await db.get_setings(bot_id, forc_id)   
-
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
