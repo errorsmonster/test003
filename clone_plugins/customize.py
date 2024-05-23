@@ -13,15 +13,14 @@ mongo_db = mongo_client["cloned_vjbotz"]
 async def shortlink(bot, message):
     data = message.text
     userid = message.from_user.id
+    bot_id = id = bot.me.id
     try:
         command, forc_id = data.split(" ")
     except:
         return await message.reply_text("<b>ᴄᴏᴍᴍᴀɴᴅ ɪɴᴄᴏᴍᴘʟᴇᴛᴇ !\nɢɪᴠᴇ ᴍᴇ ᴄᴏᴍᴍᴀɴᴅ ᴀʟᴏɴɢ ᴡɪᴛʜ ꜱʜᴏʀᴛɴᴇʀ ᴡᴇʙꜱɪᴛᴇ ᴀɴᴅ ᴀᴘɪ.\n\nꜰᴏʀᴍᴀᴛ : <code>/shortlink krishnalink.com c8dacdff6e91a8e4b4f093fdb4d8ae31bc273c1a</code>")
     reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
-    shortlink_url = re.sub(r"https?://?", "", shortlink_url)
-    shortlink_url = re.sub(r"[:/]", "", shortlink_url)
-    await save_group_setings(grpid, 'forc', forc_id)
-    await save_group_setings(grpid, 'is_shortlink', True)
+    await save_bot_setings(bot_id, 'forc_id', forc_id)
+    await save_bot_setings(bot_id, 'is_shortlink', True)
     await reply.edit_text(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ꜱʜᴏʀᴛʟɪɴᴋ ꜰᴏʀ <code>{title}</code>.\n\nꜱʜᴏʀᴛʟɪɴᴋ ᴡᴇʙꜱɪᴛᴇ : <code>{shortlink_url}</code>\nꜱʜᴏʀᴛʟɪɴᴋ ᴀᴘɪ : <code>{api}</code></b>")
 
 
