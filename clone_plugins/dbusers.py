@@ -65,7 +65,7 @@ class Database:
             'is_forc': IS_SHORTLINK,
         }
         bot = await self.bot.find_one({'id':int(id)})
-        if c:
+        if bot:
             return bot.get('settings', default)
         return default
         
