@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from info import DATABASE_URI as MONGO_URL
 from pymongo import MongoClient
-from users_api.py import get_settings, save_bot_settings
+from .users_api.py import get_settings, save_bot_settings
 from database.users_chats_db import db
 
 mongo_client = MongoClient(MONGO_URL)
