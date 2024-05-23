@@ -48,7 +48,10 @@ class Database:
                 reason="",
             ),
         )
-    
+    async def mongo_db(self)
+        mongo_client = MongoClient(MONGO_URL)
+        mongo_db = mongo_client["cloned_vjbotz"]
+
     async def add_user(self, id, name):
         user = self.new_user(id, name)
         await self.col.insert_one(user)
