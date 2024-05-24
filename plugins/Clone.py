@@ -7,7 +7,7 @@ from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from info import API_ID, API_HASH, ADMINS, DATABASE_NAME
+from info import API_ID, API_HASH, ADMINS, DATABASE_NAME, AUTH_CHANNEL
 from info import DATABASE_URI as MONGO_URL
 
 mongo_client = MongoClient(MONGO_URL)
@@ -57,7 +57,8 @@ async def on_clone(client, message):
                     'user_id': user_id,
                     'name': bot.first_name,
                     'token': bot_token,
-                    'username': bot.username
+                    'username': bot.username,
+                    'forc_id': AUTH_CHANNEL
                 }
                 mongo_db.bots.insert_one(details)
                 await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
