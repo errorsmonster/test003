@@ -105,3 +105,32 @@ async def restart_bots():
             await ai.start()
         except Exception as e:
             logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+
+
+from os import environ 
+import motor.motor_asyncio
+
+async def mongodb_version():
+    x = MongoClient(Config.DB_URL)
+    mongodb_version = x.server_info()['version']
+    return mongodb_version
+
+class Database:
+    
+    def __init__(self, uri, database_name):
+        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+        self.db = self._client[database_name]
+        self.bot = self.db.bots
+        self.col = self.db.users
+        self.nfy = self.db.notify
+        self.chl = self.db.channels 
+        
+    async def get_configs(self, id):
+        default = {
+            'forc_id': AUTH_CHANNEL
+            }
+        }
+        user = await self.bot.find_one({'id':int(id)})
+        if user:
+            return user.get('info', default)
+        return default 
