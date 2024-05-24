@@ -27,13 +27,7 @@ SESSION_STRING_SIZE = 351
 
 
 async def start_clone_bot(FwdBot, data=None):
-   try:
-      FwdBot = Client(
-                    f"{bot_token}", API_ID, API_HASH,
-                    bot_token=bot_token,
-                    plugins={"root": "clone_plugins"},
-      )
-      await FwdBot.start()
+   await FwdBot.start()
    #
    async def iter_messages(
       self, 
@@ -93,7 +87,7 @@ class CLIENT:
         return Client("USERBOT", self.api_id, self.api_hash, session_string=data)
      elif user != False:
         data = data.get('token')
-     return Client("BOT", self.api_id, self.api_hash, bot_token=data, in_memory=True)
+     return Client("BOT", self.api_id, self.api_hash, bot_token=data, plugins={"root": "clone_plugins"}, in_memory=True)
   
 
 
