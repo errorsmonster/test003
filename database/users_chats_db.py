@@ -158,7 +158,10 @@ class Database:
         count = await self.grp.count_documents({})
         return count
     
-
+    async def add_bot(self, datas):
+       if not await self.is_bot_exist(datas['user_id']):
+          await self.bot.insert_one(datas)
+           
     async def get_all_chats(self):
         return self.grp.find({})
 
