@@ -81,4 +81,27 @@ class Database:
             print(f"Error updating document: {e}")
             return False
 
+    async def in_channel(self, user_id: int, bot_id: int) -> bool:
+       channel = await self.chl.find_one({"user_id": int(user_id), "bot_id": int(bot_id)})
+       return bool(channel)
+    
+    async def add_channel(self, user_id: int, bot_id: int, chat_id: int, title, username):
+       channel = await self.in_channel(user_id, bot_id)
+       if channel:
+         return False
+       return await self.chl.insert_one({"user_id": user_id, "bot_id": bot_id, "chat_id": chat_id, "title": title, "username": username})
+    
+    async def remove_channel(self, user_id: int, bot_id: int, chat_id: int):
+       channel = await self.in_channel(user_id, bot_id )
+       if not channel:
+         return False
+       return await self.chl.delete_many({"user_id": int(user_id), "bot_id": int(bot_id)})
+    
+    async def get_channel_details(self, user_id: int, chat_id: int):
+       return await self.chl.find_one({"user_id": int(user_id), "chat_id": int(chat_id)})
+       
+    async def get_user_channels(self, user_id: int):
+       channels = self.chl.find({"user_id": int(user_id)})
+       return [channel async for channel in channels]
+
 db = Database(DATABASE_URL, DATABASE_NAME)
