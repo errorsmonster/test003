@@ -20,36 +20,9 @@ async def forsyd(bot, message):
         return 
         await message.reply_text("<b>ᴄᴏᴍᴍᴀɴᴅ ɪɴᴄᴏᴍᴘʟᴇᴛᴇ !\nɢɪᴠᴇ ᴍᴇ ᴄᴏᴍᴍᴀɴᴅ ᴀʟᴏɴɢ ᴡɪᴛʜ ꜱʜᴏʀᴛɴᴇʀ ᴡᴇʙꜱɪᴛᴇ ᴀɴᴅ ᴀᴘɪ.\n\nꜰᴏʀᴍᴀᴛ : <code>/shortlink krishnalink.com c8dacdff6e91a8e4b4f093fdb4d8ae31bc273c1a</code>")
     reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
-    await save_bot_settings(bot_id, 'forc_id', forc_id)
-    await save_bot_settings(bot_id, 'is_forc', True)
     await reply.edit_text(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ꜱʜᴏʀᴛʟɪɴᴋ ꜰᴏʀ <code>{title}</code>.\n\nꜱʜᴏʀᴛʟɪɴᴋ ᴡᴇʙꜱɪᴛᴇ : <code>{shortlink_url}</code>\nꜱʜᴏʀᴛʟɪɴᴋ ᴀᴘɪ : <code>{api}</code></b>")
 
 
-@Client.on_message(filters.command(["share_text", "share", "sharetext",]))
-async def share_text(client, message):
-    reply = message.reply_to_message
-    reply_id = message.reply_to_message.id if message.reply_to_message else message.id
-    input_split = message.text.split(None, 1)
-    if len(input_split) == 2:
-        input_text = input_split[1]
-    elif reply and (reply.text or reply.caption):
-        input_text = reply.text or reply.caption
-    else:
-        await message.reply_text(
-            text=f"**Notice:**\n\n1. Reply Any Messages.\n2. No Media Support\n\n**Any Question Join Support Chat**",                
-            reply_to_message_id=reply_id,               
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Support Chat", url=f"https://t.me/MKSSION_GROUP")]])
-            )                                                   
-        return
-    user_id = reply_id
-    chat_I'd  x= input_text
-    await db.add_channel(user_id, chat_id)
-    await message.reply_text(
-        text=f"**Here is Your Sharing Text 👇**\n\nhttps://t.me/share/url?url="+(input_text),
-        reply_to_message_id=reply_id,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("♂️ Share", url=f"https://t.me/share/url?url=(input_text)")]])       
-    )
-   
 @Client.on_message(filters.command('customize'))
 async def settings(client, message):
    await message.reply_text(
