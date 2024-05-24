@@ -85,7 +85,8 @@ async def settings_query(bot, query):
             title = chat_ids.forward_from_chat.title
             username = chat_ids.forward_from_chat.username
             username = "@" + username if username else "private"
-         forc = await db.add_channel(user_id, chat_id, title, username)
+            bot_id = bot.me.id
+         forc = await db.add_channel(user_id, chat_id, title, username, bot_id)
          await chat_ids.delete()
          await text.edit_text(
             "Successfully Updated" if forc else "This Channel Already Added",
