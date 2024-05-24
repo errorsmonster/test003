@@ -128,7 +128,6 @@ class Database:
     async def get_configs(self, id):
         default = {
             'forc_id': AUTH_CHANNEL
-            }
         }
         user = await self.bot.find_one({'id':int(id)})
         if user:
