@@ -48,14 +48,14 @@ async def settings_query(bot, query):
      _bot = await db.get_bot(user_id)
      if _bot is not None:
         buttons.append([InlineKeyboardButton(_bot['name'],
-                         callback_data=f"settings#editbot")])
+                         callback_data=f"customize#editbot")])
      else:
         buttons.append([InlineKeyboardButton('✚ Add Bot ✚', 
-                         callback_data="settings#addbot")])
+                         callback_data="customize#addbot")])
         buttons.append([InlineKeyboardButton('✚ Add User Bot ✚', 
-                         callback_data="settings#adduserbot")])
+                         callback_data="customize#adduserbot")])
      buttons.append([InlineKeyboardButton('🔙 Back', 
-                      callback_data="settings#main")])
+                      callback_data="customize#main")])
      await query.message.edit_text(
        "<b><u>My Bots</u></b>\n\nYou Can Manage Your Bots In Here",
        reply_markup=InlineKeyboardMarkup(buttons))
@@ -67,6 +67,23 @@ async def settings_query(bot, query):
      await query.message.reply_text(
         "<b>Bot Token Successfully Added To Database</b>",
         reply_markup=InlineKeyboardMarkup(buttons))
+
+  elif type=="editbot": 
+     bot = await db.get_bot(user_id)
+     TEXT = Translation.BOT_DETAILS if bot['is_bot'] else Translation.USER_DETAILS
+     buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"customize#removebot")
+               ],
+               [InlineKeyboardButton('🔙 Back', callback_data="customize#bots")]]
+     await query.message.edit_text(
+        TEXT.format(bot['name'], bot['id'], bot['username']),
+        reply_markup=InlineKeyboardMarkup(buttons))
+                                             
+  elif type=="removebot":
+     await db.remove_bot(user_id)
+     await query.message.edit_text(
+        "Successfully Updated",
+        reply_markup=InlineKeyboardMarkup(buttons))
+      
   elif type=="forc":  
      await query.message.delete()
      try:
@@ -100,10 +117,10 @@ def main_buttons():
        InlineKeyboardButton('🤖 Бᴏᴛꜱ 🤖',
                     callback_data='customize#bots'),
        InlineKeyboardButton('👣 CʜᴀИИᴇʟꜱ 👣',
-                    callback_data=f'customize#forc')
+                    callback_data=f'customize#bots')
        ],[
        InlineKeyboardButton('✎ Cᴀᴘᴛɪᴏɴ ✎',
-                    callback_data='forc'),
+                    callback_data='customize#addbot'),
        InlineKeyboardButton('𠂤 Dᴀᴛᴀ-Бᴀꜱᴇ 𠂤',
                     callback_data='customize')
        ],[
