@@ -75,19 +75,28 @@ async def start_clone_bot(FwdBot, data=None):
 
 class CLIENT: 
   def __init__(self):
-     self.api_id = API_ID
-     self.api_hash = API_HASH
-     
+     super().__init__(
+            name="Professor-Bot",
+            api_id=API_ID,
+            api_hash=API_HASH,
+            bot_token=data.get('token'),
+            workers=200,
+            plugins={"root": "plugins"},
+            sleep_threshold=10,
+        )
   def client(self, data, user=None):
-     if user == None and data.get('is_bot') == False:
-        return Client("USERBOT", self.api_id, self.api_hash, session_string=data.get('session'))
-     elif user == True:
-        return Client("USERBOT", self.api_id, self.api_hash, session_string=data)
-     elif user != False:
-        data = data.get('token')
-     return Client("BOT", self.api_id, self.api_hash, bot_token=data, in_memory=True)
-  
-
+    await super().start()
+    await Media.ensure_indexes()
+    me = await self.get_me()
+    temp.U_NAME = me.username
+    temp.B_NAME = me.first_name
+    self.id = me.id
+    self.name = me.first_name
+    self.mention = me.mention
+    self.username = me.username
+     
+  async def start_clone_bot(self):
+     await super().start()
 
   async def add_bot(self, bot, message):
      user_id = int(message.from_user.id)
@@ -118,35 +127,6 @@ class CLIENT:
      await db.add_bot(details)
      return True
     
-
-
-  async def add_session(self, bot, message):
-     user_id = int(message.from_user.id)
-     text = "<b>⚠️ Disclaimer ⚠️</b>\n\nYou Can Use Your Session For Forward Message From Private Chat To Another Chat.\nPlease Add Your Pyrogram Session With Your Own Risk. Their Is A Chance To Ban Your Account. My Developer Is Not Responsible If Your Account May Get Banned."
-     await bot.send_message(user_id, text=text)
-     msg = await bot.ask(chat_id=user_id, text="<b>Send your pyrogram session.\nget it from @mdsessiongenbot\n\n/cancel - cancel the process</b>")
-     if msg.text=='/cancel':
-        return await msg.reply('Process Cancelled !')
-     elif len(msg.text) < SESSION_STRING_SIZE:
-        return await msg.reply('Invalid Session String')
-     try:
-       client = await start_clone_bot(self.client(msg.text, True), True)
-     except Exception as e:
-       await msg.reply_text(f"<b>User Bot Error :</b> `{e}`")
-     user = client.me
-     details = {
-       'id': user.id,
-       'is_bot': False,
-       'user_id': user_id,
-       'name': user.first_name,
-       'session': msg.text,
-       'username': user.username
-     }
-     await db.add_bot(details)
-     return True
-    
-
-
 
 
 
