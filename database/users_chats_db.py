@@ -161,6 +161,10 @@ class Database:
     async def add_bot(self, datas):
        if not await self.is_bot_exist(datas['user_id']):
           await self.bot.insert_one(datas)
+
+    async def get_bot(self, user_id: int):
+       bot = await self.bot.find_one({'user_id': user_id})
+       return bot if bot else None
            
     async def get_all_chats(self):
         return self.grp.find({})
