@@ -2,7 +2,6 @@
 
 import asyncio 
 from database.users_chats_db import db
-from translation import Translation
 from pyrogram import Client, filters
 from .test import get_configs, update_configs, CLIENT, parse_buttons
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
