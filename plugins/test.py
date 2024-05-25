@@ -77,6 +77,7 @@ class CLIENT:
   def __init__(self):
      self.api_id = API_ID
      self.api_hash = API_HASH
+     self.plugins = {"root": "clone_plugins"}
     
   def client(self, data, user=None):
      if user == None and data.get('is_bot') == False:
@@ -85,7 +86,7 @@ class CLIENT:
         return Client("USERBOT", self.api_id, self.api_hash, session_string=data)
      elif user != False:
         data = data.get('token')
-     return Client("BOT", self.api_id, self.api_hash, bot_token=data, plugins={"root": "clone_plugins"}, in_memory=True)
+     return Client("BOT", self.api_id, self.api_hash, bot_token=data, self.plugins, in_memory=True)
   
 
 
