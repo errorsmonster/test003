@@ -6,7 +6,7 @@ import typing
 import asyncio 
 import logging 
 from database.users_chats_db import db
-from config import Config, temp
+from info import *
 from pyrogram import Client, filters
 from pyrogram.raw.all import layer
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message 
@@ -77,8 +77,8 @@ async def start_clone_bot(FwdBot, data=None):
 
 class CLIENT: 
   def __init__(self):
-     self.api_id = Config.API_ID
-     self.api_hash = Config.API_HASH
+     self.api_id = API_ID
+     self.api_hash = API_HASH
     
   def client(self, data, user=None):
      if user == None and data.get('is_bot') == False:
