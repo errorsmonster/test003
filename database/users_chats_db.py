@@ -18,6 +18,7 @@ class Database:
         self.grp = self.db.groups
         self.users = self.db.uersz
         self.req = self.db.requests
+        self.syd = self.db.bots
         
     async def find_join_req(self, id):
         return bool(await self.req.find_one({'id': id}))
@@ -157,19 +158,30 @@ class Database:
     async def total_chat_count(self):
         count = await self.grp.count_documents({})
         return count
-    
-    async def add_bot(self, datas):
-       if not await self.is_bot_exist(datas['user_id']):
-          await self.bot.insert_one(datas)
-
-    async def get_bot(self, user_id: int):
-       bot = await self.bot.find_one({'user_id': user_id})
-       return bot if bot else None
-           
+   
     async def get_all_chats(self):
         return self.grp.find({})
+        
+    async def add_bot(self, user_id: int, bot_id: int, title, username):
+       bot = await self.in_bot(user_id, bot_id)
+       if bot:
+         return False
+       return await self.syd.insert_one({"user_id": user_id, "bot_id": bot_id, "name": name, "username": username})
 
+    async def in_bot(self, user_id: int, bot_id: int) -> bool:
+       bot = await self.syd.find_one({"user_id": int(user_id), "bot_id": int(bot_id)})
+       return bool(bot)
 
+    async def remove_bot(self, user_id: int, chat_id: int):
+       bot = await self.in_channel(user_id, bot_id )
+       if not bot:
+         return False
+       return await self.syd.delete_many({"user_id": int(user_id), "bot_id": int(bot_id)})
+    
+    async def get_bots(self, user_id: int):
+       bots = self.syd.find({"user_id": int(user_id)})
+       return [bot async for bot in bots]
+     
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
 
