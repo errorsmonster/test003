@@ -5,9 +5,12 @@ from info import DATABASE_URI as MONGO_URL
 from pymongo import MongoClient
 from clone_plugins.users_api import get_settings, save_bot_settings
 from database.users_chats_db import db
+from .test import CLIENT
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
+
+CLIENT = CLIENT()
 
 
 @Client.on_message(filters.command("fsub"))
