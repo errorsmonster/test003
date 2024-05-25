@@ -42,6 +42,7 @@ async def settings_query(bot, query):
      await query.message.edit_text(
        "<b>📝 Eᴅɪᴛ Δɴᴅ ᴄʜᴀɴɢᴇ ꜱΞᴛᴛɪɴɢꜱ ᴀꜱ ʏᴏᴜʀ ᴡɪꜱʜ.......\n<blockquote>ᴩʀᴏ ✨</blockquote></b>",
        reply_markup=main_buttons())
+      
   elif type=="bots":
      buttons = [] 
      _bot = await db.get_bot(user_id)
