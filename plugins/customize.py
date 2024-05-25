@@ -36,7 +36,7 @@ async def settings_query(bot, query):
        
   elif type=="bots":
      buttons = [] 
-     channels = await db.get_user_channels(user_id)
+     channels = await db.get_bots(user_id)
      for bot in bots:
         buttons.append([InlineKeyboardButton(f"{channel['title']}",
                          callback_data=f"settings#editchannels_{channel['chat_id']}")])
