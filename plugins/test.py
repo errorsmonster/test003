@@ -12,7 +12,6 @@ from pyrogram.raw.all import layer
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message 
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 from pyrogram.errors import FloodWait
-from translation import Translation
 
 from typing import Union, Optional, AsyncGenerator
 
@@ -161,7 +160,7 @@ async def forward_tag(bot, m):
 
 
 
-@Client.on_message(filters.command('resetall') & filters.user(Config.OWNER_ID))
+@Client.on_message(filters.command('resetall') & filters.user(ADMINS))
 async def resetall(bot, message):
   users = await db.get_all_users()
   sts = await message.reply("Processing")
