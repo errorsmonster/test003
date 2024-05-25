@@ -85,15 +85,15 @@ class CLIENT:
             sleep_threshold=10,
         )
   def client(self, data, user=None):
-    await super().start()
-    await Media.ensure_indexes()
-    me = await self.get_me()
-    temp.U_NAME = me.username
-    temp.B_NAME = me.first_name
-    self.id = me.id
-    self.name = me.first_name
-    self.mention = me.mention
-    self.username = me.username
+     await super().start()
+     await Media.ensure_indexes()
+     me = await self.get_me()
+     temp.U_NAME = me.username
+     temp.B_NAME = me.first_name
+     self.id = me.id
+     self.name = me.first_name
+     self.mention = me.mention
+     self.username = me.username
      
   async def start_clone_bot(self):
      await super().start()
