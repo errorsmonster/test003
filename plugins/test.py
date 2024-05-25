@@ -5,7 +5,7 @@ import sys
 import typing
 import asyncio 
 import logging 
-from database import db 
+from database.users_chats_db import db
 from config import Config, temp
 from pyrogram import Client, filters
 from pyrogram.raw.all import layer
