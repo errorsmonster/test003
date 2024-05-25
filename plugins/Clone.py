@@ -6,6 +6,7 @@ from pymongo import MongoClient
 from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from database.users_chats_db import db
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 from info import API_ID, API_HASH, ADMINS, DATABASE_NAME, AUTH_CHANNEL
 from info import DATABASE_URI as MONGO_URL
