@@ -41,7 +41,6 @@ async def on_clone(client, message):
 
         forward_from_id = message.forward_from.id if message.forward_from else None
         if bot_tokens == bot_token and forward_from_id == 93372553:
-            mongo_collection.delete_one({"token": bot_token})
             await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
             return
 
@@ -55,15 +54,14 @@ async def on_clone(client, message):
                 )
                 
                 await ai.start()
-                bot = await ai.get_me()
+                ia = await ai.get_me()
                 details = {
-                    'bot_id': bot.id,
+                    'bot_id': ia.id,
                     'is_bot': True,
                     'user_id': user_id,
-                    'name': bot.first_name,
+                    'name': ia.first_name,
                     'token': bot_token,
-                    'username': bot.username,
-                    'forc_id': AUTH_CHANNEL
+                    'username': ia.username
                 }
                 mongo_db.bots.insert_one(details)
                 await db.add_bot(details)
