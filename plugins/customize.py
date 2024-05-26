@@ -4,7 +4,7 @@ import asyncio
 from database.users_chats_db import db
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
+from .Clone import CLIENT
 CLIENT = CLIENT()
 
 
