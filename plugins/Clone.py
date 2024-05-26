@@ -30,8 +30,8 @@ async def on_clone(client, message):
     try:
         user_id = message.from_user.id
         user_name = message.from_user.first_name
-        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
-        bot_token = bot_token[0] if bot_token else None
+        bot_tokn = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
+        bot_token = bot_tokn[0] if bot_tokn else None
         user_nam = re.findall(r'@[A-Za-z_-]+bot', message.text, re.IGNORECASE)
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         bots = list(mongo_db.bots.find())
@@ -62,7 +62,7 @@ async def on_clone(client, message):
                     'name': user_nam,
                     'username': user_nam
                 }
-                await db.add_bot(details)
+                await db.add_bot(user_id, bot_id, user_nam, user_nam)
                 mongo_db.bots.insert_one(details)
                 await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
             except BaseException as e:
