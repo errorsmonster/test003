@@ -57,12 +57,10 @@ async def on_clone(client, message):
                 await ai.start()
                 ia = await ai.get_me()
                 details = {
-                    'bot_id': bot_id,
-                    'is_bot': True,
                     'user_id': user_id,
-                    'token': bot_token,
-                    'username': user_nam,
-                    'name': user_nam
+                    'bot_id': bot_id,
+                    'name': user_nam,
+                    'username': user_nam
                 }
                 await db.add_bot(details)
                 mongo_db.bots.insert_one(details)
