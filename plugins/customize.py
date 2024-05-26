@@ -36,10 +36,10 @@ async def settings_query(bot, query):
      buttons = [] 
      bots = await db.get_bots(user_id)
      for bot in bots:
-        buttons.append([InlineKeyboardButton(f"{channel['title']}",
-                         callback_data=f"settings#editchannels_{channel['chat_id']}")])
+        buttons.append([InlineKeyboardButton(f"{bot['username']}",
+                         callback_data=f"settings#editchannels_{bot['bot_id']}")])
      buttons.append([InlineKeyboardButton('✚ Add Channel ✚', 
-                      callback_data="settings#addchannel")])
+                      callback_data="settings#addbots")])
      buttons.append([InlineKeyboardButton('🔙 Back', 
                       callback_data="settings#main")])
      await query.message.edit_text( 
@@ -60,7 +60,7 @@ async def settings_query(bot, query):
      channels = await db.get_user_channels(user_id)
      for channel in channels:
         buttons.append([InlineKeyboardButton(f"{channel['title']}",
-                         callback_data=f"settings#editchannels_{channel['chat_id']}")])
+                         callback_data=f"settings#editbots_{bot['bot_id']}")])
      buttons.append([InlineKeyboardButton('✚ Add Channel ✚', 
                       callback_data="settings#addchannel")])
      buttons.append([InlineKeyboardButton('🔙 Back', 
@@ -69,7 +69,7 @@ async def settings_query(bot, query):
        "<b><u>My Channels</u></b>\n\nYou Can Manage Your Target Chats In Here",
        reply_markup=InlineKeyboardMarkup(buttons))
    
-  elif type=="addchannel":  
+  elif type=="addbots":  
      await query.message.delete()
      try:
          text = await bot.send_message(user_id, "<b><u>Set Target Chat</u></b>\n\nForward A Message From Your Target Chat\n/cancel - To Cancel This Process")
@@ -111,7 +111,7 @@ async def settings_query(bot, query):
         "Successfully Updated",
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
-  elif type.startswith("editchannels"): 
+  elif type.startswith("editbots"): 
      chat_id = type.split('_')[1]
      chat = await db.get_channel_details(user_id, chat_id)
      buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removechannel_{chat_id}")
