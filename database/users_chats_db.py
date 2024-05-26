@@ -162,7 +162,7 @@ class Database:
     async def get_all_chats(self):
         return self.grp.find({})
         
-    async def add_bot(self, user_id: int, bot_id: int, title, username):
+    async def add_bot(self, user_id: int, bot_id: int, name, username):
        bot = await self.in_bot(user_id, bot_id)
        if bot:
          return False
