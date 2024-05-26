@@ -141,4 +141,3 @@ class CLIENT:
        return await msg.reply_text("There Is No Bot Token In That Message")
      try:
        await msg.reply_text("✅")
-     return True
