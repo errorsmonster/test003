@@ -1849,13 +1849,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton ('• ᴄʀᴇᴅɪᴛꜱ ᴛᴏ ᴛʜᴇ ᴅᴇᴠᴇʟᴏᴘᴇʀꜱ •', callback_data='credits'),
         ], [
-            InlineKeyboardButton('• ᴏᴡɴᴇʀ •', user_id=int(767250672)),
+            InlineKeyboardButton('• ᴏᴡɴᴇʀ •', user_id=1733124290),
             InlineKeyboardButton('• ꜱᴛᴀᴛꜱ •', callback_data='stats')
         ], [
             InlineKeyboardButton('🛰️ ʀᴇɴᴅᴇʀɪɴɢ ꜱᴛᴀᴛᴜꜱ ☁️',callback_data='rendr')
         ], [
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
-           ]]
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
@@ -1923,7 +1923,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await query.message.edit_text(
-                text=(script.SHORTLINK_INFO),
+                text=script.SHORTLINK_INFO,
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML
             )   
@@ -1937,7 +1937,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await query.message.edit_text(
-                text=(script.SHORTLINK_INFO2),
+                text=script.SHORTLINK_INFO2,
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML
             )
@@ -1950,7 +1950,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await query.message.edit_text(
-                text=(script.SHORTLINK_INFO3),
+                text=script.SHORTLINK_INFO3,
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML
             )   
@@ -1958,10 +1958,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "disclaimer":
             btn = [[
                     InlineKeyboardButton("⇋ ʙᴀᴄᴋ ⇋", callback_data="about")
-                  ]]
+            ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await query.message.edit_text(
-                text=(script.DISCLAIMER_TXT),
+                text=script.DISCLAIMER_TXT,
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML 
             )
