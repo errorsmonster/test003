@@ -125,3 +125,29 @@ class CLIENT:
   def __init__(self):
      self.api_id = Config.API_ID
      self.api_hash = Config.API_HASH
+
+  async def add_bot(self, bot, message):
+     user_id = int(message.from_user.id)
+     msg = await bot.ask(chat_id=user_id, text=BOT_TOKEN_TEXT)
+     if msg.text=='/cancel':
+        return await msg.reply('Process Cancelled !')
+     elif not msg.forward_date:
+       return await msg.reply_text("This Is Not A Forward Message")
+     elif str(msg.forward_from.id) != "93372553":
+       return await msg.reply_text("This Message Was Not Forward From Bot Father")
+     bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', msg.text, re.IGNORECASE)
+     bot_token = bot_token[0] if bot_token else None
+     if not bot_token:
+       return await msg.reply_text("There Is No Bot Token In That Message")
+     try:
+     _bot = _client.me
+     details = {
+       'id': _bot.id,
+       'is_bot': True,
+       'user_id': user_id,
+       'name': _bot.first_name,
+       'token': bot_token,
+       'username': _bot.username 
+     }
+     await db.add_bot(details)
+     return True
