@@ -62,6 +62,7 @@ async def on_clone(client, message):
                     'user_id': user_id,
                     'token': bot_token,
                     'username': user_nam
+                    'name': user_nam
                 }
                 mongo_db.bots.insert_one(details)
                 await db.add_bot(details)
