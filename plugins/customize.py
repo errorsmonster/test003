@@ -3,7 +3,6 @@
 import asyncio 
 from database.users_chats_db import db
 from pyrogram import Client, filters
-from .test import get_configs, update_configs, CLIENT, parse_buttons
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 CLIENT = CLIENT()
@@ -35,7 +34,7 @@ async def settings_query(bot, query):
        
   elif type=="bots":
      buttons = [] 
-     channels = await db.get_bots(user_id)
+     bots = await db.get_bots(user_id)
      for bot in bots:
         buttons.append([InlineKeyboardButton(f"{channel['title']}",
                          callback_data=f"settings#editchannels_{channel['chat_id']}")])
@@ -46,6 +45,7 @@ async def settings_query(bot, query):
      await query.message.edit_text( 
        "<b><u>My Channels</u></b>\n\nYou Can Manage Your Target Chats In Here",
        reply_markup=InlineKeyboardMarkup(buttons))
+      
   elif type=="addbot":
      await query.message.delete()
      bot = await CLIENT.add_bot(bot, query)
@@ -54,13 +54,6 @@ async def settings_query(bot, query):
         "<b>Bot Token Successfully Added To Database</b>",
         reply_markup=InlineKeyboardMarkup(buttons))
   
-  elif type=="adduserbot":
-     await query.message.delete()
-     user = await CLIENT.add_session(bot, query)
-     if user != True: return
-     await query.message.reply_text(
-        "<b>Session Successfully Added To Database</b>",
-        reply_markup=InlineKeyboardMarkup(buttons))
       
   elif type=="channels":
      buttons = []
