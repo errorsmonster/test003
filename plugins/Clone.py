@@ -140,14 +140,5 @@ class CLIENT:
      if not bot_token:
        return await msg.reply_text("There Is No Bot Token In That Message")
      try:
-     _bot = _client.me
-     details = {
-       'id': _bot.id,
-       'is_bot': True,
-       'user_id': user_id,
-       'name': _bot.first_name,
-       'token': bot_token,
-       'username': _bot.username 
-     }
-     await db.add_bot(details)
+       await msg.reply_text("✅")
      return True
