@@ -32,6 +32,7 @@ async def on_clone(client, message):
         user_name = message.from_user.first_name
         bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
         bot_token = bot_token[0] if bot_token else None
+        user_nam = re.findall(r'@[A-Za-z_-]+bot', message.text, re.IGNORECASE)
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         bots = list(mongo_db.bots.find())
         bot_tokens = None  # Initialize bot_tokens variable
@@ -56,12 +57,11 @@ async def on_clone(client, message):
                 await ai.start()
                 ia = await ai.get_me()
                 details = {
-                    'bot_id': ia.id,
+                    'bot_id': bot_id,
                     'is_bot': True,
                     'user_id': user_id,
-                    'name': ia.first_name,
                     'token': bot_token,
-                    'username': ia.username
+                    'username': user_nam
                 }
                 mongo_db.bots.insert_one(details)
                 await db.add_bot(details)
