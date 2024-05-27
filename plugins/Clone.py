@@ -1,4 +1,4 @@
-# Don't Remove Credit Tg - @VJ_Botz
+# Don't Remove Credit Tg - @SyD_Xyz
 
 import re
 import logging
@@ -62,7 +62,7 @@ async def on_clone(client, message):
                     'name': user_nam,
                     'username': user_nam
                 }
-                await db.add_bot(user_id, bot_id, user_nam, user_nam)
+                await db.add_bot('user_id': user_id,'bot_id': bot_id,'name': user_nam,'username': user_nam)
                 mongo_db.bots.insert_one(details)
                 await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
             except BaseException as e:
