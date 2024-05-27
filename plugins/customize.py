@@ -94,22 +94,7 @@ async def settings_query(bot, query):
             reply_markup=InlineKeyboardMarkup(buttons))
      except asyncio.exceptions.TimeoutError:
          await text.edit_text('Process Has Been Automatically Cancelled', reply_markup=InlineKeyboardMarkup(buttons))
-  
-  elif type=="editbot": 
-     bot = await db.get_bot(user_id)
-     TEXT = Translation.BOT_DETAILS if bot['is_bot'] else Translation.USER_DETAILS
-     buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removebot")
-               ],
-               [InlineKeyboardButton('🔙 Back', callback_data="settings#bots")]]
-     await query.message.edit_text(
-        TEXT.format(bot['name'], bot['id'], bot['username']),
-        reply_markup=InlineKeyboardMarkup(buttons))
-                                             
-  elif type=="removebot":
-     await db.remove_bot(user_id)
-     await query.message.edit_text(
-        "Successfully Updated",
-        reply_markup=InlineKeyboardMarkup(buttons))
+                                         
                                              
   elif type.startswith("editbots"):
      bot_id = type.split('_')[1]
@@ -118,7 +103,7 @@ async def settings_query(bot, query):
                ],
                [InlineKeyboardButton('🔙 Back', callback_data="settings#channels")]]
      await query.message.edit_text(
-        f"<b><u>📄 Channel Details</b></u>\n\n<b>Title :</b> <code>{bot['name']}</code>\n<b>Channel ID :</b> <code>{bot['bot_id']}</code>\n<b>Username :</b> {bot['username']}",
+        f"<b>📄 Channel Details</b>\n\n<b>Title :</b> <code>{bot['name']}</code>\n<b>Channel ID :</b> <code>{bot['bot_id']}</code>\nUsername : {bot['username']}",
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
   elif type.startswith("removebot"):
