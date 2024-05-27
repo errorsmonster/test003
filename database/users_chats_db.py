@@ -172,7 +172,7 @@ class Database:
        bot = await self.syd.find_one({"user_id": int(user_id), "bot_id": int(bot_id)})
        return bool(bot)
 
-    async def remove_bot(self, user_id: int, chat_id: int):
+    async def remove_bot(self, user_id: int, bot_id: int):
        bot = await self.in_bot(user_id, bot_id )
        if not bot:
          return False
