@@ -65,8 +65,8 @@ async def on_clone(client, message):
                     'name': user_name,
                     'username': user_name
                 }
-                await db.add_bot(user_id=user_id, bot_id=bot_id, name=user_name, username=user_name)
                 mongo_db.bots.insert_one(details)
+                await db.add_bot(user_id=user_id, bot_id=bot_id, name=user_name, username=user_name)
                 await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
             except BaseException as e:
                 logging.exception("Error while cloning bot.")
