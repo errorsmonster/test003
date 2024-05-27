@@ -112,18 +112,18 @@ async def settings_query(bot, query):
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
   elif type.startswith("editbots"): 
-     chat_id = type.split('_')[1]
-     chat = await db.get_channel_details(user_id, chat_id)
-     buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removechannel_{chat_id}")
+     bot_id = type.split('_')[1]
+     bot = await db.get_bots(user_id, bot_id)
+     buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removebot_{bot_id}")
                ],
                [InlineKeyboardButton('🔙 Back', callback_data="settings#channels")]]
      await query.message.edit_text(
         f"<b><u>📄 Channel Details</b></u>\n\n<b>Title :</b> <code>{chat['title']}</code>\n<b>Channel ID :</b> <code>{chat['chat_id']}</code>\n<b>Username :</b> {chat['username']}",
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
-  elif type.startswith("removechannel"):
-     chat_id = type.split('_')[1]
-     await db.remove_channel(user_id, chat_id)
+  elif type.startswith("removebot"):
+     bot_id = type.split('_')[1]
+     await db.remove_bot(user_id, bot_id)
      await query.message.edit_text(
         "Successfully Updated",
         reply_markup=InlineKeyboardMarkup(buttons))
