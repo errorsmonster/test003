@@ -111,7 +111,8 @@ async def settings_query(bot, query):
         "Successfully Updated",
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
-  elif type.startswith("editbots"): 
+  elif type.startswith("editbots"):
+     bot_id = type.split('_')[1]
      bot = await db.get_bots(user_id, bot_id)
      buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removebot_{bot_id}")
                ],
