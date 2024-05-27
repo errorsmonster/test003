@@ -57,7 +57,7 @@ async def on_clone(client, message):
                 )
                 
                 await ai.start()
-                ia = await ai.get_me()
+                bot = await ai.get_me()
                 details = {
                     'user_id': user_id,
                     'bot_id': bot_id,
