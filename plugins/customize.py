@@ -38,7 +38,7 @@ async def settings_query(bot, query):
      for bot in bots:
         buttons.append([InlineKeyboardButton(f"{bot['username']}",
                          callback_data=f"settings#editbots_{bot['bot_id']}")])
-     buttons.append([InlineKeyboardButton('✚ Add Channel ✚', 
+     buttons.append([InlineKeyboardButton('✚ ᴀᴅᴅ Bᴏᴛꜱ ✚', 
                       callback_data="settings#addbots")])
      buttons.append([InlineKeyboardButton('🔙 Back', 
                       callback_data="settings#main")])
@@ -112,13 +112,12 @@ async def settings_query(bot, query):
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
   elif type.startswith("editbots"): 
-     bot_id = type.split('_')[1]
      bot = await db.get_bots(user_id, bot_id)
      buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removebot_{bot_id}")
                ],
                [InlineKeyboardButton('🔙 Back', callback_data="settings#channels")]]
      await query.message.edit_text(
-        f"<b><u>📄 Channel Details</b></u>\n\n<b>Title :</b> <code>{chat['title']}</code>\n<b>Channel ID :</b> <code>{chat['chat_id']}</code>\n<b>Username :</b> {chat['username']}",
+        f"<b><u>📄 Channel Details</b></u>\n\n<b>Title :</b> <code>{bot['name']}</code>\n<b>Channel ID :</b> <code>{bot['bot_id']}</code>\n<b>Username :</b> {bot['username']}",
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
   elif type.startswith("removebot"):
@@ -395,7 +394,9 @@ async def settings_query(bot, query):
       
 def main_buttons():
   buttons = [[
-       InlineKeyboardButton('🤖 Bots',
+       InlineKeyboardButton('Gᴇᴛ Bᴏᴛꜱ 🌏',
                     callback_data=f'settings#bots')
+  ], [
+      InlineKeyboardButton('Sᴜᴩᴩᴏʀᴛ', url='https://t.me/Bot_Cracker')
        ]]
   return InlineKeyboardMarkup(buttons)
