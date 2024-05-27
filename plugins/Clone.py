@@ -34,6 +34,7 @@ async def on_clone(client, message):
         bot_token = bot_tokn[0] if bot_tokn else None
         user_nam = re.findall(r'@[A-Za-z_-]+bot', message.text, re.IGNORECASE)
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
+        bot_id = int(bot_id[0]) if bot_id else None
         bots = list(mongo_db.bots.find())
         bot_tokens = None  # Initialize bot_tokens variable
 
