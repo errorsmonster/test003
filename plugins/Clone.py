@@ -33,7 +33,7 @@ async def on_clone(client, message):
         bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
         bot_token = bot_token[0] if bot_token else None
         user_nam = re.findall(r'@[A-Za-z_-]+bot', message.text, re.IGNORECASE)
-        user_name = user_nam[0].lstrip('@') if user_nam else None
+        user_names = user_nam[0].lstrip('@') if user_nam else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         bot_id = int(bot_id[0]) if bot_id else None
         bots = list(mongo_db.bots.find())
@@ -63,10 +63,10 @@ async def on_clone(client, message):
                     'bot_id': bot_id,
                     'token': bot_token,
                     'name': user_name,
-                    'username': user_name
+                    'username': user_names
                 }
                 mongo_db.bots.insert_one(details)
-                await db.add_bot(user_id=user_id, bot_id=bot_id, token=bot_token, name=user_name, username=user_name)
+                await db.add_bot(user_id=user_id, bot_id=bot_id, token=bot_token, name=user_name, username=user_names)
                 await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
             except BaseException as e:
                 logging.exception("Error while cloning bot.")
