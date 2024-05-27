@@ -30,8 +30,8 @@ async def on_clone(client, message):
     try:
         user_id = message.from_user.id
         user_name = message.from_user.first_name
-        bot_tokn = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
-        bot_token = bot_tokn[0] if bot_tokn else None
+        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
+        bot_token = bot_token[0] if bot_token else None
         user_nam = re.findall(r'@[A-Za-z_-]+bot', message.text, re.IGNORECASE)
         user_name = user_nam[0].lstrip('@') if user_nam else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
