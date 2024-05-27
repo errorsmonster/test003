@@ -173,7 +173,7 @@ class Database:
        return bool(bot)
 
     async def remove_bot(self, user_id: int, chat_id: int):
-       bot = await self.in_channel(user_id, bot_id )
+       bot = await self.in_bot(user_id, bot_id )
        if not bot:
          return False
        return await self.syd.delete_many({"user_id": int(user_id), "bot_id": int(bot_id)})
