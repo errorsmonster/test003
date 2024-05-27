@@ -37,7 +37,7 @@ async def settings_query(bot, query):
      bots = await db.get_bots(user_id)
      for bot in bots:
         buttons.append([InlineKeyboardButton(f"{bot['username']}",
-                         callback_data=f"settings#editbots_{bot['bot_id']}")])
+                         callback_data=f"settings#editbots_{bot['username']}")])
      buttons.append([InlineKeyboardButton('✚ ᴀᴅᴅ Bᴏᴛꜱ ✚', 
                       callback_data="settings#addbots")])
      buttons.append([InlineKeyboardButton('🔙 Back', 
@@ -97,8 +97,9 @@ async def settings_query(bot, query):
                                          
                                              
   elif type.startswith("editbots"):
-     bot_id = type.split('_')[1]
-     bot = await db.get_bots(user_id, bot_id)
+     username = type.split('_')[1]
+     bot = await db.get_bots(user_id, bot_id, username)
+     bot_id = await db.get_bots(user_id, bot_id)
      buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removebot_{bot_id}")
                ],
                [InlineKeyboardButton('🔙 Back', callback_data="settings#channels")]]
