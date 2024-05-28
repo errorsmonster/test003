@@ -23,6 +23,8 @@ async def shortlink(bot, message):
     reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
     if not re.match(r'\d{8,10}', bot_id):
         return await reply.edit_text("<b>Invalid bot ID format! Bot ID must be between 8 and 10 digits.</b>")
+    if await db.get_bot(user_id, bot_id) is None:
+        return await reply.edit_text("<b>The specified bot ID does not belong to you!</b>")
     forc_id = re.findall(r'-\d{13}', forc_id)
     if not forc_id:
         return await reply.edit_text("<b>Invalid force ID provided!</b>")
