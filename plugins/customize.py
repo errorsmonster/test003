@@ -9,10 +9,6 @@ CLIENT = CLIENT()
 
 
 @Client.on_message(filters.command("force_sub"))
-import re
-from pyrogram import Client, filters
-
-@Client.on_message(filters.command("force_sub"))
 async def shorink(bot, message):
     user_id = message.from_user.id if message.from_user else None
     data = message.text
