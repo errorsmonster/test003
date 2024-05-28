@@ -9,7 +9,11 @@ CLIENT = CLIENT()
 
 
 @Client.on_message(filters.command("force_sub"))
-async def shortlink(bot, message):
+import re
+from pyrogram import Client, filters
+
+@Client.on_message(filters.command("force_sub"))
+async def shorink(bot, message):
     user_id = message.from_user.id if message.from_user else None
     data = message.text
     try:
@@ -21,16 +25,23 @@ async def shortlink(bot, message):
             "Format: <code>/force_sub bot_id -1002127267733</code></b>"
         )
     reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
-    bot_id = re.findall(r'\d{8,10}', bot_id)
-    if not bot_id:
-        return await reply.edit_text("<b>Invalid force ID provided!</b>")
-    if await db.get_bot(user_id, bot_id) is None:
+    bot_id_match = re.findall(r'\d{8,10}', bot_id)
+    if not bot_id_match:
+        return await reply.edit_text("<b>Invalid bot ID provided!</b>")
+    bot_id = bot_id_match[0]
+    bot = await db.get_bot(user_id, bot_id)
+    if bot is None:
         return await reply.edit_text("<b>The specified bot ID does not belong to you!</b>")
-    forc_id = re.findall(r'-\d{13}', forc_id)
-    if not forc_id:
+    forc_id_match = re.findall(r'-\d{13}', forc_id)
+    if not forc_id_match:
         return await reply.edit_text("<b>Invalid force ID provided!</b>")
+    forc_id = forc_id_match[0]
     await save_bot_settings(user_id, bot_id, 'forc_id', forc_id)
-    await reply.edit_text(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ꜱʜᴏʀᴛʟɪɴᴋ ꜰᴏʀ <code>{bot_id}</code>.\n\nꜱʜᴏʀᴛʟɪɴᴋ ᴡᴇʙꜱɪᴛᴇ : <code>{forc_id}</code>\nꜱʜᴏʀᴛʟɪɴᴋ ᴀᴘɪ :</b>")
+    await reply.edit_text(
+        f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ꜱʜᴏʀᴛʟɪɴᴋ ꜰᴏʀ <code>{bot_id}</code>.\n\n"
+        f"ꜱʜᴏʀᴛʟɪɴᴋ ᴡᴇʙꜱɪᴛᴇ : <code>{forc_id}</code>\n"
+        f"ꜱʜᴏʀᴛʟɪɴᴋ ᴀᴘɪ :</b>"
+    )
 
 @Client.on_message(filters.private & filters.command(['clones']))
 async def settings(client, message):
