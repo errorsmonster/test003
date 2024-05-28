@@ -21,14 +21,14 @@ async def shorink(bot, message):
             "Format: <code>/force_sub bot_id -1002127267733</code></b>"
         )
     reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
-    bot_id_match = re.findall(r'\d{8,10}', bot_id)
+    bot_id_match = re.findall(r'\d{8,10}', message.text, re.IGNORECASE)
     if not bot_id_match:
         return await reply.edit_text("<b>Invalid bot ID provided!</b>")
     bot_id = bot_id_match[0]
     bot = await db.get_bot(user_id, bot_id)
     if bot is None:
         return await reply.edit_text("<b>The specified bot ID does not belong to you!</b>")
-    forc_id_match = re.findall(r'-\d{13}', forc_id)
+    forc_id_match = re.findall(r'-\d{13}', message.text, re.IGNORECASE)
     if not forc_id_match:
         return await reply.edit_text("<b>Invalid force ID provided!</b>")
     forc_id = forc_id_match[0]
