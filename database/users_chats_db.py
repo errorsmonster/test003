@@ -183,7 +183,7 @@ class Database:
        return [bot async for bot in bots]
 
     async def get_bot(self, user_id: int, bot_id: int):
-       return await self.chl.find_one({"user_id": int(user_id), "bot_id": int(bot_id)})
+       return await self.syd.find_one({"user_id": int(user_id), "bot_id": int(bot_id)})
        
     async def get_setings(self, user_id, bot_id):
         default = {
