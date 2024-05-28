@@ -185,7 +185,35 @@ class Database:
     async def get_bot(self, user_id: int, bot_id: int):
        return await self.chl.find_one({"user_id": int(user_id), "bot_id": int(bot_id)})
        
-     
+    async def get_setings(self, user_id, bot_id):
+        default = {
+            'forc_id': AUTH_CHANNEL,
+            'botpm': P_TTI_SHOW_OFF,
+            'file_secure': PROTECT_CONTENT,
+            'imdb': IMDB,
+            'spell_check': SPELL_CHECK_REPLY,
+            'welcome': MELCOW_NEW_USERS,
+            'auto_delete': AUTO_DELETE,
+            'auto_ffilter': AUTO_FFILTER,
+            'max_btn': MAX_BTN,
+            'template': IMDB_TEMPLATE,
+            'shortlink': SHORTLINK_URL,
+            'shortlink_api': SHORTLINK_API,
+            'is_shortlink': IS_SHORTLINK,
+            'tutorial': TUTORIAL,
+            'is_tutorial': IS_TUTORIAL
+        }
+        bot = await self.syd.find_one({'user_id':int(id), 'bot_id':int(bot_id)})
+        if bot:
+            return bot.get('setings', default)
+        return default
+
+    async def update_setings(self, user_id, bot_id, settings):
+        await self.syd.update_one(
+            {'user_id': int(user_id), 'bot_id': int(bot_id)},  # Added bot_id to the query
+            {'$set': {'setings': setings}}
+        )
+
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
 
