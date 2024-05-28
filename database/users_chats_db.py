@@ -181,6 +181,10 @@ class Database:
     async def get_bots(self, user_id: int):
        bots = self.syd.find({"user_id": int(user_id)})
        return [bot async for bot in bots]
+
+    async def get_bot(self, user_id: int, bot_id: int):
+       return await self.chl.find_one({"user_id": int(user_id), "bot_id": int(bot_id)})
+       
      
     async def get_db_size(self):
         return (await self.db.command("dbstats"))['dataSize']
