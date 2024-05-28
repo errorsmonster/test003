@@ -103,7 +103,7 @@ async def settings_query(bot, query):
                ],
                [InlineKeyboardButton('🔙 Back', callback_data="settings#channels")]]
      await query.message.edit_text(
-        f"<b>📄 Channel Details</b>\n\n<b>Title :</b> <code>{bot['name']}</code>\n<b>Channel ID :</b> <code>{bot['bot_id']}</code>\nUsername : {bot['username']}",
+        f"📄 code",
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
   elif type.startswith("removebot"):
