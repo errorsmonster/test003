@@ -99,14 +99,11 @@ async def settings_query(bot, query):
   elif type.startswith("editbots"):
      bot_id = type.split('_')[1]
      bot = await db.get_bot(user_id, bot_id)
-     buttons = [[InlineKeyboardButton('❌ Remove ❌', 
-                   callback_data=f"settings#removebot_{bot_id}")
-               ],[
-               InlineKeyboardButton('🔙 Back', 
-                 callback_data="settings#channels")
-               ]]
+     buttons = [[InlineKeyboardButton('❌ Remove ❌', callback_data=f"settings#removebot_{bot_id}")
+               ],
+               [InlineKeyboardButton('🔙 Back', callback_data="settings#channels")]]
      await query.message.edit_text(
-        "📄 code",
+        f"<b><u>📄 Channel Details</b></u>\n\n<b>Title :</b> <code>{bot['name']}</code>\n<b>Channel ID :</b> <code>{bot['bot_id']}</code>\n<b>Username :</b> {bot['username']}",
         reply_markup=InlineKeyboardMarkup(buttons))
                                              
   elif type.startswith("removebot"):
