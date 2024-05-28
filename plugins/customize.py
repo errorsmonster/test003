@@ -21,7 +21,7 @@ async def shortlink(bot, message):
             "Format: <code>/force_sub bot_id -1002127267733</code></b>"
         )
     reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
-    bot_id = re.findall(r'\d{8,10}', bot_id):
+    bot_id = re.findall(r'\d{8,10}', bot_id)
     if not bot_id:
         return await reply.edit_text("<b>Invalid force ID provided!</b>")
     if await db.get_bot(user_id, bot_id) is None:
