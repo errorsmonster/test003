@@ -11,14 +11,23 @@ CLIENT = CLIENT()
 @Client.on_message(filters.command("force_sub"))
 async def shortlink(bot, message):
     user_id = message.from_user.id if message.from_user else None
+    data = message.text
     try:
         command, bot_id, forc_id = data.split(" ")
-    except:
-        return await message.reply_text("<b>ᴄᴏᴍᴍᴀɴᴅ ɪɴᴄᴏᴍᴘʟᴇᴛᴇ !\nɢɪᴠᴇ ᴍᴇ ᴄᴏᴍᴍᴀɴᴅ ᴀʟᴏɴɢ ᴡɪᴛʜ ꜱʜᴏʀᴛɴᴇʀ ᴡᴇʙꜱɪᴛᴇ ᴀɴᴅ ᴀᴘɪ.\n\nꜰᴏʀᴍᴀᴛ : <code>/shortlink krishnalink.com c8dacdff6e91a8e4b4f093fdb4d8ae31bc273c1a</code>")
+    except ValueError:
+        return await message.reply_text(
+            "<b>Command incomplete!\n"
+            "Give me command along with bot ID and force ID.\n\n"
+            "Format: <code>/force_sub bot_id -1002127267733</code></b>"
+        )
     reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
-    forc_id = re.findall(r'-\d{13}', message.text, re.IGNORECASE)
+    if not re.match(r'\d{8,10}', bot_id):
+        return await reply.edit_text("<b>Invalid bot ID format! Bot ID must be between 8 and 10 digits.</b>")
+    forc_id = re.findall(r'-\d{13}', forc_id)
+    if not forc_id:
+        return await reply.edit_text("<b>Invalid force ID provided!</b>")
     await save_bot_settings(user_id, bot_id, 'forc_id', forc_id)
-    await reply.edit_text(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ꜱʜᴏʀᴛʟɪɴᴋ ꜰᴏʀ <code>{title}</code>.\n\nꜱʜᴏʀᴛʟɪɴᴋ ᴡᴇʙꜱɪᴛᴇ : <code>{shortlink_url}</code>\nꜱʜᴏʀᴛʟɪɴᴋ ᴀᴘɪ : <code>{api}</code></b>")
+    await reply.edit_text(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ꜱʜᴏʀᴛʟɪɴᴋ ꜰᴏʀ <code>{bot_id}</code>.\n\nꜱʜᴏʀᴛʟɪɴᴋ ᴡᴇʙꜱɪᴛᴇ : <code>{forc_id}</code>\nꜱʜᴏʀᴛʟɪɴᴋ ᴀᴘɪ :</b>")
 
 @Client.on_message(filters.private & filters.command(['clones']))
 async def settings(client, message):
