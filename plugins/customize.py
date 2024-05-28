@@ -8,6 +8,17 @@ from .Clone import CLIENT
 CLIENT = CLIENT()
 
 
+@Client.on_message(filters.command("force_sub"))
+async def shortlink(bot, message):
+    user_id = message.from_user.id if message.from_user else None
+    try:
+        command, bot_id, forc_id = data.split(" ")
+    except:
+        return await message.reply_text("<b>ᴄᴏᴍᴍᴀɴᴅ ɪɴᴄᴏᴍᴘʟᴇᴛᴇ !\nɢɪᴠᴇ ᴍᴇ ᴄᴏᴍᴍᴀɴᴅ ᴀʟᴏɴɢ ᴡɪᴛʜ ꜱʜᴏʀᴛɴᴇʀ ᴡᴇʙꜱɪᴛᴇ ᴀɴᴅ ᴀᴘɪ.\n\nꜰᴏʀᴍᴀᴛ : <code>/shortlink krishnalink.com c8dacdff6e91a8e4b4f093fdb4d8ae31bc273c1a</code>")
+    reply = await message.reply_text("<b>ᴘʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
+    forc_id = re.findall(r'-\d{13}', message.text, re.IGNORECASE)
+    await save_bot_settings(user_id, bot_id, 'forc_id', forc_id)
+    await reply.edit_text(f"<b>✅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ꜱʜᴏʀᴛʟɪɴᴋ ꜰᴏʀ <code>{title}</code>.\n\nꜱʜᴏʀᴛʟɪɴᴋ ᴡᴇʙꜱɪᴛᴇ : <code>{shortlink_url}</code>\nꜱʜᴏʀᴛʟɪɴᴋ ᴀᴘɪ : <code>{api}</code></b>")
 
 @Client.on_message(filters.private & filters.command(['clones']))
 async def settings(client, message):
