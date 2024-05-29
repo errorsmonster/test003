@@ -1623,12 +1623,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
         else:            
             await db.give_free_trial(user_id)
             await query.message.reply_text(
-                text="<b>🥳 ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ\n\n🎉 ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ꜰʀᴇᴇ ᴛʀᴀɪʟ ꜰᴏʀ <u>5 ᴍɪɴᴜᴛᴇs</u> ꜰʀᴏᴍ ɴᴏᴡ !</b>",
+                text="<b>🥳 ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ\n\n🎉 ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ꜰʀᴇᴇ ᴛʀᴀɪʟ ꜰᴏʀ <u>8 ᴍɪɴᴜᴛᴇs</u> ꜰʀᴏᴍ ɴᴏᴡ !</b>",
                 quote=False,
                 disable_web_page_preview=True,                  
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💸 ᴄʜᴇᴄᴋᴏᴜᴛ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴꜱ 💸", callback_data='seeplans')]]))
             return    
 
+    elif query.data == "refre":
+        buttons = [[
+            InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url='')
+        ],[
+            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.REFER_TXT.format(REFERAL_PREMEIUM_TIME, temp.U_NAME, query.from_user.id, REFERAL_COUNT),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
     elif query.data == "premium_info":
         buttons = [[
             InlineKeyboardButton('• ꜰʀᴇᴇ ᴛʀɪᴀʟ •', callback_data='free')
@@ -1641,7 +1653,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[
             InlineKeyboardButton('• ᴅɪᴀᴍᴏɴᴅ •', callback_data='diamond'),
             InlineKeyboardButton('• ᴏᴛʜᴇʀ •', callback_data='other')
-        ],[            
+        ],[ 
+            InlineKeyboardButton(' Fʀᴇᴇ ', callback_data='refre')
+        ],[
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
         ]]
         
