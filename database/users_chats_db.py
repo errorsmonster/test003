@@ -3,7 +3,7 @@ import motor.motor_asyncio
 from info import DATABASE_NAME, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, CLONE_DB_URI, IS_TUTORIAL
 import datetime
 import pytz
-from info import DATABASE_URI as MONGO_URL
+from info import DATABASE_URI as MONGO_URI
 from pymongo import MongoClient
 
 my_client = MongoClient(MONGO_URI)
