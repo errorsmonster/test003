@@ -45,10 +45,10 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('☒ Δᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ☒', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('ᴇΔʀꪀ ꪑᴏꫝᴇꪗ ', callback_data="shortlink_info"),
+                    InlineKeyboardButton('✧ ᴇΔʀꪀ ꪑᴏꫝᴇꪗ ✧', callback_data="shortlink_info"),
                     InlineKeyboardButton('⚝ ᴜᴘᦔΔᴛꫀ𝘴 ⚝', callback_data='channels')
                 ],[
-                    InlineKeyboardButton('⇱ ᴄ0ᴍᴍᴀɴᴅˢ ⇲', callback_data='help'),
+                    InlineKeyboardButton('⇱ ᴄ0ᴍᴍᴀɴᴅꜱ ⇲', callback_data='help'),
                     InlineKeyboardButton('⊛ Δʙᴏᴜᴛ ⊛', callback_data='about')
                 ],[
                     InlineKeyboardButton('.', callback_data="premium_info")
