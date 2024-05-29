@@ -1629,18 +1629,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💸 ᴄʜᴇᴄᴋᴏᴜᴛ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴꜱ 💸", callback_data='seeplans')]]))
             return    
 
-    elif query.data == "refre":
-        buttons = [[
-            InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url='')
-        ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.REFER_TXT.format(REFERAL_PREMEIUM_TIME, temp.U_NAME, query.from_user.id, REFERAL_COUNT),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+    
     elif query.data == "premium_info":
         buttons = [[
             InlineKeyboardButton('• ꜰʀᴇᴇ ᴛʀɪᴀʟ •', callback_data='free')
@@ -1665,6 +1654,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
+    elif query.data == "refre":
+        id = query.from_user.id
+        buttons = [[
+            InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url='https://telegram.me/Mr_Movies_file_bot?start=SyD-{id}')
+        ],[
+            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.REFER_TXT.format(REFERAL_PREMEIUM_TIME, temp.U_NAME, query.from_user.id, REFERAL_COUNT),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
     elif query.data == "free":
         buttons = [[
             InlineKeyboardButton('⚜️ ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ ꜰʀᴇᴇ ᴛʀɪᴀʟ', callback_data="give_trial")
