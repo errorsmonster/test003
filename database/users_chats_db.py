@@ -6,9 +6,32 @@ import pytz
 from info import DATABASE_URI as MONGO_URL
 from pymongo import MongoClient
 
-mongo_client = MongoClient(MONGO_URL)
-mongo_db = mongo_client["cloned_vjbotz"]
+my_client = MongoClient(MONGO_URI)
+mydb = my_client["referal_user"]
 
+async def referal_add_user(user_id, ref_user_id):
+    user_db = mydb[str(user_id)]
+    user = {'_id': ref_user_id}
+    try:
+        user_db.insert_one(user)
+        return True
+    except DuplicateKeyError:
+        return False
+    
+
+async def get_referal_all_users(user_id):
+    user_db = mydb[str(user_id)]
+    return user_db.find()
+    
+async def get_referal_users_count(user_id):
+    user_db = mydb[str(user_id)]
+    count = user_db.count_documents({})
+    return count
+    
+
+async def delete_all_referal_users(user_id):
+    user_db = mydb[str(user_id)]
+    user_db.delete_many({}) 
 class Database:
     
     def __init__(self, uri, database_name):
