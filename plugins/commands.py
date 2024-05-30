@@ -45,7 +45,7 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('☒ Δᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ☒', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('✧ ᴇΔʀꪀ ꪑᴏꫝᴇꪗ ✧', callback_data="shortlink_info"),
+                    InlineKeyboardButton('⌬ ᴇΔʀꪀ ꪑᴏꫝᴇꪗ ⌬', callback_data="shortlink_info"),
                     InlineKeyboardButton('⚝ ᴜᴘᦔΔᴛꫀ𝘴 ⚝', callback_data='channels')
                 ],[
                     InlineKeyboardButton('⇱ ᴄ0ᴍᴍᴀɴᴅꜱ ⇲', callback_data='help'),
@@ -95,7 +95,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "⊛ ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ ⊛", url=invite_link.invite_link
+                    "⊛ Jᴏɪɴ Uᴘᴅᴀᴛᴇꜱ Cʜᴀɴɴᴇℓ ⊛", url=invite_link.invite_link
                 )
             ]
         ]
@@ -176,11 +176,11 @@ async def start(client, message):
     data = message.command[1]
     if data.split("-", 1)[0] == "SyD":
         user_id = int(data.split("-", 1)[1])
-        vj = await referal_add_user(user_id, message.from_user.id)
-        if vj and PREMIUM_AND_REFERAL_MODE == True:
-            await message.reply(f"<b>You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot</b>")
+        syd = await referal_add_user(user_id, message.from_user.id)
+        if syd and PREMIUM_AND_REFERAL_MODE == True:
+            await message.reply(f"<b>Yσᴜ ʜᴀᴠᴇ ꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙʏ ᴜꜱɪɴɢ ᴛʜᴇ ʀᴇꜰʀʀᴇʟ ʟɪɴᴋ ᴏꜰ ᴀ ᴜꜱᴇʀ \n\nSᴇɴᴅ /start Δɢᴀɪɴ To Uꜱᴇ Tʜᴇ Бᴏᴛ</b>")
             num_referrals = await get_referal_users_count(user_id)
-            await client.send_message(chat_id = user_id, text = "<b>{} start the bot with your referral link\n\nTotal Referals - {}</b>".format(message.from_user.mention, num_referrals))
+            await client.send_message(chat_id = user_id, text = "<b>{} Sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴡɪᴛʜ ʏᴏᴜʀ ʀᴇꜰᴇʀʀᴇʟ ʟɪɴᴋ\n\nTᴏᴛᴀʟ Rᴇꜰᴇʀꜱ - {}/10</b>".format(message.from_user.mention, num_referrals))
             if num_referrals == REFERAL_COUNT:
                 time = REFERAL_PREMEIUM_TIME       
                 seconds = await get_seconds(time)
