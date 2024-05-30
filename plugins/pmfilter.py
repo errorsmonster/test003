@@ -1688,6 +1688,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.REFER_TXT.format(REFERAL_PREMEIUM_TIME, temp.U_NAME, query.from_user.id, REFERAL_COUNT),
             reply_markup=reply_markup,
@@ -1705,6 +1710,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.FREE_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1722,6 +1732,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.BRONZE_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1739,6 +1754,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.SILVER_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1756,6 +1776,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.GOLD_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1773,6 +1798,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.PLATINUM_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1791,6 +1821,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.DIAMOND_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1808,6 +1843,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.OTHER_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1828,6 +1868,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Oᴡɴᴇʀ 🎗️', user_id=1733124290)
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.CHANNELS.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1839,6 +1884,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.USERS_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1850,6 +1900,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.GROUP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1863,6 +1918,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.ADMIC_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1880,6 +1940,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
@@ -1900,6 +1965,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
             reply_markup=reply_markup,
@@ -1914,6 +1984,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.CREDITS_TXT,
             reply_markup=reply_markup,
@@ -1933,6 +2008,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
@@ -1952,6 +2032,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
         await query.message.edit_text(
             text=script.STATUS_TXT.format(total, users, chats, monsize, free),
             reply_markup=reply_markup,
@@ -1965,6 +2050,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
+            await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+           )
             await query.message.edit_text(
                 text=script.SHORTLINK_INFO,
                 reply_markup=reply_markup,
@@ -1979,6 +2069,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
+            await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+            )
             await query.message.edit_text(
                 text=script.SHORTLINK_INFO2,
                 reply_markup=reply_markup,
@@ -1992,6 +2087,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
+            await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+            )
             await query.message.edit_text(
                 text=script.SHORTLINK_INFO3,
                 reply_markup=reply_markup,
@@ -2003,6 +2103,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton("⇋ ʙᴀᴄᴋ ⇋", callback_data="about")
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
+            await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+           )
             await query.message.edit_text(
                 text=script.DISCLAIMER_TXT,
                 reply_markup=reply_markup,
