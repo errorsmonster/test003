@@ -178,9 +178,9 @@ async def start(client, message):
         user_id = int(data.split("-", 1)[1])
         syd = await referal_add_user(user_id, message.from_user.id)
         if syd and PREMIUM_AND_REFERAL_MODE == True:
-            await message.reply(f"<b>Yσᴜ ʜᴀᴠᴇ ꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙʏ ᴜꜱɪɴɢ ᴛʜᴇ ʀᴇꜰʀʀᴇʟ ʟɪɴᴋ ᴏꜰ ᴀ ᴜꜱᴇʀ \n\nSᴇɴᴅ /start Δɢᴀɪɴ To Uꜱᴇ Tʜᴇ Бᴏᴛ</b>")
+            await message.reply(f"<i>Yσᴜ ʜᴀᴠᴇ ꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙʏ ᴜꜱɪɴɢ ᴛʜᴇ <b>ʀᴇꜰʀʀᴇʟ ʟɪɴᴋ</b> ᴏꜰ ᴀ ᴜꜱᴇʀ \n\nSᴇɴᴅ /start Δɢᴀɪɴ To Uꜱᴇ Tʜᴇ Бᴏᴛ</i>")
             num_referrals = await get_referal_users_count(user_id)
-            await client.send_message(chat_id = user_id, text = "<b>{} Sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴡɪᴛʜ ʏᴏᴜʀ ʀᴇꜰᴇʀʀᴇʟ ʟɪɴᴋ\n\nTᴏᴛᴀʟ Rᴇꜰᴇʀꜱ - {}/10</b>".format(message.from_user.mention, num_referrals))
+            await client.send_message(chat_id = user_id, text = "<i>{} Sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴡɪᴛʜ ʏᴏᴜʀ ʀᴇꜰᴇʀʀᴇʟ ʟɪɴᴋ\n\nTᴏᴛᴀʟ Rᴇꜰᴇʀꜱ - {}/10</i>".format(message.from_user.mention, num_referrals))
             if num_referrals == REFERAL_COUNT:
                 time = REFERAL_PREMEIUM_TIME       
                 seconds = await get_seconds(time)
@@ -189,7 +189,7 @@ async def start(client, message):
                     user_data = {"id": user_id, "expiry_time": expiry_time} 
                     await db.update_user(user_data)  # Use the update_user method to update or insert user data
                     await delete_all_referal_users(user_id)
-                    await client.send_message(chat_id = user_id, text = "<b>You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}</b>".format(REFERAL_PREMEIUM_TIME))
+                    await client.send_message(chat_id = user_id, text = "<i>You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}</i>".format(REFERAL_PREMEIUM_TIME))
                     return 
         else:
             if PREMIUM_AND_REFERAL_MODE == True:
@@ -373,13 +373,13 @@ async def start(client, message):
         current_time = datetime.now(pytz.timezone(TIMEZONE))
         curr_time = current_time.hour        
         if curr_time < 12:
-            gtxt = "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 👋" 
+            gtxt = "Gᴏᴏᴅ ᴍᴏʀɴɪɴG 🌄👋" 
         elif curr_time < 17:
-            gtxt = "ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 👋" 
+            gtxt = "ɢOOᴅ ᴀғᴛᴇʀɴOOɴ 🥵👋" 
         elif curr_time < 21:
-            gtxt = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 👋"
+            gtxt = "Gᴏᴏᴅ ᴇᴠᴇɴɪɴG 🌅👋"
         else:
-            gtxt = "ɢᴏᴏᴅ ɴɪɢʜᴛ 👋"
+            gtxt = "Gᴏᴏᴅ ɴɪɢʜT 🥱😪👋"
         chat_id = int("-" + file_id.split("-")[1])
         userid = message.from_user.id if message.from_user else None
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=allfiles_{file_id}")
@@ -405,13 +405,13 @@ async def start(client, message):
         current_time = datetime.now(pytz.timezone(TIMEZONE))
         curr_time = current_time.hour        
         if curr_time < 12:
-            gtxt = "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 👋" 
+            gtxt = "Gᴏᴏᴅ ᴍᴏʀɴɪɴG 🌄👋" 
         elif curr_time < 17:
-            gtxt = "ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 👋" 
+            gtxt = "ɢOOᴅ ᴀғᴛᴇʀɴOOɴ 🥵👋" 
         elif curr_time < 21:
-            gtxt = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 👋"
+            gtxt = "Gᴏᴏᴅ ᴇᴠᴇɴɪɴG 🌅👋"
         else:
-            gtxt = "ɢᴏᴏᴅ ɴɪɢʜᴛ 👋"        
+            gtxt = "Gᴏᴏᴅ ɴɪɢʜT 🥱😪👋"        
         user_id = message.from_user.id
         chat_id = temp.SHORT.get(user_id)
         files_ = await get_file_details(file_id)
@@ -497,13 +497,13 @@ async def start(client, message):
         current_time = datetime.now(pytz.timezone(TIMEZONE))
         curr_time = current_time.hour        
         if curr_time < 12:
-            gtxt = "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 👋" 
+            gtxt = "Gᴏᴏᴅ ᴍᴏʀɴɪɴG 🌄👋" 
         elif curr_time < 17:
-            gtxt = "ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 👋" 
+            gtxt = "ɢOOᴅ ᴀғᴛᴇʀɴOOɴ 🥵👋" 
         elif curr_time < 21:
-            gtxt = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 👋"
+            gtxt = "Gᴏᴏᴅ ᴇᴠᴇɴɪɴG 🌅👋"
         else:
-            gtxt = "ɢᴏᴏᴅ ɴɪɢʜᴛ 👋"        
+            gtxt = "Gᴏᴏᴅ ɴɪɢʜT 🥱😪👋"     
         user_id = message.from_user.id
         if temp.SHORT.get(user_id)==None:
             return await message.reply_text(text="<b>Please Search Again in Group</b>")
