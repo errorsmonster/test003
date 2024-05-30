@@ -1977,11 +1977,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         
     elif query.data == "rendr":
-        await query.answer("⚡️ ʟɪᴠᴇ sʏsᴛᴇᴍ sᴛᴀᴛᴜs ⚡️\n\n❂ ʀᴀᴍ ●●●●●●●◌◌◌\n✇ ᴄᴘᴜ ●●●●●●●◌◌◌\n✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰\n\nᴠ4.2 [sᴛᴀʙʟᴇ] """, show_alert=True)
+        await query.answer("⚡️ Lɪᴠᴇ SʏSᴛᴇᴍ sᴛᴀᴛᴜs ⚡️\n\n❂ ʀᴀᴍ ●●●●●●●◌◌◌\n✇ ᴄᴘᴜ ●●●●●●◌◌◌◌\n✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰\n\nᴠ4.2 [Mɾ 𝘴ꪗᦔ 🎐] """, show_alert=True)
 
     elif query.data == "credits":
         buttons = [[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='about')
+            InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1997,8 +1997,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "stats":
         buttons = [[
-            InlineKeyboardButton('⇇ ʙᴀᴄᴋ', callback_data='about'),
-            InlineKeyboardButton('⟲ ʀᴇғʀᴇsʜ', callback_data='rfrsh')
+            InlineKeyboardButton('⇇ ʙΔᴄᴋ', callback_data='about'),
+            InlineKeyboardButton('⟲ ʀᴇғяᴇsʜ ⟲', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
