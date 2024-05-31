@@ -1682,8 +1682,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "refre":
         id = query.from_user.id
+        irl = https://t.me/Mr_Movies_file_bot?start=SyD-{id}
+        sydo = await get_shortlink
         buttons = [[
-            InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url='https://telegram.me/Mr_Movies_file_bot?start=SyD-{id}')
+            InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url='https://t.me/Mr_Movies_file_bot?start=SyD-{id}')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
