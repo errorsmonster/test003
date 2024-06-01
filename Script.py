@@ -9,7 +9,7 @@ class script(object):
     
 ᴡᴇ ʜᴀᴠᴇ ᴅᴇᴠɪᴅᴇᴅ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ ꜰᴏʀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀꜱ ᴀɴᴅ ʙᴏᴛ ᴜꜱᴇʀꜱ.</b>"""
 
-    ABOUT_TXT = """<b>‣ ᴍʏ ɴᴀᴍᴇ : {}\n‣ ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/SyD_XyZ'>Mг SƴD 🪩</a>\n‣ ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ\n‣ LᴀɴɢᴜΔɢᴇ : \n‣ ᴅᴀᴛᴀ ʙᴀsᴇ : \n‣ ʜᴏsᴛᴇᴅ ᴏɴ  : \n‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ1.0 [ᴍʀ.ꜱʏᴅ]</b>"""
+    ABOUT_TXT = """<b>‣ Mʏ ɴΔᴍᴇ : {}\n‣ Oᴡɴᴇʀ : <a href='https://t.me/SyD_XyZ'>Mг SƴD 🪩</a>\n‣ LɪʙʀΔʀʏ : <a href='https://t.me/+-VpGTWWWTldhZWNl'>Tɢ 🫥</a>\n‣ LᴀɴɢᴜΔɢᴇ : <a href='https://t.me/+oej8cujHMFJhNmI9'>🎐Δʜʜ...</a>\n‣ DᴀᴛΔ-Bᴀsᴇ : <a href='https://t.me/+3-nuV_9INIg0MDY1'></a>\n‣ Hᴏsᴛᴇᴅ Δᴛ  : <a href='https://t.me/mod_moviez_x'>Tɢ 🫥</a>\n‣ Bᴜɪʟᴅ Vᴇʀꜱɪᴏɴ : ᴠ1.0 [ᴍʀ.ꜱʏᴅ✨]</b>"""
     
     CHANNELS = """
 <b>⚡ ɢʀᴏᴜᴘs & ᴄʜᴀɴɴᴇʟs ɪɴғᴏ ⚡ 
