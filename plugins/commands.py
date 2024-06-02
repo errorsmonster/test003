@@ -925,7 +925,7 @@ async def settings(client, message):
             )
         else:
             await message.reply_text(
-                text=f"<b>Cʜᴀɴɢᴇ ʏᴏᴜʀ ꜱᴇᴛᴛɪɴɢꜱ ꜰᴏʀ {title} ᴀꜱ ʏᴏᴜ ᴡɪꜱʜ ⚙</b>\nSᴩᴇᴄɪᴀʟ ᴛʜᴀɴᴋꜱ ᴛᴏ!<a href="'></a>",
+                text=f"<b>Cʜᴀɴɢᴇ ʏᴏᴜʀ ꜱᴇᴛᴛɪɴɢꜱ ꜰᴏʀ {title} ᴀꜱ ʏᴏᴜ ᴡɪꜱʜ ⚙</b>\nSᴩᴇᴄɪᴀʟ ᴛʜᴀɴᴋꜱ ᴛᴏ!<a href="https://t.me/Mod_Moviez_X">Mᴏᴅ Mᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>",
                 reply_markup=reply_markup,
                 disable_web_page_preview=True,
                 parse_mode=enums.ParseMode.HTML,
