@@ -1419,8 +1419,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("♻️ ᴀʟʀᴇᴀᴅʏ ᴀᴠᴀɪʟᴀʙʟᴇ ♻️", callback_data=f"alalert#{from_user}")
               ]]
         btn2 = [[
-                 InlineKeyboardButton('ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ', url=link.invite_link),
-                 InlineKeyboardButton("ᴠɪᴇᴡ ꜱᴛᴀᴛᴜꜱ", url=f"{query.message.link}")
+                 InlineKeyboardButton('Jᴏɪɴ ᴄʜᴀɴɴᴇL', url=link.invite_link),
+                 InlineKeyboardButton("Vɪᴇᴡ ꜱᴛᴀᴛᴜS", url=f"{query.message.link}")
                ],[
                  InlineKeyboardButton("🔍 ꜱᴇᴀʀᴄʜ ʜᴇʀᴇ 🔎", url="https://t.me/MoviesLinkSearchBot2")
                ]]
@@ -1652,18 +1652,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "premium_info":
         buttons = [[
-            InlineKeyboardButton('• ꜰʀᴇᴇ ᴛʀɪᴀʟ •', callback_data='free')
+            InlineKeyboardButton('Fʀᴇᴇ Tʀɪᴀʟ', callback_data='free')
         ],[
-            InlineKeyboardButton('• ʙʀᴏɴᴢᴇ •', callback_data='broze'),
-            InlineKeyboardButton('• ꜱɪʟᴠᴇʀ •', callback_data='silver')
+            InlineKeyboardButton('Bʀᴏɴᴢᴇ', callback_data='broze'),
+            InlineKeyboardButton('Sɪʟᴠᴇʀ', callback_data='silver')
         ],[
-            InlineKeyboardButton('• ɢᴏʟᴅ •', callback_data='gold'),
-            InlineKeyboardButton('• ᴘʟᴀᴛɪɴᴜᴍ •', callback_data='platinum')
+            InlineKeyboardButton('Gᴏʟᴅ', callback_data='gold'),
+            InlineKeyboardButton('Pʟᴀᴛɪɴᴜᴍ', callback_data='platinum')
         ],[
-            InlineKeyboardButton('• ᴅɪᴀᴍᴏɴᴅ •', callback_data='diamond'),
-            InlineKeyboardButton('• ᴏᴛʜᴇʀ •', callback_data='other')
+            InlineKeyboardButton('Dɪᴀᴍᴏɴᴅ', callback_data='diamond'),
+            InlineKeyboardButton('Oᴛʜᴇʀ', callback_data='other')
         ],[ 
-            InlineKeyboardButton(' Fʀᴇᴇ ', callback_data='refre')
+            InlineKeyboardButton(' Fʀᴇᴇ - Rᴇꜰʀᴇʟʟ ', callback_data='refre')
         ],[
             InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
         ]]
@@ -1866,7 +1866,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[
             InlineKeyboardButton('✉️ Bᴏᴛꜱ ✉️', url='https://t.me/Bot_Cracker/17')
         ],[
-            InlineKeyboardButton('⇇ ʙᴀᴄᴋ', callback_data='start'),
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Oᴡɴᴇʀ 🎗️', user_id=1733124290)
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1939,7 +1939,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('• ᴜꜱᴇʀ •', callback_data='users'),
             InlineKeyboardButton('• ɢʀᴏᴜᴘ •', callback_data='group')
         ], [
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1959,12 +1959,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton ('• ᴄʀᴇᴅɪᴛꜱ ᴛᴏ ᴛʜᴇ ᴅᴇᴠᴇʟᴏᴘᴇʀꜱ •', callback_data='credits')
         ], [
-            InlineKeyboardButton('• ᴏᴡɴᴇʀ •', user_id=1733124290),
-            InlineKeyboardButton('• ꜱᴛᴀᴛꜱ •', callback_data='stats')
+            InlineKeyboardButton('Oᴡɴᴇʀ', user_id=1733124290),
+            InlineKeyboardButton('BΔᴄᴋ-Uᴩ 🔙💭', url="https://t.me/nt_Backup/5"),
+            InlineKeyboardButton('ꜱᴛΔᴛꜱ •', callback_data='stats')
         ], [
-            InlineKeyboardButton('🛰️ ʀᴇɴᴅᴇʀɪɴɢ ꜱᴛᴀᴛᴜꜱ ☁️',callback_data='rendr')
+            InlineKeyboardButton('🌧️ ʀᴇɴᴅᴇʀɪɴɢ ꜱᴛᴀᴛᴜꜱ 🌧️',callback_data='rendr')
         ], [
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1979,7 +1980,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         
     elif query.data == "rendr":
-        await query.answer("⚡️ Lɪᴠᴇ SʏSᴛᴇᴍ sᴛᴀᴛᴜs ⚡️\n\n❂ ʀᴀᴍ ●●●●●●●◌◌◌\n✇ ᴄᴘᴜ ●●●●●●◌◌◌◌\n✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰\n\nᴠ4.2 [Mɾ 𝘴ꪗᦔ 🎐] """, show_alert=True)
+        await query.answer("⚡️ Lɪᴠᴇ SʏSᴛᴇᴍ sᴛᴀᴛᴜs ⚡️\n\n❂ ʀᴀᴍ ●●●●●●●◌◌◌\n✇ ᴄᴘᴜ ●●●●●●◌◌◌◌\n✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰\n\nᴠ1.0 [Mɾ 𝘴ꪗᦔ 🎐] """, show_alert=True)
 
     elif query.data == "credits":
         buttons = [[
