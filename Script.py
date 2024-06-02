@@ -440,16 +440,18 @@ Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
 
     PREPLANS_TXT = """<b>👋 ʜᴇʏ {},
     
-🎖️ <u>ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs</u> :
+✴️ <u>Δᴠᴀɪʟᴀʙʟᴇ ᴘʟΔɴs</u> :
 
-● <code>h</code> ➛ <u>ʙʀᴏɴᴢᴇ ᴘʟᴀɴ</u> » <code>7 ᴅᴀʏꜱ</code>
-● <code>6₹</code> ➛ <u>ꜱɪʟᴠᴇʀ ᴘʟᴀɴ</u> » <code>30 ᴅᴀʏꜱ</code>
-● <code>16.5₹</code> ➛ <u>ɢᴏʟᴅ ᴘʟᴀɴ</u> » <code>90 ᴅᴀʏꜱ</code>
-● <code>32.5₹</code> ➛ <u>ᴘʟᴀᴛɪɴᴜᴍ ᴘʟᴀɴ</u> » <code>180 ᴅᴀʏꜱ</code>
-● <code>66₹</code> ➛ <u>ᴅɪᴀᴍᴏɴᴅ ᴘʟᴀɴ</u> » <code>365 ᴅᴀʏꜱ</code>
+● <code>2₹</code> ➛ <u>ʙʀᴏɴᴢᴇ ᴘʟΔɴ</u> » <code>7 ᴅᴀʏꜱ</code>
+● <code>3.8₹</code> ➛ <u>ꜱɪʟᴠᴇʀ ᴘʟΔɴ</u> » <code>15 ᴅᴀʏꜱ</code>
+● <code>6₹</code> ➛ <u>ɢᴏʟᴅ ᴘʟΔɴ</u> » <code>30 + 1 ᴅᴀʏꜱ</code>
+● <code>16.5₹</code> ➛ <u>ᴘʟᴀᴛɪɴᴜᴍ ᴘʟΔɴ</u> » <code>90 ᴅᴀʏꜱ</code>
+● <code>32.5₹</code> ➛ <u>ᴅɪᴀᴍᴏɴᴅ ᴘʟΔɴ</u> » <code>180 ᴅᴀʏꜱ</code>
+● <code>66₹</code> ➛ <u>MᴇGᴀ ᴘʟΔɴ</u> » <code>180 ᴅᴀʏꜱ</code>
 
-💵 ᴜᴘɪ ɪᴅ - <code>harshal.purohit@paytm</code>
-📸 ǫʀ ᴄᴏᴅᴇ - <a href='https://telegra.ph/Payment-Information-01-03'>ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ꜱᴄᴀɴ</a>
+
+💵 ᴜᴘɪ ɪᴅ - <code>h</code>
+📸 ǫʀ ᴄᴏᴅᴇ - <a href='https://t.me/GetTgLinks'>ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ꜱᴄᴀɴ</a>
 
 ⚜️ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ ʙʏ ᴜꜱɪɴɢ : /myplan
 
