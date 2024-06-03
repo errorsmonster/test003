@@ -1707,7 +1707,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='other'),
             InlineKeyboardButton('1 / 7', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='broze')
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='broze')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
@@ -1729,7 +1729,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='free'),
             InlineKeyboardButton('2 / 7', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='silver')
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='silver')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
@@ -1749,9 +1749,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('🌟 Cʟɪᴄᴋ Hᴇʀᴇ Tᴏ Bᴜʏ PʀᴇᴍɪᴜM 🌟', callback_data='purchase')
         ],[
-            InlineKeyboardButton('⋞ ʙSᴄᴋ', callback_data='broze'),
+            InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='broze'),
             InlineKeyboardButton('3 / 7', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='gold')
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='gold')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
@@ -1773,7 +1773,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='silver'),
             InlineKeyboardButton('4 / 7', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='platinum')
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='platinum')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
@@ -1793,11 +1793,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('🌟 Cʟɪᴄᴋ Hᴇʀᴇ Tᴏ Bᴜʏ PʀᴇᴍɪᴜM 🌟', callback_data='purchase')
         ],[
-            InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='gold'),
-            InlineKeyboardButton('5 / 7', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='diamond')
+            InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='gold'),
+            InlineKeyboardButton('5 / 8', callback_data='pagesn1'),
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='diamond')
         ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
+            InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1816,11 +1816,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('🌟 Cʟɪᴄᴋ Hᴇʀᴇ Tᴏ Bᴜʏ PʀᴇᴍɪᴜM 🌟', callback_data='purchase')
         ],[
-            InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='platinum'),
-            InlineKeyboardButton('6 / 7', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='other')
+            InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='platinum'),
+            InlineKeyboardButton('6 / 8', callback_data='pagesn1'),
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='other')
         ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
+            InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1838,11 +1838,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('☎️ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ᴛᴏ ᴋɴᴏᴡ ᴍᴏʀᴇ', user_id=int(767250672))
         ],[
-            InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='diamond'),
-            InlineKeyboardButton('7 / 7', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇxᴛ ⋟', callback_data='free')
+            InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='diamond'),
+            InlineKeyboardButton('7 / 8', callback_data='pagesn1'),
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='free')
         ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ⇋', callback_data='premium_info')
+            InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1961,7 +1961,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton('♕ Oᴡɴᴇʀ ♕', user_id=1733124290),
             InlineKeyboardButton('BΔᴄᴋ-Uᴩ 🔙💭', url="https://t.me/nt_Backup/5"),
-            InlineKeyboardButton('☯ ꜱᴛΔᴛꜱ ☯', callback_data='stats')
+            InlineKeyboardButton('✧ ꜱᴛΔᴛꜱ ✧', callback_data='stats')
         ], [
             InlineKeyboardButton('⛈ ʀᴇɴᴅᴇʀɪɴɢ ꜱᴛᴀᴛᴜꜱ ⛈',callback_data='rendr')
         ], [
