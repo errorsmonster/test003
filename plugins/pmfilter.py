@@ -1680,25 +1680,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
     elif query.data == "refre":
-        id = query.from_user.id
-        irl = "https://t.me/Mr_Movies_file_bot?start=SyD-{id}"
-        sydo = await get_shortlink(irl)
-        buttons = [[
-            InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url='https://t.me/Mr_Movies_file_bot?start=SyD-{id}')
-        ],[
-            InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text=script.REFER_TXT.format(REFERAL_PREMEIUM_TIME, temp.U_NAME, sydoo, REFERAL_COUNT),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+       user_id = query.from_user.id
+       irl = f"https://t.me/Mr_Movies_file_bot?start=SyD-{user_id}"
+       sydo = await get_shortlink(irl)
+       buttons = [[
+           InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url=f'https://t.me/Mr_Movies_file_bot?start=SyD-{user_id}')
+       ],[
+           InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
+       ]]
+       reply_markup = InlineKeyboardMarkup(buttons)
+       await client.edit_message_media(
+           chat_id=query.message.chat.id,
+           message_id=query.message.id,
+           media=InputMediaPhoto(random.choice(PICS))
+       )
+       await query.message.edit_text(
+           text=script.REFER_TXT.format(REFERAL_PREMEIUM_TIME, temp.U_NAME, sydo, REFERAL_COUNT),
+           reply_markup=reply_markup,
+           parse_mode=enums.ParseMode.HTML
+       )
+
         
     elif query.data == "free":
         buttons = [[
