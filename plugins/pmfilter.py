@@ -1864,10 +1864,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔍 Gʀᴏᴜᴘ¹', url='https://t.me/+DqCTrhaymr9mYWZl'),
             InlineKeyboardButton('Gʀᴏᴜᴘ² 🔎', url='https://t.me/+I0u1R3m5zZAzYzBl')
         ],[
-            InlineKeyboardButton('✉️ Bᴏᴛꜱ ✉️', url='https://t.me/Bot_Cracker/17')
+            InlineKeyboardButton('✉️ Bᴏᴛꜱ ✉️', url='')
         ],[
             InlineKeyboardButton('⇋ ʜ0ᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('Oᴡɴᴇʀ 🎗️', user_id=1733124290)
+            InlineKeyboardButton('Bᴏᴛꜱ', url='https://t.me/Bot_Cracker/17')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -2024,8 +2024,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rfrsh":
         await query.answer("ꜰᴇᴛᴄʜɪɴɢ ᴍᴏɴɢᴏ-ᴅʙ ᴅᴀᴛᴀʙᴀꜱᴇ...")
         buttons = [[
-            InlineKeyboardButton('⇇ ʙᴀᴄᴋ', callback_data='about'),
-            InlineKeyboardButton('⟲ ʀᴇғʀᴇsʜ', callback_data='rfrsh')
+            InlineKeyboardButton('⇇ ʙΔᴄᴋ', callback_data='about'),
+            InlineKeyboardButton('⟲ RᴇғʀᴇsH ⟲', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -2048,9 +2048,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "shortlink_info":
             btn = [[
             InlineKeyboardButton("1 / 3", callback_data="pagesn1"),
-            InlineKeyboardButton("ɴᴇxᴛ ⋟", callback_data="shortlink_info2")
+            InlineKeyboardButton("ɴᴇXᴛ ⋟", callback_data="shortlink_info2")
             ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await client.edit_message_media(
@@ -2065,11 +2065,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )   
     elif query.data == "shortlink_info2":
             btn = [[
-            InlineKeyboardButton("⋞ ʙᴀᴄᴋ", callback_data="shortlink_info"),
+            InlineKeyboardButton("⋞ ʙΔᴄᴋ", callback_data="shortlink_info"),
             InlineKeyboardButton("2 / 3", callback_data="pagesn1"),
-            InlineKeyboardButton("ɴᴇxᴛ ⋟", callback_data="shortlink_info3")
+            InlineKeyboardButton("ɴᴇXᴛ ⋟", callback_data="shortlink_info3")
             ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await client.edit_message_media(
@@ -2084,10 +2084,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             )
     elif query.data == "shortlink_info3":
             btn = [[
-            InlineKeyboardButton("⋞ ʙᴀᴄᴋ", callback_data="shortlink_info2"),
+            InlineKeyboardButton("⋞ ʙΔᴄᴋ", callback_data="shortlink_info2"),
             InlineKeyboardButton("3 / 3", callback_data="pagesn1")
             ],[
-            InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
             ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await client.edit_message_media(
@@ -2137,42 +2137,42 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if settings is not None:
             buttons = [
                 [
-                    InlineKeyboardButton('ʀᴇꜱᴜʟᴛ ᴘᴀɢᴇ',
+                    InlineKeyboardButton('Rᴇꜱᴜʟᴛ Pᴀɢᴇ',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('ʙᴜᴛᴛᴏɴ' if settings["button"] else 'ᴛᴇxᴛ',
+                    InlineKeyboardButton('Bᴜᴛᴛᴏɴ' if settings["button"] else 'ᴛᴇXᴛ',
                                          callback_data=f'setgs#button#{settings["button"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('ꜰɪʟᴇ ꜱᴇɴᴅ ᴍᴏᴅᴇ', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('ꜱᴛᴀʀᴛ' if settings["botpm"] else 'ᴀᴜᴛᴏ',
+                    InlineKeyboardButton('Fɪʟᴇ ꜱᴇɴᴅ ᴍᴏᴅᴇ', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('Sᴛᴀʀᴛ' if settings["botpm"] else 'Δᴜᴛᴏ',
                                          callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('ꜰɪʟᴇ ꜱᴇᴄᴜʀᴇ',
+                    InlineKeyboardButton('Ғɪʟᴇ Sᴇᴄᴜʀᴇ',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}'),
                     InlineKeyboardButton('ᴇɴᴀʙʟᴇ' if settings["file_secure"] else 'ᴅɪꜱᴀʙʟᴇ',
                                          callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('ɪᴍᴅʙ ᴘᴏꜱᴛᴇʀ', callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('Iᴍᴅʙ Pᴏꜱᴛᴇʀ', callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}'),
                     InlineKeyboardButton('ᴇɴᴀʙʟᴇ' if settings["imdb"] else 'ᴅɪꜱᴀʙʟᴇ',
                                          callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('ꜱᴘᴇʟʟ ᴄʜᴇᴄᴋ',
+                    InlineKeyboardButton('Sᴘᴇʟʟ Cʜᴇᴄᴋ',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('ᴇɴᴀʙʟᴇ' if settings["spell_check"] else 'ᴅɪꜱᴀʙʟᴇ',
+                    InlineKeyboardButton('Eɴᴀʙʟᴇ' if settings["spell_check"] else 'ᴅɪꜱᴀʙʟᴇ',
                                          callback_data=f'setgs#spell_check#{settings["spell_check"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('ᴡᴇʟᴄᴏᴍᴇ ᴍꜱɢ', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('ᴇɴᴀʙʟᴇ' if settings["welcome"] else 'ᴅɪꜱᴀʙʟᴇ',
+                    InlineKeyboardButton('Wᴇʟᴄᴏᴍᴇ Mꜱɢ', callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}'),
+                    InlineKeyboardButton('Eɴᴀʙʟᴇ' if settings["welcome"] else 'ᴅɪꜱᴀʙʟᴇ',
                                          callback_data=f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ',
+                    InlineKeyboardButton('Δᴜᴛᴏ ᴅᴇʟᴇᴛᴇ',
                                          callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('ᴇɴᴀʙʟᴇ' if settings["auto_delete"] else 'ᴅɪꜱᴀʙʟᴇ',
+                    InlineKeyboardButton('Eɴᴀʙʟᴇ' if settings["auto_delete"] else 'ᴅɪꜱᴀʙʟᴇ',
                                          callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{str(grp_id)}')
                 ],
                 [
@@ -2194,7 +2194,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                          callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{str(grp_id)}')
                 ],
                 [
-                    InlineKeyboardButton('⇋ ᴄʟᴏꜱᴇ ꜱᴇᴛᴛɪɴɢꜱ ᴍᴇɴᴜ ⇋', 
+                    InlineKeyboardButton('✗ ᴄʟᴏꜱᴇ ✗', 
                                          callback_data='close_data'
                                          )
                 ]
