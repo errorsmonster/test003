@@ -1655,17 +1655,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Fʀᴇᴇ Tʀɪᴀʟ', callback_data='free')
         ],[
             InlineKeyboardButton('Bʀᴏɴᴢᴇ', callback_data='broze'),
-            InlineKeyboardButton('Sɪʟᴠᴇʀ', callback_data='silver')
+            InlineKeyboardButton('Sɪʟᴠᴇʀ', callback_data='silver'),
+            InlineKeyboardButton('Gᴏʟᴅ', callback_data='gold')
         ],[
-            InlineKeyboardButton('Gᴏʟᴅ', callback_data='gold'),
-            InlineKeyboardButton('Pʟᴀᴛɪɴᴜᴍ', callback_data='platinum')
-        ],[
-            InlineKeyboardButton('Dɪᴀᴍᴏɴᴅ', callback_data='diamond'),
-            InlineKeyboardButton('Oᴛʜᴇʀ', callback_data='other')
+            InlineKeyboardButton('Pʟᴀᴛɪɴᴜᴍ', callback_data='platinum'),
+            InlineKeyboardButton('Dɪᴀᴍᴏɴᴅ', callback_data='diamond')
         ],[ 
             InlineKeyboardButton(' Fʀᴇᴇ - Rᴇꜰʀᴇʟʟ ', callback_data='refre')
         ],[
-            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start'),
+            InlineKeyboardButton('Oᴛʜᴇʀ', callback_data='other')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
