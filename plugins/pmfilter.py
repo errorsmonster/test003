@@ -1638,21 +1638,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         user_id = query.from_user.id
         has_free_trial = await db.check_trial_status(user_id)
         if has_free_trial:
-            await query.answer("🚸 ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴄʟᴀɪᴍᴇᴅ ʏᴏᴜʀ ꜰʀᴇᴇ ᴛʀɪᴀʟ ᴏɴᴄᴇ !\n\n📌 ᴄʜᴇᴄᴋᴏᴜᴛ ᴏᴜʀ ᴘʟᴀɴꜱ ʙʏ : /plan", show_alert=True)
+            await query.answer("🚸 Yᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴄʟᴀɪᴍᴇᴅ ʏᴏᴜʀ ꜰʀᴇᴇ ᴛʀɪᴀʟ ᴏɴᴄᴇ !\n\n📌 ᴄʜᴇᴄᴋᴏᴜᴛ ᴏᴜʀ ᴘʟᴀɴꜱ ʙʏ : /plan , oʀ ᴜꜱᴇ ʀᴇꜰʀᴇʟʟ ᴍᴇᴛʜᴏᴅ..... ✴️", show_alert=True)
             return
         else:            
             await db.give_free_trial(user_id)
             await query.message.reply_text(
-                text="<b>🥳 ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ\n\n🎉 ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ꜰʀᴇᴇ ᴛʀᴀɪʟ ꜰᴏʀ <u>8 ᴍɪɴᴜᴛᴇs</u> ꜰʀᴏᴍ ɴᴏᴡ !</b>",
+                text="<b>🥳 Cᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ\n\n🎉 ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ꜰʀᴇᴇ ᴛʀᴀɪʟ ꜰᴏʀ <u>8 ᴍɪɴᴜᴛᴇs</u> ꜰʀᴏᴍ ɴᴏᴡ !</b>",
                 quote=False,
                 disable_web_page_preview=True,                  
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💸 ᴄʜᴇᴄᴋᴏᴜᴛ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴꜱ 💸", callback_data='seeplans')]]))
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Cʜᴇᴄᴋᴏᴜᴛ Pʀᴇᴍɪᴜᴍ Pʟᴀɴꜱ", callback_data='seeplans')]]))
             return    
 
     
     elif query.data == "premium_info":
         buttons = [[
-            InlineKeyboardButton('Fʀᴇᴇ Tʀɪᴀʟ', callback_data='free')
+            InlineKeyboardButton('Fʀᴇᴇ-Tʀɪᴀʟ', callback_data='free')
         ],[
             InlineKeyboardButton('Bʀᴏɴᴢᴇ', callback_data='broze'),
             InlineKeyboardButton('Sɪʟᴠᴇʀ', callback_data='silver'),
@@ -1661,7 +1661,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Pʟᴀᴛɪɴᴜᴍ', callback_data='platinum'),
             InlineKeyboardButton('Dɪᴀᴍᴏɴᴅ', callback_data='diamond')
         ],[ 
-            InlineKeyboardButton(' Fʀᴇᴇ - Rᴇꜰʀᴇʟʟ ', callback_data='refre')
+            InlineKeyboardButton('Fʀᴇᴇ-Rᴇꜰʀᴇʟʟ', callback_data='refre')
         ],[
             InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start'),
             InlineKeyboardButton('Oᴛʜᴇʀ', callback_data='other')
