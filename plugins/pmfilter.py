@@ -1686,6 +1686,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
        buttons = [[
            InlineKeyboardButton('💫 RᴇꜰᴇR 💫', url=f'https://t.me/Mr_Movies_file_bot?start=SyD-{user_id}')
        ],[
+           InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='other'),
+            InlineKeyboardButton('8 / 8', callback_data='pagesn1'),
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='free')
+        ],[
            InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
        ]]
        reply_markup = InlineKeyboardMarkup(buttons)
@@ -1706,7 +1710,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🌟 ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ ꜰʀᴇᴇ ᴛʀɪᴀʟ 🌟', callback_data="give_trial")
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='other'),
-            InlineKeyboardButton('1 / 7', callback_data='pagesn1'),
+            InlineKeyboardButton('1 / 8', callback_data='pagesn1'),
             InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='broze')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
@@ -1728,7 +1732,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🌟 ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ʙᴜʏ ᴘʀᴇᴍɪᴜᴍ 🌟', callback_data='purchase')
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='free'),
-            InlineKeyboardButton('2 / 7', callback_data='pagesn1'),
+            InlineKeyboardButton('2 / 8', callback_data='pagesn1'),
             InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='silver')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
@@ -1750,7 +1754,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🌟 Cʟɪᴄᴋ Hᴇʀᴇ Tᴏ Bᴜʏ PʀᴇᴍɪᴜM 🌟', callback_data='purchase')
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='broze'),
-            InlineKeyboardButton('3 / 7', callback_data='pagesn1'),
+            InlineKeyboardButton('3 / 8', callback_data='pagesn1'),
             InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='gold')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
@@ -1772,7 +1776,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🌟 Cʟɪᴄᴋ Hᴇʀᴇ Tᴏ Bᴜʏ PʀᴇᴍɪᴜM 🌟', callback_data='purchase')
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='silver'),
-            InlineKeyboardButton('4 / 7', callback_data='pagesn1'),
+            InlineKeyboardButton('4 / 8', callback_data='pagesn1'),
             InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='platinum')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
@@ -1840,7 +1844,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[
             InlineKeyboardButton('⋞ ʙΔᴄᴋ', callback_data='diamond'),
             InlineKeyboardButton('7 / 8', callback_data='pagesn1'),
-            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='free')
+            InlineKeyboardButton('ɴᴇXᴛ ⋟', callback_data='refre')
         ],[
             InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='premium_info')
         ]]
@@ -1864,7 +1868,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔍 Gʀᴏᴜᴘ¹', url='https://t.me/+DqCTrhaymr9mYWZl'),
             InlineKeyboardButton('Gʀᴏᴜᴘ² 🔎', url='https://t.me/+I0u1R3m5zZAzYzBl')
         ],[
-            InlineKeyboardButton('Mᴏᴠɪᴇꜱ', url='https://t.me/Mod_Moviez_X')
+            InlineKeyboardButton('∞ Mᴏᴠɪᴇꜱ ∞', url='https://t.me/Mod_Moviez_X')
         ],[
             InlineKeyboardButton('⇋ ʜ0ᴍᴇ', callback_data='start'),
             InlineKeyboardButton('Bᴏᴛꜱ 👾', url='https://t.me/Bot_Cracker/17')
