@@ -1,7 +1,7 @@
 class script(object):
-    START_TXT = """<b>ʜᴇʏ {}🤘, {}\n\nɪ Δᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ 💬 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\n <blockquote>ᴍᴀɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ ᴍᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓</blockqoute></b>"""
+    START_TXT = """<b>ʜᴇʏ {}🤘, {}\n\nɪ Δᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ 💬 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\n<blockquote>ᴍᴀɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ ᴍᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓</blockqoute></b>"""
 
-    GSTART_TXT = """<b>ʜᴇʏ {}🫶,\n\nɪ Δᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ 💭 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\n <blockqoute>ᴍᴀɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ ᴍᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓</blockqoute></b>"""
+    GSTART_TXT = """<b>ʜᴇʏ {}🫶,\n\nɪ Δᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ 💭 ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ ❄️.\n\n<blockqoute>ᴍᴀɪɴᴛΔɪɴᴇᴅ ʙʏ <a href="https://t.me/Mod_Moviez_X">Mᴏᴅ ᴍᴏᴠɪeᴢ ˹x˼™ ᠰ𐂮</a>🍓</blockqoute></b>"""
 
     CLONE_TXT = """ HI """
     
