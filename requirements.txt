@@ -1,4 +1,4 @@
-pyrogram>=2.0.30 
+ pyrogram>=2.0.30 
  tgcrypto 
  pymongo[srv]==3.12.3 
  motor==2.5.1 
@@ -16,7 +16,9 @@ pyrogram>=2.0.30
  #Telethroid==0.0.10 
  PyLeaves==1.0.2 
   
-
+ youtube-search-python
+ youtube-search
+ yt-dlp==2023.2.17
  telegraph==2.2.0
  #---others----# 
  opencv-python-headless==4.7.0.68 
