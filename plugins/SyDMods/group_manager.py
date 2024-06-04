@@ -21,9 +21,9 @@ async def ban_user(_, message):
     except Exception as error: await message.reply_text(str(error))                    
     else:
         if str(user_id).lower().startswith("@"):
-            await message.reply_text(f"Someone else is dusting off..! \n{user_first_name} \nIs forbidden.")                              
+            await message.reply_text(f"Sᴏᴍᴇᴏɴᴇ ᴇʟꜱᴇ ɪꜱ ᴅᴜꜱᴛɪɴɢ ᴏꜰꜰ..💤! \n{user_first_name} \nIꜱ Ғᴏʀʙɪᴅᴅᴇɴ.")                              
         else:
-            await message.reply_text(f"Someone else is dusting off..! \n<a href='tg://user?id={user_id}'>{user_first_name}</a> Is forbidden")                      
+            await message.reply_text(f"Sᴏᴍᴇᴏɴᴇ ᴇʟꜱᴇ ɪꜱ ᴅᴜꜱᴛɪɴɢ ᴏꜰꜰ..💤! \n<a href='tg://user?id={user_id}'>{user_first_name}</a> Is Ғoʀʙɪᴅᴅᴇɴ")                      
             
 
 @Client.on_message(filters.command("tban"))
@@ -33,14 +33,14 @@ async def temp_ban_user(_, message):
     if not len(message.command) > 1: return
     user_id, user_first_name = extract_user(message)
     until_date_val = extract_time(message.command[1])
-    if until_date_val is None: return await message.reply_text(text=f"Invalid time type specified. \nExpected m, h, or d, Got it: {message.command[1][-1]}")   
+    if until_date_val is None: return await message.reply_text(text=f"Iɴᴠᴀʟɪᴅ ᴛɪᴍᴇ ꜱᴩᴇᴄɪꜰɪᴇᴅ. ᴄᴏʀʀᴇᴄᴛ ɪᴛ ᴩʟᴇᴀꜱᴇ, \nExᴩᴇᴄᴛᴇᴅ m, h, or d, ɢᴏᴛ ɪᴛ: {message.command[1][-1]}")   
     try: await message.chat.ban_member(user_id=user_id, until_date=until_date_val)            
     except Exception as error: await message.reply_text(str(error))
     else:
         if str(user_id).lower().startswith("@"):
-            await message.reply_text(f"Someone else is dusting off..!\n{user_first_name}\nbanned for {message.command[1]}!")
+            await message.reply_text(f"Sᴏᴍᴇᴏɴᴇ ᴇʟꜱᴇ ɪꜱ ᴅᴜꜱᴛɪɴɢ ᴏꜰꜰ..💤! \n{user_first_name}\nBᴀɴɴᴇᴅ ꜰᴏʀ {message.command[1]}!")
         else:
-            await message.reply_text(f"Someone else is dusting off..!\n<a href='tg://user?id={user_id}'>Lavane</a>\n banned for {message.command[1]}!")
+            await message.reply_text(f"Sᴏᴍᴇᴏɴᴇ ᴇʟꜱᴇ ɪꜱ ᴅᴜꜱᴛɪɴɢ ᴏꜰꜰ..💤! \n<a href='tg://user?id={user_id}'>ᴜꜱᴇʀ</a>\n  ꜰᴏʀ {message.command[1]}!")
                 
 
 @Client.on_message(filters.command(["unban", "unmute"]))
@@ -52,9 +52,9 @@ async def un_ban_user(_, message):
     except Exception as error: await message.reply_text(str(error))
     else:
         if str(user_id).lower().startswith("@"):
-            await message.reply_text(f"Okay, changed ... now {user_first_name} To You can join the group!")
+            await message.reply_text(f"Sᴏᴍᴇᴏɴᴇ ᴇʟꜱᴇ ɪꜱ ᴅᴜꜱᴛɪɴɢ ᴏꜰꜰ..💤!  {user_first_name} To Yᴏᴜ ᴄᴀɴ ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴩ 💫!")
         else:
-            await message.reply_text(f"Okay, changed ... now <a href='tg://user?id={user_id}'>{user_first_name}</a> To You can join the group!")           
+            await message.reply_text(f"Sᴏᴍᴇᴏɴᴇ ᴇʟꜱᴇ ɪꜱ ᴅᴜꜱᴛɪɴɢ ᴏꜰꜰ..💤!  <a href='tg://user?id={user_id}'>{user_first_name}</a> To Yᴏᴜ ᴄᴀɴ ᴊᴏɪɴ ᴛʜᴇ ɢʀᴏᴜᴩ 💫!")           
             
 
 @Client.on_message(filters.command("mute"))
@@ -66,7 +66,7 @@ async def mute_user(_, message):
     except Exception as error: await message.reply_text(str(error))
     else:
         if str(user_id).lower().startswith("@"):
-            await message.reply_text(f"👍🏻 {user_first_name} Lavender's mouth is shut! 🤐")
+            await message.reply_text(f"👍🏻 {user_first_name} Mᴜᴛᴇᴅ 🔇🤐🔇")
         else:
             await message.reply_text(f"👍🏻 <a href='tg://user?id={user_id}'>Of lavender</a> The mouth is closed! 🤐")
 
