@@ -12,15 +12,15 @@ async def telegraph_upload(bot, update):
         return await update.reply_text("Rᴇᴘʟʏ Tᴏ A Pʜᴏᴛᴏ Oʀ Vɪᴅᴇᴏ Uɴᴅᴇʀ 5ᴍʙ")
     file_info = get_file_id(replied)
     if not file_info:
-        return await update.reply_text("Not Supported!")
-    text = await update.reply_text(text="<code>Downloading To My Server ...</code>", disable_web_page_preview=True)   
+        return await update.reply_text("Nᴏᴛ Sᴜᴩᴩᴏʀᴛᴇᴅ!")
+    text = await update.reply_text(text="<code>Dᴏᴡɴʟᴏᴀᴅɪɴɢ To Mʏ Sᴇʀᴠᴇʀ ...</code>", disable_web_page_preview=True)   
     media = await update.reply_to_message.download()   
-    await text.edit_text(text="<code>Downloading Completed. Now I am Uploading to telegra.ph Link ...</code>", disable_web_page_preview=True)                                            
+    await text.edit_text(text="<code>Dᴏᴡᴏᴀᴅɪɴɢ Cᴏᴍᴩʟᴇᴛᴇᴅ. Now I ᴀᴍ Uᴩʟᴏᴀᴅɪɴɢ ᴛᴏ telegra.ph Lɪɴᴋ ...</code> \nᴅᴏɴ'ᴛ ꜰᴏʀɢᴇᴛ ᴛᴏ ꜱᴜᴩᴩᴏʀᴛ ᴜꜱ @Bot_Cracker", disable_web_page_preview=True)                                            
     try:
         response = upload_file(media)
     except Exception as error:
         print(error)
-        await text.edit_text(text=f"Error :- {error}", disable_web_page_preview=True)       
+        await text.edit_text(text=f"Eʀʀᴏʀ :- {error}", disable_web_page_preview=True)       
         return    
     try:
         os.remove(media)
@@ -28,7 +28,7 @@ async def telegraph_upload(bot, update):
         print(error)
         return    
     await text.edit_text(
-        text=f"<b>Link :-</b>\n\n<code>https://graph.org{response[0]}</code>",
+        text=f"<b>Lɪɴᴋ :-</b>\n\n<code>https://graph.org{response[0]}</code>",
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup( [[
             InlineKeyboardButton(text="Oᴩᴇɴ Lɪɴᴋ", url=f"https://graph.org{response[0]}"),
