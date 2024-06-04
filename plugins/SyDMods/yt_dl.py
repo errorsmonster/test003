@@ -59,7 +59,7 @@ async def song(client, message):
         )            
         await m.delete()
     except Exception as e:
-        await m.edit("**🚫 𝙴𝚁𝚁𝙾𝚁 🚫**")
+        await m.edit("**🚫 Eʀʀᴏʀ 🚫**")
         print(e)
     try:
         os.remove(audio_file)
