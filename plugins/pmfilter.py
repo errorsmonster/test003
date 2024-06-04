@@ -1953,10 +1953,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('• ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅꜱ •', callback_data='admic')
+            InlineKeyboardButton('Exᴛʀᴀ', callback_data='xtra')
         ], [
-            InlineKeyboardButton('• ᴜꜱᴇʀ •', callback_data='users'),
-            InlineKeyboardButton('• ɢʀᴏᴜᴘ •', callback_data='group')
+            InlineKeyboardButton('Uꜱᴇʀꜱ', callback_data='users'),
+            InlineKeyboardButton('Gʀᴏᴜᴘꜱ', callback_data='group')
         ], [
             InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
         ]]
@@ -1971,6 +1971,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
+    elif query.data == "xtra":
         
     elif query.data == "about":
         buttons = [[
@@ -2378,7 +2380,7 @@ async def auto_filter(client, msg, spoll=False):
         )
         temp.IMDB_CAP[message.from_user.id] = cap
         if not settings["button"]:
-            cap+="\n\n<b>📚 <u>Your Requested Files</u> 👇\n\n</b>"
+            cap+="\n\n<b>📚 <u>Yᴏᴜʀ RᴇQᴜᴇꜱᴛᴇᴅ Fɪʟᴇꜱ</u> 👇\n\n</b>"
             for file in files:
                 cap += f"<b>\n<a href='https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}'> 📁 {get_size(file.file_size)} ▷ {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}\n</a></b>"
     else:
