@@ -9,7 +9,7 @@ from Script import script
 from pyrogram.errors import ChatAdminRequired
 import asyncio 
 
-"""-----------------------------------------https://t.me/TheMovieProviderBot--------------------------------------"""
+"""-----------------------------------------https://t.me/Mr_Movies_File_bot--------------------------------------"""
 
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
@@ -23,7 +23,7 @@ async def save_group(bot, message):
         if message.chat.id in temp.BANNED_CHATS:
             # Inspired from a boat of a banana tree
             buttons = [[
-                InlineKeyboardButton('📌 ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ 📌', url=f'https://t.me/HpRequestBot')
+                InlineKeyboardButton('✲ Cᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ ✲', url=f'https://t.me/Bot_Cracker')
             ]]
             reply_markup=InlineKeyboardMarkup(buttons)
             k = await message.reply(
@@ -38,7 +38,7 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-                    InlineKeyboardButton("🍁 ʜᴏᴡ ᴛᴏ ᴜꜱᴇ 🍁", url="https://t.me/TheMovieProviderBot?start=help")
+                    InlineKeyboardButton("🍁 ʜᴏᴡ ᴛᴏ ᴜꜱᴇ 🍁", url="https://t.me/Mr_Movies_File_bot?start=help")
                   ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -58,7 +58,7 @@ async def save_group(bot, message):
                                                  caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton("📌 ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ 📌", url=f'https://t.me/HpRequestBot')
+                                                                           InlineKeyboardButton("✲ Cᴏɴᴛᴀᴄᴛ Sᴜᴘᴘᴏʀᴛ ✲", url=f'https://t.me/Bot_Cracker')
                                                                          ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
@@ -75,7 +75,7 @@ async def save_group(bot, message):
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
 async def leave_a_chat(bot, message):
     if len(message.command) == 1:
-        return await message.reply('Give me a chat id')
+        return await message.reply('Gɪᴠᴇ ᴍᴇ Δ ᴄʜᴀᴛ ɪᴅ')
     chat = message.command[1]
     try:
         chat = int(chat)
@@ -83,7 +83,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-                  InlineKeyboardButton("📌 ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ 📌", url="https://t.me/HpRequestBot")
+                  InlineKeyboardButton("✲ Cᴏɴᴛᴀᴄᴛ Sᴜᴘᴘᴏʀᴛ ✲", url="https://t.me/Bot_Cracker")
                   ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -122,12 +122,12 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('📌 ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ 📌', url=f'https://t.me/HpRequestBot')
+            InlineKeyboardButton('✲ Cᴏɴᴛᴀᴄᴛ Sᴜᴘᴘᴏʀᴛ ✲', url=f'https://t.me/Bot_Cracker')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat_, 
-            text=f'<b>ʜᴇʟʟᴏ ꜰʀɪᴇɴᴅꜱ, \nᴍʏ ᴀᴅᴍɪɴ ʜᴀꜱ ᴛᴏʟᴅ ᴍᴇ ᴛᴏ ʟᴇᴀᴠᴇ ꜰʀᴏᴍ ɢʀᴏᴜᴘ, ꜱᴏ ɪ ʜᴀᴠᴇ ᴛᴏ ɢᴏ ! \nɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴀᴅᴅ ᴍᴇ ᴀɢᴀɪɴ ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ..</b> \nReason : <code>{reason}</code>',
+            text=f'<b>Hᴇʟʟᴏ ꜰʀɪᴇɴᴅꜱ, \nᴍʏ ᴀᴅᴍɪɴ ʜᴀꜱ ᴛᴏʟᴅ ᴍᴇ ᴛᴏ ʟᴇᴀᴠᴇ ꜰʀᴏᴍ ɢʀᴏᴜᴘ, ꜱᴏ ɪ ʜᴀᴠᴇ ᴛᴏ ɢᴏ ! \nɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴀᴅᴅ ᴍᴇ ᴀɢᴀɪɴ ᴄᴏɴᴛᴀᴄᴛ ꜱᴜᴘᴘᴏʀᴛ..</b> \nReason : <code>{reason}</code>',
             reply_markup=reply_markup)
         await bot.leave_chat(chat_)
     except Exception as e:
@@ -137,25 +137,25 @@ async def disable_chat(bot, message):
 @Client.on_message(filters.command('enable') & filters.user(ADMINS))
 async def re_enable_chat(bot, message):
     if len(message.command) == 1:
-        return await message.reply('Give me a chat id')
+        return await message.reply('Gɪᴠᴇ ᴍᴇ Δ ᴄʜᴀᴛ ɪᴅ')
     chat = message.command[1]
     try:
         chat_ = int(chat)
     except:
-        return await message.reply('Give Me A Valid Chat ID')
+        return await message.reply('Gɪᴠᴇ Mᴇ Δ Vᴀʟɪᴅ Cʜᴀᴛ ɪᴅ...!')
     sts = await db.get_chat(int(chat))
     if not sts:
-        return await message.reply("Chat Not Found In DB !")
+        return await message.reply("Cʜᴀᴛ Nᴏᴛ Fᴏᴜɴᴅ Iɴ Sʏᴅ-Bᴀꜱᴇ!")
     if not sts.get('is_disabled'):
-        return await message.reply('This chat is not yet disabled.')
+        return await message.reply('Tʜɪꜱ ᴄʜᴀᴛ ɪꜱ ɴᴏᴛ ʏᴇᴛ ᴅɪꜱᴀʙʟᴇᴅ.')
     await db.re_enable_chat(int(chat_))
     temp.BANNED_CHATS.remove(int(chat_))
-    await message.reply("Chat Successfully re-enabled")
+    await message.reply("Cʜᴀᴛ Sᴜᴄᴄᴇꜱꜰᴜʟʏ Rᴇ-ᴇɴᴀʙʟᴇᴅ")
 
 
 @Client.on_message(filters.command('stats') & filters.incoming)
 async def get_ststs(bot, message):
-    rju = await message.reply('Fetching stats..')
+    rju = await message.reply('Fᴇᴛᴄʜɪɴɢ ꜱᴛᴀᴛꜱ..')
     total_users = await db.total_users_count()
     totl_chats = await db.total_chat_count()
     files = await Media.count_documents()
@@ -169,19 +169,19 @@ async def get_ststs(bot, message):
 @Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):
     if len(message.command) == 1:
-        return await message.reply('Give me a chat id')
+        return await message.reply('Gɪᴠᴇ ᴍᴇ Δ ᴄʜᴀᴛ ɪᴅ')
     chat = message.command[1]
     try:
         chat = int(chat)
     except:
-        return await message.reply('Give Me A Valid Chat ID')
+        return await message.reply('Gɪᴠᴇ Mᴇ Δ Vᴀʟɪᴅ Cʜᴀᴛ ɪᴅ...!')
     try:
         link = await bot.create_chat_invite_link(chat)
     except ChatAdminRequired:
-        return await message.reply("Invite Link Generation Failed, Iam Not Having Sufficient Rights")
+        return await message.reply("Iɴᴠɪᴛᴇ Lɪɴᴋ Gᴇɴᴇʀᴀᴛɪᴏɴ Fᴀɪʟᴇᴅ, I ᴅᴏɴ'ᴛ Hᴀᴠᴇ Sᴜꜰꜰɪᴄɪᴇɴᴛ Rɪɢʜᴛꜱ Fᴏʀ Tʜᴀᴛ....!!!")
     except Exception as e:
         return await message.reply(f'Error {e}')
-    await message.reply(f'Here is your Invite Link {link.invite_link}')
+    await message.reply(f'Hᴇʀᴇ ɪꜱ ʏᴏᴜʀ Iɴᴠɪᴛᴇ Lɪɴᴋ {link.invite_link}')
 
 @Client.on_message(filters.command('ban') & filters.user(ADMINS))
 async def ban_a_user(bot, message):
