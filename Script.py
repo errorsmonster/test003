@@ -8,7 +8,7 @@ class script(object):
     HELP_TXT = """<b>ʜᴇʏ {},
 ᴄʜᴏᴏꜱᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ᴏꜰ ᴄᴏᴍᴍᴀɴᴅ ʏᴏᴜ ᴡᴀɴᴛ ᴄᴜʀʀᴇɴᴛʟʏ 💥.</b>"""
 
-    ABOUT_TXT = """<b>‣ Mʏ ɴΔᴍᴇ : {}\n‣ Oᴡɴᴇʀ : <a href='https://t.me/SyD_XyZ'>Mг SƴD 🪩</a>\n‣ LɪʙʀΔʀʏ : <a href='https://t.me/+-VpGTWWWTldhZWNl'>Tɢ 🫥</a>\n‣ LᴀɴɢᴜΔɢᴇ : <a href='https://t.me/+oej8cujHMFJhNmI9'>🎐Δʜʜ...</a>\n‣ DᴀᴛΔ-Bᴀsᴇ : <a href='https://t.me/+3-nuV_9INIg0MDY1'></a>\n‣ ʙΔᴄᴋ-Uᴩ: <a href="https://t.me/nt_Backup/5">UʀɢΞɴᴛ BΔᴄᴋ-Uᴩ🎗🔙🔄</a>\n‣ Hᴏsᴛᴇᴅ Δᴛ  : <a href='https://t.me/mod_moviez_x'>Tɢ 🫥</a>\n‣ Bᴜɪʟᴅ Vᴇʀꜱɪᴏɴ : ᴠ1.0 [ᴍʀ.ꜱʏᴅ✨]</b>"""
+    ABOUT_TXT = """<b>‣ Mʏ ɴΔᴍᴇ : {}\n‣ Oᴡɴᴇʀ : <a href='https://t.me/SyD_XyZ'>Mг SƴD 🪩</a>\n‣ LɪʙʀΔʀʏ : <a href='https://t.me/+-VpGTWWWTldhZWNl'>Tɢ 🫥</a>\n‣ LᴀɴɢᴜΔɢᴇ : <a href='https://t.me/+oej8cujHMFJhNmI9'>🎐Δʜʜ...</a>\n‣ DᴀᴛΔ-Bᴀsᴇ : <a href='https://t.me/+3-nuV_9INIg0MDY1'>Pʀᴏ..ᴇᴅ</a>\n‣ ʙΔᴄᴋ-Uᴩ : <a href="https://t.me/nt_Backup/5">UʀɢΞɴᴛ BΔᴄᴋ-Uᴩ🎗🔙🔄</a>\n‣ Hᴏsᴛᴇᴅ Δᴛ  : <a href='https://t.me/mod_moviez_x'>Tɢ 🫥</a>\n‣ Bᴜɪʟᴅ Vᴇʀꜱɪᴏɴ : ᴠ1.0 [ᴍʀ.ꜱʏᴅ✨]</b>"""
     
     CHANNELS = """
 <b>⚡ Oᴜʀ Gʀᴏᴜᴘs Δɴ' Cʜᴀɴɴᴇʟs Iɴғᴏ.. ⚡ 
@@ -240,23 +240,11 @@ Nᴀᴍᴇ : {}
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
 
     # PLESE DO NOT REMOVE ANY CREDITS ❤️‍🩹
-    CREDITS_TXT = """<b>
-❤️‍🩹 <u>ꜱᴘᴇᴄɪᴀʟ ᴛʜᴀɴᴋꜱ ᴛᴏ ᴇᴠᴇʀʏᴏɴᴇ</u>
-
-• ᴍᴀɪɴ ᴏᴡɴᴇʀ : <a href="https://t.me/DeletedFroh">Hᴀʀꜱʜᴀʟ ❤️‍🔥</a>
-• ʙᴀꜱᴇ ʀᴇᴘᴏ : <a href="https://t.me/creatorbeatz">Jᴏᴇʟ ᠰ TɢX</a>
-• sᴛʀᴇᴀᴍ ғᴇᴀᴛᴜʀᴇ : <a href="https://t.me/LazyDeveloperr">LazyDeveloper</a>
-• sᴛʀᴇᴀᴍ ᴡᴇʙꜱɪᴛᴇ : <a href="https://t.me/Biisal">Bɪɪsᴀʟ</a>
-• ᴘʀᴇᴍɪᴜᴍ ᴄᴏᴅᴇꜱ : <a href="https://t.me/Rk_botowner">Rɪꜱʜɪᴋᴇꜱʜ</a>
-• ᴡᴇʟᴄᴏᴍᴇ ᴀɴɪᴍᴀᴛɪᴏɴ : <a href="https://t.me/Xavier_707">𝑿𝒂𝒗𝒊𝒆𝒓</a>
-• ꜱᴛʀᴇᴀᴍ ꜱʜᴏʀᴛʟɪɴᴋ : <a href="https://t.me/Mr_SPIDY">⚝𝗠𝗿.𝗦𝗣𝗜𝗗𝗬⚝</a>
-
-ɪ ᴀᴍ ꜱᴏʀʀʏ ɪꜰ ɪ ꜰᴏʀɢᴏᴛ ꜱᴏᴍᴇᴏɴᴇ 🫂
-ᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ʜᴇʟᴘɪɴɢ ɪɴ ᴛʜɪꜱ ᴀᴍᴀᴢɪɴɢ ʀᴏʟʟᴇʀ ᴄᴏᴀꜱᴛᴇʀ ᴊᴏᴜʀɴᴇʏ 🚀</b>
+    CREDITS_TXT = """<b>hi</b>
 """ 
    # PLEASE DO NOT REMOVE ANY CREDITS ❤️‍🩹
     
-    CAPTION = """ 📂 <i><a href="https://telegram.me/HP_MOVIES_WORLD">{file_name}</a></i>\n\n"""
+    CAPTION = """ 📂 <i><a href="http://t.me/+ljf3Q0TBY800OGE9">{file_name}</a></i>\n\n"""
 
     IMDB_TEMPLATE_TXT = """
 <b>ʜᴇʏ {message.from_user.mention}, ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ʀᴇꜱᴜʟᴛꜱ ꜰᴏʀ ʏᴏᴜʀ ǫᴜᴇʀʏ {search}.
@@ -283,22 +271,24 @@ Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
 
     LOGO = """BOT WORKING PROPERLY SyD"""
 
-    PAGE_TXT = """ᴡʜʏ ᴀʀᴇ ʏᴏᴜ ꜱᴏ ᴄᴜʀɪᴏᴜꜱ ⁉️"""
+    PAGE_TXT = """Wʜʏ ᴀʀᴇ ʏᴏᴜ ꜱᴏ ᴄᴜʀɪᴏᴜꜱ !?"""
 
-    PURCHASE_TXT = """ꜱᴇʟᴇᴄᴛ ʏᴏᴜʀ ᴘᴀʏᴍᴇɴᴛ ᴍᴇᴛʜᴏᴅ."""
+    PURCHASE_TXT = """Sᴇʟᴇᴄᴛ ʏᴏᴜʀ ᴘᴀʏᴍᴇɴᴛ Mᴇᴛʜᴏᴅ."""
 
     PREMIUM_TEXT = """<b>👋 ʜᴇʏ {},
     
-🎖️ <u>ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs</u>
+✴️ <u>Δᴠᴀɪʟᴀʙʟᴇ ᴘʟΔɴs</u> :
 
-● <code>1₹</code> ➛ <u>ʙʀᴏɴᴢᴇ ᴘʟᴀɴ</u> » <code>7 ᴅᴀʏꜱ</code>
-● <code>60₹</code> ➛ <u>ꜱɪʟᴠᴇʀ ᴘʟᴀɴ</u> » <code>30 ᴅᴀʏꜱ</code>
-● <code>180₹</code> ➛ <u>ɢᴏʟᴅ ᴘʟᴀɴ</u> » <code>90 ᴅᴀʏꜱ</code>
-● <code>250₹</code> ➛ <u>ᴘʟᴀᴛɪɴᴜᴍ ᴘʟᴀɴ</u> » <code>180 ᴅᴀʏꜱ</code>
-● <code>400₹</code> ➛ <u>ᴅɪᴀᴍᴏɴᴅ ᴘʟᴀɴ</u> » <code>365 ᴅᴀʏꜱ</code>
+● <code>2₹</code> ➛ <u>ʙʀᴏɴᴢᴇ ᴘʟΔɴ</u> » <code>7 ᴅᴀʏꜱ</code>
+● <code>3.8₹</code> ➛ <u>ꜱɪʟᴠᴇʀ ᴘʟΔɴ</u> » <code>15 ᴅᴀʏꜱ</code>
+● <code>6₹</code> ➛ <u>ɢᴏʟᴅ ᴘʟΔɴ</u> » <code>30 + 1 ᴅᴀʏꜱ</code>
+● <code>16.5₹</code> ➛ <u>ᴘʟᴀᴛɪɴᴜᴍ ᴘʟΔɴ</u> » <code>90 ᴅᴀʏꜱ</code>
+● <code>32.5₹</code> ➛ <u>ᴅɪᴀᴍᴏɴᴅ ᴘʟΔɴ</u> » <code>180 ᴅᴀʏꜱ</code>
+● <code>66₹</code> ➛ <u>MᴇGᴀ ᴘʟΔɴ</u> » <code>180 ᴅᴀʏꜱ</code>
 
-💵 ᴜᴘɪ ɪᴅ - <code>harshal.purohit@paytm</code>
-📸 ǫʀ ᴄᴏᴅᴇ - <a href='https://telegra.ph/Payment-Information-01-03'>ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ꜱᴄᴀɴ</a>
+
+💵 ᴜᴘɪ ɪᴅ - <code>hshit@paytm</code>
+📸 ǫʀ ᴄᴏᴅᴇ - <a href='https://telegra.ph/Pnt-Information-01-03'>ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ꜱᴄᴀɴ</a>
 
 ⚜️ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ ʙʏ ᴜꜱɪɴɢ : /myplan
 
@@ -306,13 +296,14 @@ Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
 
     CPREMIUM_TEXT = """<b>👋 ʜᴇʏ {},
     
-🎖️ <u>ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs</u> :
+✴️ <u>Δᴠᴀɪʟᴀʙʟᴇ ᴘʟΔɴs</u> :
 
-● <code>10₹</code> ➛ <u>ʙʀᴏɴᴢᴇ ᴘʟᴀɴ</u> » <code>7 ᴅᴀʏꜱ</code>
-● <code>60₹</code> ➛ <u>ꜱɪʟᴠᴇʀ ᴘʟᴀɴ</u> » <code>30 ᴅᴀʏꜱ</code>
-● <code>180₹</code> ➛ <u>ɢᴏʟᴅ ᴘʟᴀɴ</u> » <code>90 ᴅᴀʏꜱ</code>
-● <code>250₹</code> ➛ <u>ᴘʟᴀᴛɪɴᴜᴍ ᴘʟᴀɴ</u> » <code>180 ᴅᴀʏꜱ</code>
-● <code>400₹</code> ➛ <u>ᴅɪᴀᴍᴏɴᴅ ᴘʟᴀɴ</u> » <code>365 ᴅᴀʏꜱ</code>
+● <code>2₹</code> ➛ <u>ʙʀᴏɴᴢᴇ ᴘʟΔɴ</u> » <code>7 ᴅᴀʏꜱ</code>
+● <code>3.8₹</code> ➛ <u>ꜱɪʟᴠᴇʀ ᴘʟΔɴ</u> » <code>15 ᴅᴀʏꜱ</code>
+● <code>6₹</code> ➛ <u>ɢᴏʟᴅ ᴘʟΔɴ</u> » <code>30 + 1 ᴅᴀʏꜱ</code>
+● <code>16.5₹</code> ➛ <u>ᴘʟᴀᴛɪɴᴜᴍ ᴘʟΔɴ</u> » <code>90 ᴅᴀʏꜱ</code>
+● <code>32.5₹</code> ➛ <u>ᴅɪᴀᴍᴏɴᴅ ᴘʟΔɴ</u> » <code>180 ᴅᴀʏꜱ</code>
+● <code>66₹</code> ➛ <u>MᴇGᴀ ᴘʟΔɴ</u> » <code>180 ᴅᴀʏꜱ</code>
 
 💵 ᴜᴘɪ ɪᴅ - <code>harshal.purohit@paytm</code>
 📸 ǫʀ ᴄᴏᴅᴇ - <a href='https://telegra.ph/Payment-Information-01-03'>ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ꜱᴄᴀɴ</a>
