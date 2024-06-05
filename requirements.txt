@@ -10,6 +10,7 @@
  datetime 
  pytz 
  aiohttp==3.8.3
+ googletrans==3.1.0a0
 
 #---master---# 
  #Telethroid==0.0.10 
