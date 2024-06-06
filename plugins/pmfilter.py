@@ -1,11 +1,6 @@
 # Kanged From @TroJanZheX
 # Thanks @DeletedFromEarth
-import asyncio
-import re
-import ast
-import math
-import random
-import pytz
+import asyncio, re, ast, math, random, pytz
 from datetime import datetime, timedelta, date, time
 lock = asyncio.Lock()
 from database.users_chats_db import db
