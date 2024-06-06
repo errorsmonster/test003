@@ -497,7 +497,7 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
             ),
             InlineKeyboardButton(
                 text=LANGUAGES[i+1].title(),
-                callback_data=f"fl#{LANGUAGES[i+1].lower(ʙΔ}#{key}"
+                callback_data=f"fl#{LANGUAGES[i+1].lower()}#{key}"
             ),
         ])
 
