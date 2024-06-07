@@ -9,7 +9,7 @@ class script(object):
 <blockquote>⍟───[ MY ᴅᴇᴛᴀɪʟꜱ ]───⍟</blockquote>
 ᴄʜᴏᴏꜱᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ᴏꜰ ᴄᴏᴍᴍᴀɴᴅ ʏᴏᴜ ᴡᴀɴᴛ ᴄᴜʀʀᴇɴᴛʟʏ 💥.</b>"""
 
-    ABOUT_TXT = """<b>‣ Mʏ ɴΔᴍᴇ : {}\n‣ Oᴡɴᴇʀ : <a href='https://t.me/SyD_XyZ'>Mг SƴD 🪩</a>\n‣ LɪʙʀΔʀʏ : <a href='https://t.me/+-VpGTWWWTldhZWNl'>Tɢ 🫥</a>\n‣ LᴀɴɢᴜΔɢᴇ : <a href='https://t.me/+oej8cujHMFJhNmI9'>🎐Δʜʜ...</a>\n‣ DᴀᴛΔ-Bᴀsᴇ : <a href='https://t.me/+3-nuV_9INIg0MDY1'>Pʀᴏ..ᴇᴅ</a>\n‣ ʙΔᴄᴋ-Uᴩ : <a href="https://t.me/nt_Backup/5">UʀɢΞɴᴛ BΔᴄᴋ-Uᴩ🎗🔙🔄</a>\n‣ Hᴏsᴛᴇᴅ Δᴛ  : <a href='https://t.me/mod_moviez_x'>Tɢ 🫥</a>\n‣ Bᴜɪʟᴅ Vᴇʀꜱɪᴏɴ : ᴠ1.0 [ᴍʀ.ꜱʏᴅ✨]</b>"""
+    ABOUT_TXT = """<b>‣ Mʏ ɴΔᴍᴇ : {}\n‣ Oᴡɴᴇʀ : <a href='https://t.me/SyD_XyZ'>Mг SƴD 🪩</a>\n‣ Sᴜᴩᴩᴏʀᴛᴇʀ : <a href='tg://settings'>{}{}</a> \n ‣ LɪʙʀΔʀʏ : <a href='https://t.me/+-VpGTWWWTldhZWNl'>Tɢ 🫥</a>\n‣ LᴀɴɢᴜΔɢᴇ : <a href='https://t.me/+oej8cujHMFJhNmI9'>🎐Δʜʜ...</a>\n‣ DᴀᴛΔ-Bᴀsᴇ : <a href='https://t.me/+3-nuV_9INIg0MDY1'>Pʀᴏ..ᴇᴅ</a>\n‣ ʙΔᴄᴋ-Uᴩ : <a href="https://t.me/nt_Backup/5">UʀɢΞɴᴛ BΔᴄᴋ-Uᴩ🎗🔙🔄</a>\n‣ Hᴏsᴛᴇᴅ Δᴛ  : <a href='https://t.me/mod_moviez_x'>Tɢ 🫥</a>\n‣ Bᴜɪʟᴅ Vᴇʀꜱɪᴏɴ : ᴠ1.0 [ᴍʀ.ꜱʏᴅ✨]</b>"""
     
     CHANNELS = """
 <b>⚡ Oᴜʀ Gʀᴏᴜᴘs Δɴ' Cʜᴀɴɴᴇʟs Iɴғᴏ.. ⚡ 
