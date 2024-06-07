@@ -235,7 +235,7 @@ async def start(client, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("<b>Please wait...</b>")
+        sts = await message.reply("<b>Pʟᴇᴀꜱᴇ ᴡᴀɪᴛ...</b>")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -279,7 +279,7 @@ async def start(client, message):
                 )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                logger.warning(f"Floodwait of {e.x} sec.")
+                logger.warning(f"Fʟᴏᴏᴅᴡᴀɪᴛ ᴏꜰ {e.x} sᴇᴄ.")
                 await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
@@ -353,7 +353,7 @@ async def start(client, message):
         token = data.split("-", 3)[2]
         if str(message.from_user.id) != str(userid):
             return await message.reply_text(
-                text="<b>Invalid link or Expired link !</b>",
+                text="<b>Iɴᴠᴀʟɪᴅ lɪɴᴋ or Exᴩɪʀᴇᴅ lɪɴᴋ !</b>",
                 protect_content=True
             )
         is_valid = await check_token(client, userid, token)
