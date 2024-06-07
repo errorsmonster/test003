@@ -539,7 +539,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
 
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     if not files:
-        await query.answer("🚫Sᴏʀʀʏ ɴᴏ ꜰɪʟᴇꜱ ᴡᴇʀᴇ ꜰᴏᴜɴᴅ 🚫 ʀᴇᴩᴏʀᴛ ᴛᴏ ᴏᴡɴᴇʀ..", show_alert=1)
+        await query.answer("🚫Sᴏʀʀʏ ɴᴏ ꜰɪʟᴇꜱ ᴡᴇʀᴇ ꜰᴏᴜɴᴅ 🚫 ʀᴇᴩᴏʀᴛ ᴛᴏ ᴛʜᴇ ᴏᴡɴᴇʀ..ɪᴍᴍᴇᴅɪᴀᴛᴇʟʏ.. 💥", show_alert=1)
         return
     temp.GETALL[key] = files
     settings = await get_settings(message.chat.id)
@@ -1531,12 +1531,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('☒ Δᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴩ ☒', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('⌬ ᴇΔʀꪀ ꪑᴏꫝᴇꪗ ⌬', callback_data="shortlink_info"),
-                    InlineKeyboardButton('⚝ ᴜᴘᦔΔᴛᴇ𝘴 ⚝', callback_data='channels')
-                ],[
-                    InlineKeyboardButton('⊜ ᴄ0ᴍᴍᴀɴᴅꜱ ⊜', callback_data='help'),
+                    InlineKeyboardButton('⚝ ᴜᴘᦔΔᴛᴇ𝘴 ⚝', callback_data='channels'),
                     InlineKeyboardButton('⊛ Δʙᴏᴜᴛ ⊛', callback_data='about')
                 ],[
-                    InlineKeyboardButton("◎ Sꪊʙꜱᴄʀɪᴩᴛɪꪮɴ - Fяᴇᴇ Δɴ' Pᴀɪᴅ ◎", callback_data="premium_info")
+                    InlineKeyboardButton('⊜ ᴄ0ᴍᴍᴀɴᴅꜱ ⊜', callback_data='help')
                   ]]
         else:
             buttons = [[
@@ -2032,10 +2030,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('!! Dɪꜱᴄʟᴀɪᴍᴇʀ !!', callback_data='disclaimer')
         ], [
-            InlineKeyboardButton ('• ᴄʀᴇᴅɪᴛꜱ ᴛᴏ ᴛʜᴇ ᴅᴇᴠᴇʟᴏᴘᴇʀꜱ •', callback_data='credits')
-        ], [
             InlineKeyboardButton('♕ Oᴡɴᴇʀ ♕', user_id=1733124290),
-            InlineKeyboardButton('BΔᴄᴋ-Uᴩ 🔙💭', url="https://t.me/nt_Backup/5"),
+            InlineKeyboardButton('BΔᴄᴋ-Uᴩ 💭', url="https://t.me/nt_Backup/5"),
             InlineKeyboardButton('✧ ꜱᴛΔᴛꜱ ✧', callback_data='stats')
         ], [
             InlineKeyboardButton('⛈ ʀᴇɴᴅᴇʀɪɴɢ ꜱᴛᴀᴛᴜꜱ ⛈',callback_data='rendr')
