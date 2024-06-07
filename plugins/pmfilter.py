@@ -1,5 +1,5 @@
 # Kanged From @TroJanZheX
-# Thanks @DeletedFromEarth
+# Thanks @SyD_XyZ
 import asyncio, re, ast, math, random, pytz
 from datetime import datetime, timedelta, date, time
 lock = asyncio.Lock()
