@@ -148,7 +148,7 @@ async def start(client, message):
         await m.edit_text("Dᴏɴᴛ ꜰᴏʀɢᴇᴛ ᴛᴏ ꜱᴜᴩᴩᴏʀᴛ ᴜꜱ! @BOT_CRAckers 🍋")
         await asyncio.sleep(1.0)
         await m.delete()        
-        m=await message.reply_sticker("CAACAgQAAxkBAAEDWlxmP3-XAxyd2WfZcINd1AL4_xM4kwACFxIAArzT-FOmYU0gLeJu7x4E") 
+        m=await message.reply_sticker("CAACAgUAAxkBAAEDePpmZFgm0WcwNuK93-xyFlxcuERvuAACuRMAAlxlKFdLjAYn7DUluh4E") 
         await asyncio.sleep(1)
         await m.delete()
         await message.reply_photo(
