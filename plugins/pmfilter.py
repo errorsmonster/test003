@@ -1952,6 +1952,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Uꜱᴇʀꜱ', callback_data='users'),
             InlineKeyboardButton('Gʀᴏᴜᴘꜱ', callback_data='group')
         ], [
+            InlineKeyboardButton('Eɴᴛᴇʀᴛᴀɪɴᴍᴇɴᴛ', callback_data='enter')
+        ], [
             InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1970,6 +1972,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('Tᴇʟᴇɢʀᴀᴩʜ', callback_data='telegraph'),
             InlineKeyboardButton('ʏᴛ-ᴅʟ', callback_data='ytdl')
+        ], [
+            InlineKeyboardButton('⇋ ʙΔᴄᴋ ⇋', callback_data='help')
+        ], [
+            InlineKeyboardButton('⇋ ʜ0ᴍᴇ ⇋', callback_data='start'
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -1978,7 +1984,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
-            text=script.HELP_TXT.format(query.from_user.mention),
+            text=script.HLP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -1986,7 +1992,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "telegraph":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="xtra"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="telegram.me/Syd_XyZ")
+                    InlineKeyboardButton("✆ Cᴏɴᴛᴀᴄᴛ ✆", user_id=1733124290)
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
@@ -2052,7 +2058,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         
     elif query.data == "rendr":
-        await query.answer("⚡️ Lɪᴠᴇ SʏSᴛᴇᴍ sᴛᴀᴛᴜs ⚡️\n\n❂ ʀᴀᴍ ●●●●●●●◌◌◌\n✇ ᴄᴘᴜ ●●●●●●◌◌◌◌\n✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰\n\nᴠ1.0 [Mɾ 𝘴ꪗᦔ 🎐] """, show_alert=True)
+        await query.answer("⚡️ Lɪᴠᴇ SʏSᴛᴇᴍ sᴛᴀᴛᴜs ⚡️\n\n❂ ʀᴀᴍ ●●●◌◌◌◌◌◌◌\n✇ ᴄᴘᴜ ●●●●●●◌◌◌◌\n✪ ᴅᴀᴛᴀ ᴛʀᴀꜰɪᴄs ●●●●◌◌◌◌◌◌ 🛰\n\nᴠ1.0 [Mɾ 𝘴ꪗᦔ 🎐] """, show_alert=True)
 
     elif query.data == "credits":
         buttons = [[
