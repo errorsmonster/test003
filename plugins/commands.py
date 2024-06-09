@@ -179,7 +179,7 @@ async def start(client, message):
         user_id = int(data.split("-", 1)[1])
         syd = await referal_add_user(user_id, message.from_user.id)
         if syd and PREMIUM_AND_REFERAL_MODE == True:
-            await message.reply(f"<i>Yσᴜ ʜᴀᴠᴇ ꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙʏ ᴜꜱɪɴɢ ᴛʜᴇ <b>ʀᴇꜰʀʀᴇʟ ʟɪɴᴋ</b> ᴏꜰ ᴀ ᴜꜱᴇʀ \n\nSᴇɴᴅ /start Δɢᴀɪɴ To Uꜱᴇ Tʜᴇ Бᴏᴛ</i>")
+            await message.reply(f"<i>Yσᴜ ʜᴀᴠᴇ ꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙʏ ʙᴏᴛ ᴜꜱɪɴɢ ᴛʜᴇ <b>ʀᴇꜰʀʀᴇʟ ʟɪɴᴋ</b> ᴏꜰ ᴀ ᴜꜱᴇʀ \n\nSᴇɴᴅ /start Δɢᴀɪɴ To Uꜱᴇ Tʜᴇ Бᴏᴛ</i>")
             num_referrals = await get_referal_users_count(user_id)
             await client.send_message(chat_id = user_id, text = "<i>{} Sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴡɪᴛʜ ʏᴏᴜʀ ʀᴇꜰᴇʀʀᴇʟ ʟɪɴᴋ\n\nTᴏᴛᴀʟ Rᴇꜰᴇʀꜱ - {}/10</i>".format(message.from_user.mention, num_referrals))
             if num_referrals == REFERAL_COUNT:
