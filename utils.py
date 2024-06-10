@@ -55,13 +55,6 @@ class temp(object):
     IMDB_CAP = {}
 
 
-def shutdown():
-    updater.stop()
-    updater.is_idle = False
-    
-def stop(bot, update):
-    threading.Thread(target=shutdown).start()
-
 async def is_req_subscribed(bot, query):
     if await db.find_join_req(query.from_user.id):
         return True
